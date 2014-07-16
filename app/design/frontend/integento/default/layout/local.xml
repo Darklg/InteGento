@@ -3,6 +3,16 @@
     <default>
         <reference name="head">
 
+            <!-- Remove default CSS -->
+            <action method="removeItem"><type>skin_css</type><name>css/styles.css</name></action>
+            <action method="removeItem"><type>skin_css</type><name>css/styles-ie.css</name></action>
+            <action method="removeItem"><type>skin_css</type><name>css/widgets.css</name></action>
+            <action method="removeItem"><type>skin_css</type><name>css/print.css</name></action>
+
+            <!-- Remove default JS -->
+            <action method="removeItem"><type>js</type><name>lib/ds-sleight.js</name></action>
+            <action method="removeItem"><type>skin_js</type><name>js/ie6.js</name></action>
+
             <!-- Add Theme CSS -->
             <action method="addItem"><type>skin_css</type><name>css/main.css</name><params/></action>
 
