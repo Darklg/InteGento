@@ -23,6 +23,14 @@
         </reference>
     </default>
 
+    <!-- Homepage -->
+
+    <cms_index_index>
+        <reference name="content">
+            <remove name="cms.wrapper" />
+        </reference>
+    </cms_index_index>
+
     <!-- Default template : 1column -->
 
     <page_empty>
