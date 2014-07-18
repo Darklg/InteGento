@@ -1,0 +1,24 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+
+$logoTag = $this->getIsHomePage() ? 'h1' : 'div';
+
+?>
+<header class="header">
+    <?php echo '<'.$logoTag.' class="logo">'; ?><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><?php echo $this->getLogoAlt() ?></a><?php echo '</'.$logoTag.'>'; ?>
+    <?php echo $this->getChildHtml('store_language') ?>
+    <?php echo $this->getChildHtml('topSearch') ?>
+    <?php echo $this->getChildHtml('welcome') ?>
+    <?php echo $this->getAdditionalHtml() ?>
+    <?php echo $this->getChildHtml('topLinks') ?>
+    <?php echo $this->getChildHtml('topContainer'); ?>
+</header>
+<?php echo $this->getChildHtml('topMenu') ?>
