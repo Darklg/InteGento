@@ -10,7 +10,7 @@ app/design/frontend/default
 app/design/frontend/rwd
 app/locale
 downloader
-js
+/js
 lib
 skin/frontend/base
 .DS_Store
