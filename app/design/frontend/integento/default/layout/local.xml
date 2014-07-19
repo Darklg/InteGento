@@ -19,6 +19,7 @@
 
             <!-- Add Theme CSS -->
             <action method="addItem"><type>skin_css</type><name>css/main.css</name><params/></action>
+            <action method="addItem"><type>skin_css</type><name>css/print.css</name><params/></action>
 
             <!-- Add IE JS -->
             <action method="addItem"><type>skin_js</type><name>js/ie/html5.js</name><params/><if>lt IE 9</if></action>
