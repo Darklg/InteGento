@@ -41,7 +41,7 @@
             <div class="content">
                 <h2><?php echo $this->__('Registered Customers') ?></h2>
                 <p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
-                <ul class="cssc-form">
+                <ul class="cssc-form float-form cssc-form--default">
                     <li class="box">
                         <label for="email" class="required"><?php echo $this->__('Email Address') ?> <em>*</em></label>
                         <div class="input-box">
@@ -62,7 +62,7 @@
             </div>
             <div class="buttons-set">
                 <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a>
-                <button type="submit" class="button" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><span><span><?php echo $this->__('Login') ?></span></span></button>
+                <button type="submit" class="cssc-button cssc-button--default" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><?php echo $this->__('Login') ?></button>
             </div>
         </div>
         <div class="new-users">
@@ -71,7 +71,7 @@
                 <p><?php echo $this->__('By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.') ?></p>
             </div>
             <div class="buttons-set">
-                <button type="button" title="<?php echo $this->__('Create an Account') ?>" class="button" onclick="window.location='<?php echo Mage::helper('persistent')->getCreateAccountUrl($this->getCreateAccountUrl()) ?>';"><span><span><?php echo $this->__('Create an Account') ?></span></span></button>
+                <button type="button" title="<?php echo $this->__('Create an Account') ?>" class="cssc-button cssc-button--default" onclick="window.location='<?php echo Mage::helper('persistent')->getCreateAccountUrl($this->getCreateAccountUrl()) ?>';"><?php echo $this->__('Create an Account') ?></button>
             </div>
         </div>
         <?php if (Mage::helper('checkout')->isContextCheckout()): ?>
