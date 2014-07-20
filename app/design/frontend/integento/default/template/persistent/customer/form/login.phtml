@@ -53,16 +53,20 @@
                         <div class="input-box">
                             <input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
                         </div>
+                        <small class="help">
+                            <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a>
+                        </small>
                     </li>
                     <?php echo $this->getChildHtml('form.additional.info'); ?>
                     <?php echo $this->getChildHtml('persistent.remember.me'); ?>
+                    <li class="box submit-box">
+                        <button type="submit" class="cssc-button cssc-button--default" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><?php echo $this->__('Login') ?></button>
+                        <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+                    </li>
                 </ul>
                 <?php echo $this->getChildHtml('persistent.remember.me.tooltip'); ?>
-                <p class="required"><?php echo $this->__('* Required Fields') ?></p>
             </div>
             <div class="buttons-set">
-                <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a>
-                <button type="submit" class="cssc-button cssc-button--default" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><?php echo $this->__('Login') ?></button>
             </div>
         </div>
         <div class="new-users">
