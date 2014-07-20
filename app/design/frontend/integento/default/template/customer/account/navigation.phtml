@@ -1,0 +1,17 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+$_links = $this->getLinks();
+?>
+<ul class="menu-account">
+    <?php foreach ($_links as $_link): ?>
+        <li <?php if ($this->isActive($_link)) { echo ' class="current"'; } ?>><a href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getLabel() ?></a></li>
+    <?php endforeach; ?>
+</ul>
