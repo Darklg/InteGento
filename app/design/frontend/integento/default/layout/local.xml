@@ -21,6 +21,10 @@
             <action method="addItem"><type>skin_css</type><name>css/main.css</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>css/print.css</name><params/></action>
 
+            <!-- Add Theme JS -->
+            <block type="core/text" name="jquery.noconflict"><action method="setText"><text><![CDATA[<script>var $j=jQuery.noConflict();</script>]]></text></action></block>
+            <action method="addItem"><type>skin_js</type><name>js/jquery/jquery-1.11.1.min.js</name><params/></action>
+
             <!-- Add IE JS -->
             <action method="addItem"><type>skin_js</type><name>js/ie/html5.js</name><params/><if>lt IE 9</if></action>
             <action method="addItem"><type>skin_js</type><name>js/ie/selectivizr-min.js</name><params/><if>lt IE 9</if></action>
