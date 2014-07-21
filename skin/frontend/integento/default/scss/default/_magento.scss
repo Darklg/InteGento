@@ -43,3 +43,48 @@ body {
 .fake-inputbox-wrapper + label {
     margin-left: 3px;
 }
+
+/* ----------------------------------------------------------
+  Main menu
+---------------------------------------------------------- */
+
+.nav-container {
+    z-index: 3;
+    position: relative;
+    margin-bottom: 30px;
+    font-size: 0;
+    background-color: #F0F0F0;
+}
+
+.nav-container li.level0 {
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.nav-container li.level0 + li.level0 {
+    margin-left: 10px;
+}
+
+.nav-container li.level0 > a {
+    display: block;
+}
+
+.nav-container ul.level0 {
+    visibility: hidden;
+    z-index: 1;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 150px;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.nav-container .over > ul.level0 {
+    visibility: visible;
+    opacity: 0.99;
+}
