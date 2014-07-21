@@ -35,3 +35,11 @@ body {
     display: inline-block;
     vertical-align: middle;
 }
+
+.fake-inputbox-wrapper {
+    vertical-align: -3px;
+}
+
+.fake-inputbox-wrapper + label {
+    margin-left: 3px;
+}

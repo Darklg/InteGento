@@ -31,6 +31,13 @@
 
 
         </reference>
+        <reference name="before_body_end">
+            <block type="page/html_head" name="extra_js" as="extraJs" after="-" template="page/html/footer/extras.phtml">
+                <action method="addItem"><type>skin_js</type><name>js/jquery/plugins/fake-inputbox/fake-inputbox.min.js</name><params/></action>
+                <action method="addItem"><type>skin_js</type><name>js/jquery/plugins/fake-select/fake-select.min.js</name><params/></action>
+                <action method="addItem"><type>skin_js</type><name>js/events.js</name><params/></action>
+            </block>
+        </reference>
     </default>
 
     <!-- Homepage -->
