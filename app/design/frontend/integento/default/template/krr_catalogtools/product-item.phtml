@@ -1,0 +1,32 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+
+$imageSize = 135;
+$_product = $this->getProduct();
+$_helper = $this->helper('catalog/output');
+
+?>
+<li class="product-item">
+    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>">
+        <div class="product-image">
+            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imageSize) ?>" width="<?php echo $imageSize; ?>" height="<?php echo $imageSize; ?>" alt="<?php echo $this->escapeHtml($_product->getName()) ?>" />
+        </div>
+        <h3 class="product-name"><?php echo $this->escapeHtml($_product->getName()) ?></h3>
+    </a>
+    <?php echo $this->getPriceHtml($_product, true, '-new') ?>
+    <div class="actions">
+        <?php if($_product->isSaleable()): ?>
+        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+        <?php else: ?>
+        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+        <?php endif; ?>
+    </div>
+</li>

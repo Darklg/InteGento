@@ -1,0 +1,25 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+
+
+$blockTitle = trim($this->getTitle());
+$h = $this->helper('krr_catalogtools');
+
+if (($_products = $this->getProductCollection()) && $_products->getSize()):
+    if(!empty($blockTitle)){
+        echo '<h2>'.$blockTitle.'</h2>';
+    }
+    echo '<ul class="products-list ig-products-list">';
+    foreach ($_products->getItems() as $_product):
+        echo $h->getProductHTML($_product);
+    endforeach;
+    echo '</ul>';
+endif;
