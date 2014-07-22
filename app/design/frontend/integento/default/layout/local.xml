@@ -29,7 +29,6 @@
             <action method="addItem"><type>skin_js</type><name>js/ie/html5.js</name><params/><if>lt IE 9</if></action>
             <action method="addItem"><type>skin_js</type><name>js/ie/selectivizr-min.js</name><params/><if>lt IE 9</if></action>
 
-
         </reference>
         <reference name="before_body_end">
             <block type="page/html_head" name="extra_js" as="extraJs" after="-" template="page/html/footer/extras.phtml">
@@ -44,7 +43,15 @@
 
     <cms_index_index>
         <reference name="content">
+            <!-- Remove CMS Content -->
             <remove name="cms.wrapper" />
+            <!-- Add "new products" block -->
+            <block type="catalog/product_new" name="home.catalog.product.new" template="krr_catalogtools/products-list.phtml">
+                <!-- Set block title (displayed) -->
+                <action method="setTitle" translate="value"><value>New products</value></action>
+                <!-- Product limit -->
+                <action method="setProductsCount"><count>5</count></action>
+            </block>
         </reference>
     </cms_index_index>
 
