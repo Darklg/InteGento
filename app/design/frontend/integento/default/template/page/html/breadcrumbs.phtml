@@ -1,0 +1,30 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+?>
+<?php if($crumbs && is_array($crumbs)): ?>
+<div class="breadcrumbs">
+    <ul>
+        <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
+            <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="<?php echo $_crumbName ?>">
+            <?php if($_crumbInfo['link']): ?>
+                <a itemprop="url" href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->escapeHtml($_crumbInfo['title']) ?>">
+                    <span itemprop="title"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></span>
+                </a>
+            <?php elseif($_crumbInfo['last']): ?>
+                <strong itemprop="title"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></strong>
+            <?php else: ?>
+                <span itemprop="title"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></span>
+            <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif;
