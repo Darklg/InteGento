@@ -1,0 +1,41 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php
+    $_productCollection=$this->getLoadedProductCollection();
+    $_helper = $this->helper('catalog/output');
+    $h = $this->helper('krr_catalogtools');
+    $_collectionSize = $_productCollection->count();
+
+if($_collectionSize < 1): ?>
+    <p class="note-msg">
+        <?php echo $this->__('There are no products matching the selection.') ?>
+    </p>
+<?php else: ?>
+<div class="category-products">
+    <?php
+    echo $this->getToolbarHtml();
+    $_columnCount = $this->getColumnCount();
+    echo '<ul class="products-grid ig-products-list">';
+    foreach ($_productCollection as $_product):
+    echo $h->getProductHTML($_product);
+    endforeach;
+    echo '</ul>';
+    ?>
+</div>
+<?php endif;

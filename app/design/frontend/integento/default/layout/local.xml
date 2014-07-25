@@ -56,6 +56,11 @@
         </reference>
     </cms_index_index>
 
+    <!-- Catalog -->
+
+    <catalog_category_view>
+        <update handle="page_one_column"/>
+    </catalog_category_view>
     <!-- Account -->
 
     <customer_account>
