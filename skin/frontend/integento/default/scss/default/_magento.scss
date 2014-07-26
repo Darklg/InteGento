@@ -127,3 +127,80 @@ body {
     content: '/';
     margin: 0 5px;
 }
+
+/* ----------------------------------------------------------
+  Price box
+---------------------------------------------------------- */
+
+.price-box *,
+.price-box {
+    font-size: 12px;
+}
+
+.price-box p {
+    display: inline;
+}
+
+.price-box .price-label {
+    display: none;
+}
+
+.price-box .old-price {
+    text-decoration: line-through;
+}
+
+/* ----------------------------------------------------------
+  Messages
+---------------------------------------------------------- */
+
+/* Forms
+-------------------------- */
+
+.validation-advice {
+    font-size: 11px;
+    color: #C00;
+}
+
+/* Banners
+-------------------------- */
+
+.messages {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.messages li li {
+    margin-bottom: 5px;
+    padding: 7px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    color: #333;
+    background: #fff;
+    -webkit-background-clip: padding-box;
+}
+
+.messages .success-msg li {
+    border-color: #6C6;
+    color: #080;
+    background-color: #EFE;
+}
+
+.messages .error-msg li {
+    border-color: #C66;
+    color: #800;
+    background-color: #FEE;
+}
+
+.messages .notice-msg li {
+    border-color: #66C;
+    color: #008;
+    background-color: #EEF;
+}
+
+.messages .warning-msg li {
+    border-color: #CC6;
+    color: #880;
+    background-color: #FFE;
+}
