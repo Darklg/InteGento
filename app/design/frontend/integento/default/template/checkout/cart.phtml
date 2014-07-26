@@ -1,0 +1,65 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+/**
+ * Shopping cart template
+ *
+ * @see Mage_Checkout_Block_Cart
+ */
+?>
+<div class="cart">
+    <h1><?php echo $this->__('Shopping Cart') ?></h1>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <?php echo $this->getChildHtml('form_before') ?>
+    <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
+        <?php echo $this->getBlockHtml('formkey'); ?>
+        <fieldset>
+            <table id="shopping-cart-table" class="data-table cart-table">
+                <thead>
+                    <tr>
+                        <th colspan="2"><?php echo $this->__('Product') ?></th>
+                        <th><?php echo $this->__('Qty') ?></th>
+                        <th><?php echo $this->__('Subtotal') ?></th>
+                    </tr>
+                    <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+                    <tr>
+                        <th><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                        <th><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                        <th><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                        <th><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                    </tr>
+                    <?php endif; ?>
+                </thead>
+                <tbody>
+                <?php foreach($this->getItems() as $_item): ?>
+                    <?php echo $this->getItemHtml($_item) ?>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+
+    <?php echo $this->getChildHtml('checkout.cart.extra') ?>
+    <?php echo $this->getChildHtml('coupon') ?>
+    <?php echo $this->getChildHtml('totals'); ?>
+
+    <?php if($this->getContinueShoppingUrl()): ?>
+    <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button btn-continue" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+    <?php endif; ?>
+    <?php if(!$this->hasError()): ?>
+    <ul class="checkout-types">
+    <?php foreach ($this->getMethods('methods') as $method): ?>
+        <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+        <li><?php echo $methodHtml; ?></li>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    </ul>
+    <?php endif; ?>
+</div>
