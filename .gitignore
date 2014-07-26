@@ -3,7 +3,6 @@ skin/frontend/default
 skin/adminhtml
 skin/install
 app/code/core
-app/code/community
 app/design/adminhtml
 app/design/frontend/base
 app/design/frontend/default

@@ -2,7 +2,7 @@
   <modules>
     <Krr_CatalogTools>
       <active>true</active>
-      <codePool>local</codePool>
+      <codePool>community</codePool>
     </Krr_CatalogTools>
   </modules>
 </config>
