@@ -2,7 +2,6 @@
 <layout version="0.1.0">
     <default>
         <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
-
         <reference name="head">
 
             <!-- Remove default CSS -->
@@ -28,12 +27,23 @@
             <action method="addItem"><type>skin_js</type><name>js/ie/selectivizr-min.js</name><params/><if>lt IE 9</if></action>
 
         </reference>
+
+        <!-- Footer JS -->
         <block parent="before_body_end" type="page/html_head" name="extra_js" as="extraJs" after="-" template="page/html/footer/extras.phtml">
             <action method="addItem"><type>skin_js</type><name>js/jquery/plugins/fake-inputbox/fake-inputbox.min.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/jquery/plugins/fake-select/fake-select.min.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/jquery/plugins/dk-smooth-scroll/dk-smooth-scroll.min.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/events.js</name><params/></action>
         </block>
+
+        <!-- Remove default blocks -->
+        <remove name="left.permanent.callout"/>
+        <remove name="left.newsletter"/>
+
+        <!-- Add blocks -->
+        <block parent="footer" type="newsletter/subscribe" name="footer.newsletter" template="newsletter/subscribe.phtml" before="-" />
+
+
     </default>
 
     <!-- Homepage -->
