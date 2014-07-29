@@ -34,7 +34,14 @@ $color-main: #000;
 @import "csscommon/_cssc-grid.scss";
 
 /* ----------------------------------------------------------
-  Base
+  Magento
 ---------------------------------------------------------- */
 
-@import "default/_magento.scss";
+@import "magento/_default.scss";
+@import "magento/_cart.scss";
+@import "magento/_messages.scss";
+@import "magento/_main-menu.scss";
+
+/* ----------------------------------------------------------
+  Base
+---------------------------------------------------------- */

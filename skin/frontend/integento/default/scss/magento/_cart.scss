@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Cart
+---------------------------------------------------------- */
+
+.cart-table td {
+    vertical-align: middle;
+}
+
+.cart-table tbody td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+/* Options
+-------------------------- */
+
+.cart-table .item-options dt {
+    float: left;
+    font-weight: bold;
+}
+
+.cart-table .item-options dt:after {
+    content: ': ';
+    margin: 0 4px 0 1px;
+}
+
+.cart-table .item-options dd {
+    display: block;
+}
+
+/* Subtotal
+-------------------------- */
+
+.product-subtotal {
+    z-index: 1;
+    position: relative;
+    min-height: 60px;
+    line-height: 60px;
+}
+
+.product-subtotal .btn-remove {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 10px;
+}

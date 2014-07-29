@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+body {
+    padding: 0 20px 20px;
+}
+
+/* ----------------------------------------------------------
+  Basic style
+---------------------------------------------------------- */
+
+.logo {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ----------------------------------------------------------
+  Fixes
+---------------------------------------------------------- */
+
+.no-display {
+    z-index: 1;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    opacity: 0.01;
+    filter: alpha(opacity=01);
+}
+
+/* ----------------------------------------------------------
+  Forms
+---------------------------------------------------------- */
+
+.checked-box .input-box {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.fake-inputbox-wrapper {
+    vertical-align: -3px;
+}
+
+.fake-inputbox-wrapper + label {
+    margin-left: 3px;
+}
+
+/* ----------------------------------------------------------
+  Catalog
+---------------------------------------------------------- */
+
+.ig-products-list {
+    z-index: 1;
+    position: relative;
+    margin-right: -20px;
+    font-size: 0;
+    background-color: #F6F6F6;
+}
+
+.ig-products-list > li {
+    display: inline-block;
+    width: 200px;
+    margin: 0 20px 20px 0;
+    font-size: 10px;
+    vertical-align: top;
+    background-color: #fff;
+}
+
+/* ----------------------------------------------------------
+  Breadcrumbs
+---------------------------------------------------------- */
+
+.breadcrumbs {
+    min-height: 30px;
+}
+
+.breadcrumbs li {
+    float: left;
+    line-height: 30px;
+}
+
+.breadcrumbs li + li:before {
+    content: '/';
+    margin: 0 5px;
+}
+
+/* ----------------------------------------------------------
+  Price box
+---------------------------------------------------------- */
+
+.price-box *,
+.price-box {
+    font-size: 12px;
+}
+
+.price-box p {
+    display: inline;
+}
+
+.price-box .price-label {
+    display: none;
+}
+
+.price-box .old-price {
+    text-decoration: line-through;
+}
