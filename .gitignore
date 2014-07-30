@@ -8,7 +8,6 @@ app/design/adminhtml
 app/design/frontend/base
 app/design/frontend/default
 app/design/frontend/rwd
-app/locale
 downloader
 /js
 lib
@@ -62,3 +61,4 @@ app/etc/modules/Mage_Widget.xml
 app/etc/modules/Mage_XmlConnect.xml
 app/etc/modules/Phoenix_Moneybookers.xml
 .sass-cache
+app/locale/*/*.csv
