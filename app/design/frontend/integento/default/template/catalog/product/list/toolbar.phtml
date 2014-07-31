@@ -8,13 +8,16 @@
  * @copyright   Copyright (c) 2014 Darklg
  * @license     MIT
  */
-?>
-<?php
+
 /**
  * Product list toolbar
  *
  * @see Mage_Catalog_Block_Product_List_Toolbar
  */
+$sortDirections = array(
+    'asc' => 'ascending',
+    'desc' => 'descending'
+);
 ?>
 <?php if($this->getCollection()->getSize()): ?>
 <div class="toolbar">
@@ -34,6 +37,15 @@
             <?php endforeach; ?>
             </select>
         </div>
+        <?php /*
+<!-- Text version -->
+<?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
+    <?php foreach($sortDirections as $dir => $dirName): ?>
+    <a href="<?php echo $this->getOrderUrl($_key, $dir) ?>"<?php if($this->isOrderCurrent($_key) && $this->getCurrentDirection() == $dir): ?> class="current"<?php endif; ?>><?php echo $this->__($_order. ' ' . $dirName) ?></a>
+    <?php endforeach; ?>
+<?php endforeach; ?>
+
+         */ ?>
     </div>
     <?php endif; ?>
 </div>
