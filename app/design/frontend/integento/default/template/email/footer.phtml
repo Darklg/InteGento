@@ -1,17 +1,18 @@
-
-
-            <!-- Main Content end -->
-            </td><td width="10"></td></tr>
-            <tr><td colspan="3" height="10"></td></tr>
-        </table>
-
-
-    <!-- Main Container end -->
-    </td></tr>
-    <tr><td height="20"></td></tr>
+<?php
+$storePhone = Mage::getStoreConfig('general/store_information/phone');
+$storeEmail = trim(Mage::getStoreConfig('trans_email/ident_general/email'));
+?>
+<!-- Main Content end -->
+</td><td width="10"></td></tr>
+<tr><td colspan="3" height="10"></td></tr>
+</table>
+<!-- Main Container end -->
+</td></tr>
+<tr><td height="20"></td></tr>
+<tr><td height="20"><a href="mailto:<?php echo $storePhone; ?>"><?php echo $storePhone; ?></a> - Tel : <?php echo $storePhone; ?></td></tr>
+<tr><td height="20"></td></tr>
 </table>
 </div>
-
 <style type="text/css">
 body {}
 html,body{width:100%!important;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;margin:0;padding:0;font-family:sans-serif;}
