@@ -15,20 +15,17 @@ $_helper = $this->helper('catalog/output');
 
 ?>
 <div class="product-item" itemscope itemtype="http://schema.org/Product">
+    <meta itemprop="sku" content="<?php echo $_product->getSku() ?>" />
     <a itemprop="url" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>">
-        <div class="product-image">
-            <img itemprop="image" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imageSize) ?>" width="<?php echo $imageSize; ?>" height="<?php echo $imageSize; ?>" alt="<?php echo $this->escapeHtml($_product->getName()) ?>" />
-        </div>
+        <img itemprop="image" class="product-image" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imageSize) ?>" width="<?php echo $imageSize; ?>" height="<?php echo $imageSize; ?>" alt="<?php echo $this->escapeHtml($_product->getName()) ?>" />
         <h3 itemprop="name" class="product-name"><?php echo $this->escapeHtml($_product->getName()) ?></h3>
     </a>
-    <div class="product-price" itemprop="offers">
-    <?php echo $this->getPriceHtml($_product, true, '-new') ?>
-    </div>
+    <div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><?php echo $this->getPriceHtml($_product, true, '-new') ?></div>
     <div class="actions">
         <?php if($_product->isSaleable()): ?>
-        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="cssc-button cssc-button--default btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Add to Cart') ?></button>
         <?php else: ?>
-        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+        <p class="availability out-of-stock"><?php echo $this->__('Out of stock') ?></p>
         <?php endif; ?>
     </div>
 </div>
