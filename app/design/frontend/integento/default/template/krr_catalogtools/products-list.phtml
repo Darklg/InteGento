@@ -19,7 +19,7 @@ if (($_products = $this->getProductCollection()) && $_products->getSize()):
     }
     echo '<ul class="products-list ig-products-list">';
     foreach ($_products->getItems() as $_product):
-        echo $h->getProductHTML($_product);
+        echo '<li>'.$h->getProductHTML($_product).'</li>';
     endforeach;
     echo '</ul>';
 endif;

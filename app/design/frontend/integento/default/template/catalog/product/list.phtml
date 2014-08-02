@@ -33,7 +33,7 @@ if($_collectionSize < 1): ?>
     $_columnCount = $this->getColumnCount();
     echo '<ul class="products-grid ig-products-list">';
     foreach ($_productCollection as $_product):
-    echo $h->getProductHTML($_product);
+    echo '<li>'.$h->getProductHTML($_product).'</li>';
     endforeach;
     echo '</ul>';
     ?>
