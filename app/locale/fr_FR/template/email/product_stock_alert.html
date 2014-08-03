@@ -3,6 +3,11 @@
 {"var customerName":"Customer Name",
 "var alertGrid":"Alert Data Grid"}
 @-->
-Bonjour {{var customerName}},
+
+{{block type="core/template" template="email/header.phtml"}}
+
+<p>Bonjour {{var customerName}},</p>
 
 {{var alertGrid}}
+
+{{block type="core/template" template="email/footer.phtml"}}

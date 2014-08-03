@@ -5,5 +5,7 @@
 "var $status":"Token new status"}
 @-->
 
-Bonjour, {{htmlescape var=$userName}}<br /><br />
-Votre autorisation de <b>{{htmlescape var=$applicationName}}</b> __('has been changed to')__ <b>{{htmlescape var=$status}}</b> par l'équipe d'administration.<br /><br />
+{{block type="core/template" template="email/header.phtml"}}
+<p>Bonjour, {{htmlescape var=$userName}}<br /><br />
+Votre autorisation de <b>{{htmlescape var=$applicationName}}</b> __('has been changed to')__ <b>{{htmlescape var=$status}}</b> par l'équipe d'administration.</p>
+{{block type="core/template" template="email/footer.phtml"}}

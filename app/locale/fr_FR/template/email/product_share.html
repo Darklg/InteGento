@@ -10,4 +10,16 @@
 "var message":"Sender Message"}
 @-->
 
-Bienvenue, {{htmlescape var=$name}}<br /><br />Regardez <a href="{{var product_url}}">{{var product_name}}</a><br /><br />Message: <br />{{var message}}<br /><br />
+{{block type="core/template" template="email/header.phtml"}}
+
+<p>Bonjour {{htmlescape var=$name}},</p>
+<p>J'ai trouvé ce produit intéressant :</p>
+<p>
+<a href="{{var product_url}}"><img style="border:0;" border="0" src="{{var product_image}}" alt="" /></a><br />
+<a href="{{var product_url}}">{{var product_name}}</a>
+</p>
+<p>
+Message: <br />
+{{var message}}
+</p>
+{{block type="core/template" template="email/footer.phtml"}}
