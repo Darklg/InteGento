@@ -5,8 +5,11 @@
 "var data.telephone":"Sender Telephone",
 "var data.comment":"Comment"}
 @-->
-Name: {{var data.name}}
-E-mail: {{var data.email}}
-Telephone: {{var data.telephone}}
-
+{{block type="core/template" template="email/header.phtml"}}
+<p>
+Name: {{var data.name}}<br />
+E-mail: {{var data.email}}<br />
+Telephone: {{var data.telephone}}<br />
 Comment: {{var data.comment}}
+</p>
+{{block type="core/template" template="email/footer.phtml"}}

@@ -12,7 +12,7 @@
 "var paymentMethod":"Payment Method",
 "var dateAndTime":"Date and Time of Transaction"}
 @-->
-
+{{block type="core/template" template="email/header.phtml"}}
 <table>
     <thead>
         <tr>
@@ -66,3 +66,4 @@
         </tr>
     </tbody>
 </table>
+{{block type="core/template" template="email/footer.phtml"}}

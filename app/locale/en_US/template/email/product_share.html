@@ -9,5 +9,15 @@
 "var sender_email":"Sender email",
 "var message":"Sender Message"}
 @-->
-
-Welcome, {{htmlescape var=$name}}<br /><br />Please look at <a href="{{var product_url}}">{{var product_name}}</a><br /><br />Here is message: <br />{{var message}}<br /><br />
+{{block type="core/template" template="email/header.phtml"}}
+<p>Hello {{htmlescape var=$name}},</p>
+<p>Please look at :</p>
+<p>
+<a href="{{var product_url}}"><img style="border:0;" border="0" src="{{var product_image}}" alt="" /></a><br />
+<a href="{{var product_url}}">{{var product_name}}</a>
+</p>
+<p>
+Message: <br />
+{{var message}}
+</p>
+{{block type="core/template" template="email/footer.phtml"}}
