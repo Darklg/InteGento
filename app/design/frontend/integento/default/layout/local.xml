@@ -62,10 +62,13 @@
     </cms_index_index>
 
     <!-- Catalog -->
-
     <catalog_category_view>
         <update handle="page_one_column"/>
     </catalog_category_view>
+    <sendfriend_product_send>
+        <update handle="page_one_column"/>
+    </sendfriend_product_send>
+
     <!-- Account -->
 
     <customer_account>
