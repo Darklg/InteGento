@@ -41,8 +41,9 @@
         <remove name="left.newsletter"/>
 
         <!-- Add blocks -->
+        <block parent="header" type="core/template" name="top.account" as="top_account" template="page/html/header/account.phtml" />
+        <block parent="header" type="checkout/cart_sidebar" name="top.cart" as="top_cart" template="checkout/cart/cartheader.phtml" />
         <block parent="footer" type="newsletter/subscribe" name="footer.newsletter" template="newsletter/subscribe.phtml" before="-" />
-
 
     </default>
 

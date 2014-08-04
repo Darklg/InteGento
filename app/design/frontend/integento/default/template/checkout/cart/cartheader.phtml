@@ -1,0 +1,63 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+
+/**
+ * Shoping cart sidebar
+ *
+ * @see Mage_Checkout_Block_Cart_Sidebar
+ */
+
+$_cartQty = $this->getSummaryCount();
+$_cartNb = 0;
+$_myCart = $this->__('My cart (%s)', '<span>0</span>');
+if ($_cartQty > 0):
+    $_cartNb = $_cartQty;
+    $_myCart = $this->__('My cart (%s)', '<span>' . $_cartQty . '</span>');
+endif;
+?>
+<div class="toolbar-element toolbar-element--cart wdrw">
+    <div class="block-title<?php if(!$_cartQty) { echo (' no-items'); } ?>">
+        <a class="main-link-cart" href="<?php echo $this->getUrl('checkout/cart'); ?>" id="cartHeader"><span class="mobile-hide"><?php echo $_myCart ?></span></a>
+    </div>
+    <div id="topCartContent" class="toolbar-element__content submenu submenu-r">
+        <div class="inner-wrapper">
+        <?php $_items = $this->getRecentItems() ?>
+        <?php if(count($_items)): ?>
+            <ol id="mini-cart" class="mini-products-list">
+            <?php foreach($_items as $_item): ?>
+                <?php echo $this->getItemHtml($_item) ?>
+            <?php endforeach; ?>
+            </ol>
+        <?php else: ?>
+            <p class="cart-empty">
+                <?php echo $this->__('You have no items in your shopping cart.') ?>
+            </p>
+            <?php if ($this->getCartEmptyMessage()): ?>
+                <p class="cart-empty cart-empty-message"><?php echo $this->getCartEmptyMessage(); ?></p>
+            <?php endif; ?>
+        <?php endif ?>
+        <?php if ($_cartQty || $this->getAllowCartLink()): ?>
+            <?php $isPossibleOnepageCheckout = $_cartQty && $this->isPossibleOnepageCheckout() ?>
+            <?php if ($isPossibleOnepageCheckout): ?>
+                <p class="subtotal">
+                    <?php if ($this->canApplyMsrp()): ?>
+                        <span class="map-cart-sidebar-total"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></span>
+                    <?php else: ?>
+                        <span class="label"><?php echo $this->__('Cart Subtotal:') ?></span>
+                        <span class="value"><?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?><?php if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?> / <?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?> <?php echo Mage::helper('tax')->getIncExcText(true) ?><?php endif; ?></span>
+                    <?php endif; ?>
+                </p>
+            <?php endif ?>
+            <div class="actions">
+                <a class="cssc-button cssc-button--default" href="<?php echo $this->getUrl('checkout/cart'); ?>"><span><?php echo $this->__('Go to Shopping Cart') ?></span></a>
+            </div>
+        <?php endif ?>
+        </div>
+    </div>
+</div>

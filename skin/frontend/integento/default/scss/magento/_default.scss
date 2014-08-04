@@ -8,6 +8,37 @@ body {
   Basic style
 ---------------------------------------------------------- */
 
+/* Toolbar
+-------------------------- */
+
+.toolbar {
+    height: 30px;
+    text-align: right;
+    font-size: 0;
+    line-height: 30px;
+    background-color: #f0f0f0;
+}
+
+.toolbar-element {
+    display: inline-block;
+    font-size: 12px;
+    vertical-align: 0;
+}
+
+.toolbar-element > a {
+    padding: 0 10px;
+}
+
+.toolbar-element .submenu {
+    padding: 10px;
+    min-width: 200px;
+    text-align: left;
+    background-color: #F0F0F0;
+}
+
+/* Header
+-------------------------- */
+
 .logo {
     margin: 20px 0;
     font-size: 20px;

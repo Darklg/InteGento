@@ -12,6 +12,10 @@
 $logoTag = $this->getIsHomePage() ? 'h1' : 'div';
 
 ?>
+<div class="toolbar">
+    <?php echo $this->getChildHtml('top_cart') ?>
+    <?php echo $this->getChildHtml('top_account') ?>
+</div>
 <header class="header">
     <?php echo '<'.$logoTag.' class="logo">'; ?><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><?php echo $this->getLogoAlt() ?></a><?php echo '</'.$logoTag.'>'; ?>
     <?php echo $this->getChildHtml('store_language') ?>

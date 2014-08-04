@@ -1,0 +1,37 @@
+<?php
+$isLoggedIn = $this->helper('customer')->isLoggedIn();
+$loginPostUrl = Mage::getUrl('customer/account/loginPost');
+?>
+<div class="toolbar-element toolbar-element--account wdrw">
+    <a href="<?php echo $this->helper('customer/data')->getAccountUrl(); ?>" class="account">
+        <?php echo $this->__('My account'); ?>
+    </a>
+    <div class="toolbar-element__content submenu submenu-r">
+        <?php if($isLoggedIn) : ?>
+            <p><?php echo $this->__('Hello, %s!', $this->escapeHtml($this->getCustomerName())) ?></p>
+            <p class="logout-link"><button class="cssc-button cssc-button--default" onclick="window.location='<?php echo $this->helper('customer/data')->getLogoutUrl(); ?>';return false;" type="button"><?php echo $this->__('Log me out'); ?></button></p>
+        <?php else: ?>
+            <form id="header-login-form" action="<?php echo $loginPostUrl; ?>" method="post">
+                <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+                <ul class="cssc-form cssc-form--default">
+                    <li class="box">
+                        <label for="mini-login"><?php echo $this->__('Email:') ?></label>
+                        <input type="text" name="login[username]" id="mini-login" class="input-text" />
+                    </li>
+                    <li class="box">
+                        <label for="mini-password"><?php echo $this->__('Password:') ?></label>
+                        <input type="password" name="login[password]" id="mini-password" class="input-text" />
+                        <small class="help">
+                            <a href="<?php echo $this->getUrl('customer/account/forgotpassword') ?>"><?php echo $this->__('Forgot Your Password?') ?></a>
+                        </small>
+                    </li>
+                    <li class="box login-submit-box">
+                        <div class="actions">
+                            <button type="submit" class="cssc-button cssc-button--default"><?php echo $this->__('Login') ?></button>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        <?php endif; ?>
+    </div>
+</div>
