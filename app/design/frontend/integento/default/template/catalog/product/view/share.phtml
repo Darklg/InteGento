@@ -1,0 +1,50 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+$_helper = $this->helper('catalog/output');
+$_product = $this->getProduct();
+
+/* Metas */
+$product_name = urlencode($_helper->productAttribute($_product, $_product->getName(), 'name'));
+$product_url = urlencode($_product->getProductUrl());
+$product_image = urlencode($this->helper('catalog/image')->init($_product, 'small_image')->resize(200));
+
+/* Methods */
+$methods = array(
+    'twitter' => array(
+        'name' => 'Twitter',
+        'url' => 'https://twitter.com/home?status='.$product_name.'+'.$product_url
+    ),
+    'facebook' => array(
+        'name' => 'Facebook',
+        'url' => 'https://www.facebook.com/sharer/sharer.php?u='.$product_url
+    ),
+    'pinterest' => array(
+        'name' => 'Pinterest',
+        'url' => 'https://pinterest.com/pin/create/button/?url='.$product_url.'&media='.$product_image.'&description='.$product_name
+    ),
+    'googleplus' => array(
+        'name' => 'Google Plus',
+        'url' => 'https://plus.google.com/share?url='.$product_url
+    ),
+    'email' => array(
+        'name' => 'Email',
+        'url' => str_replace('+', '%20','mailto:mail@mail.com?subject='.$product_name.'&body='.$product_name.'+'.$product_url)
+    )
+);
+?>
+<div class="product-share">
+    <h3><?php echo $this->__('Share this product'); ?></h3>
+    <ul class="share-list">
+        <?php foreach ($methods as $id => $method) { ?>
+        <li><a target="_blank" href="<?php echo $method['url']; ?>" class="<?php echo $id; ?>"><?php echo $method['name']; ?></a></li>
+        <?php } ?>
+    </ul>
+</div>

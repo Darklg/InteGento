@@ -69,6 +69,9 @@
     <sendfriend_product_send>
         <update handle="page_one_column"/>
     </sendfriend_product_send>
+    <catalog_product_view>
+        <block parent="product.info" type="catalog/product_view_type_simple" name="product.share" as="product_share" template="catalog/product/view/share.phtml" />
+    </catalog_product_view>
 
     <!-- Account -->
 
