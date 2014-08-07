@@ -91,6 +91,11 @@
         <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
     </customer_account_index>
 
+    <!-- Checkout -->
+    <checkout_onepage_index>
+        <update handle="page_one_column"/>
+    </checkout_onepage_index>
+
     <!-- Default template : 1column -->
 
     <page_empty>
