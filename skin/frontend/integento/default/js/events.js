@@ -7,7 +7,7 @@ jQuery(document).ready(function() {
     (function() {
 
         /* Fake Select */
-        var $fakeSelect = jQuery('select.fakeselect-me, select[name=country_id]');
+        var $fakeSelect = jQuery('.fakeselect-child select, select.fakeselect-me, select[name=country_id]');
         $fakeSelect.FakeSelect();
         $fakeSelect.on('change', function(e) {
             setTimeout(function() {
