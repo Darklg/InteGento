@@ -95,6 +95,12 @@
     <checkout_onepage_index>
         <update handle="page_one_column"/>
     </checkout_onepage_index>
+    <checkout_onepage_success>
+        <update handle="page_one_column"/>
+    </checkout_onepage_success>
+    <checkout_onepage_failure>
+        <update handle="page_one_column"/>
+    </checkout_onepage_failure>
 
     <!-- Default template : 1column -->
 
