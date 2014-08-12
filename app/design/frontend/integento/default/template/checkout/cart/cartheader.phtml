@@ -1,12 +1,13 @@
 <?php
 /**
- * Magento Enterprise Edition
+ * Magento
+ *
  * @category    design
- * @package     enterprise_default
- * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://www.magentocommerce.com/license/enterprise-edition
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
  */
-
 /**
  * Shoping cart sidebar
  *
@@ -35,11 +36,10 @@ endif;
             <?php endforeach; ?>
             </ol>
         <?php else: ?>
-            <p class="cart-empty">
-                <?php echo $this->__('You have no items in your shopping cart.') ?>
-            </p>
             <?php if ($this->getCartEmptyMessage()): ?>
                 <p class="cart-empty cart-empty-message"><?php echo $this->getCartEmptyMessage(); ?></p>
+            <?php else: ?>
+                <p class="cart-empty"><?php echo $this->__('You have no items in your shopping cart.') ?></p>
             <?php endif; ?>
         <?php endif ?>
         <?php if ($_cartQty || $this->getAllowCartLink()): ?>
