@@ -16,7 +16,7 @@
         <?php if( sizeof($_orders->getItems()) > 0 ): ?><a href="<?php echo $this->getUrl('sales/order/history') ?>"><?php echo $this->__('View All') ?></a><?php endif; ?>
     </div>
 <?php if( sizeof($_orders->getItems()) > 0 ): ?>
-    <table class="data-table account-table" id="my-orders-table">
+    <table class="data-table account-table recent-orders-table" id="my-orders-table">
         <thead>
             <tr>
                 <th><?php echo $this->__('Order #') ?></th>

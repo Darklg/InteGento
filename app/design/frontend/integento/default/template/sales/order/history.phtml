@@ -1,0 +1,47 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_orders = $this->getOrders(); ?>
+<div class="page-title">
+    <h1><?php echo $this->__('My Orders') ?></h1>
+</div>
+<?php echo $this->getPagerHtml(); ?>
+<?php if($_orders->getSize()): ?>
+<table class="data-table account-table history-orders-table" id="my-orders-table">
+    <thead>
+        <tr>
+        <th><?php echo $this->__('Order #') ?></th>
+        <th><?php echo $this->__('Date') ?></th>
+        <th><?php echo $this->__('Ship To') ?></th>
+        <th><?php echo $this->__('Order Total') ?></th>
+        <th><?php echo $this->__('Status') ?></th>
+        <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $_odd = ''; ?>
+        <?php foreach ($_orders as $_order): ?>
+            <tr>
+                <td><a href="<?php echo $this->getViewUrl($_order) ?>"><?php echo $_order->getRealOrderId() ?></a></td>
+                <td><?php echo $this->formatDate($_order->getCreatedAtStoreDate()) ?></td>
+                <td><?php echo $_order->getShippingAddress() ? $this->escapeHtml($_order->getShippingAddress()->getName()) : '&nbsp;' ?></td>
+                <td><?php echo $_order->formatPrice($_order->getGrandTotal()) ?></td>
+                <td><?php echo $_order->getStatusLabel() ?></td>
+                <td><a href="<?php echo $this->getViewUrl($_order) ?>"><?php echo $this->__('View Order') ?></a></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<?php echo $this->getPagerHtml(); ?>
+<?php else: ?>
+    <p><?php echo $this->__('You have placed no orders.'); ?></p>
+<?php endif ?>
