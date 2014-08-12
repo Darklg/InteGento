@@ -1,15 +1,26 @@
 <?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
 $isLoggedIn = $this->helper('customer')->isLoggedIn();
 $loginPostUrl = Mage::getUrl('customer/account/loginPost');
+$h = $this->helper('customer/data');
 ?>
 <div class="toolbar-element toolbar-element--account wdrw">
-    <a href="<?php echo $this->helper('customer/data')->getAccountUrl(); ?>" class="account">
+    <a href="<?php echo $h->getAccountUrl(); ?>" class="account">
         <?php echo $this->__('My account'); ?>
     </a>
     <div class="toolbar-element__content submenu submenu-r">
         <?php if($isLoggedIn) : ?>
             <p><?php echo $this->__('Hello, %s!', $this->escapeHtml($this->getCustomerName())) ?></p>
-            <p class="logout-link"><button class="cssc-button cssc-button--default" onclick="window.location='<?php echo $this->helper('customer/data')->getLogoutUrl(); ?>';return false;" type="button"><?php echo $this->__('Log me out'); ?></button></p>
+            <p><a href="<?php echo $this->getUrl('customer/account/edit'); ?>"><?php echo $this->__('Edit my infos'); ?></a></p>
+            <p><a href="<?php echo $h->getLogoutUrl(); ?>"><?php echo $this->__('Logout'); ?></a></p>
         <?php else: ?>
             <form id="header-login-form" action="<?php echo $loginPostUrl; ?>" method="post">
                 <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
