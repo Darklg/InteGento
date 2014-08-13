@@ -10,6 +10,8 @@
  */
 $_helper = $this->helper('catalog/output');
 $_product = $this->getProduct();
+$sendToFriendModel = Mage::registry('send_to_friend_model');
+$canSendToFriend = ($sendToFriendModel && $sendToFriendModel->canEmailToFriend());
 
 /* Metas */
 $product_name = urlencode($_helper->productAttribute($_product, $_product->getName(), 'name'));
@@ -39,6 +41,11 @@ $methods = array(
         'url' => str_replace('+', '%20','mailto:mail@mail.com?subject='.$product_name.'&body='.$product_name.'+'.$product_url)
     )
 );
+
+if ($canSendToFriend):
+    $methods['email']['url'] = $this->helper('catalog/product')->getEmailToFriendUrl($_product);
+endif;
+
 ?>
 <div class="product-share">
     <h3><?php echo $this->__('Share this product'); ?></h3>
