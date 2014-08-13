@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Catalog
+---------------------------------------------------------- */
+
+/* ----------------------------------------------------------
+  Product
+---------------------------------------------------------- */
+
+.product-essential .product-img-box,
+.product-essential .product-view {
+    float: left;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 40%;
+}
+
+.product-essential .product-img-box {
+    width: 60%;
+    padding-right: 20px;
+}
+
+.product-essential:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* Img box
+-------------------------- */
+
+.product-img-box {
+    z-index: 1;
+    position: relative;
+}
+
+.product-img-box .more-views {
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
