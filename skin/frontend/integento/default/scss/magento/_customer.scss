@@ -28,3 +28,71 @@
 .account-table tbody td:last-child {
     text-align: right;
 }
+
+/* ----------------------------------------------------------
+  Dashboard
+---------------------------------------------------------- */
+
+.dashboard .welcome-msg {
+    margin-bottom: 20px;
+}
+
+/* Box account
+-------------------------- */
+
+.box-account {
+    margin-bottom: 20px;
+}
+
+.box-account .box-head {
+    z-index: 1;
+    position: relative;
+}
+
+.box-account .box-head > a {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 16px;
+    margin: auto;
+    line-height: 16px;
+}
+
+/* ----------------------------------------------------------
+  Address
+---------------------------------------------------------- */
+
+.item-address {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* ----------------------------------------------------------
+  Wishlist
+---------------------------------------------------------- */
+
+.wishlist-items {
+    z-index: 1;
+    position: relative;
+    margin: 0 -10px 20px;
+}
+
+.item-wishlist {
+    display: inline-block;
+    width: 200px;
+    margin: 0 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    line-height: 1.4;
+    vertical-align: top;
+}
+
+.item-wishlist textarea {
+    display: block;
+    width: 190px;
+}

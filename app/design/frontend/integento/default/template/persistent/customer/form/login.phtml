@@ -22,7 +22,8 @@
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
         <?php echo $this->getBlockHtml('formkey'); ?>
-        <div class="registered-users">
+        <div class="cssc-grid fluid-grid">
+        <div class="col-50p registered-users">
             <div class="content">
                 <h2><?php echo $this->__('Registered Customers') ?></h2>
                 <p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
@@ -54,7 +55,7 @@
             <div class="buttons-set">
             </div>
         </div>
-        <div class="new-users">
+        <div class="col-50p new-users">
             <div class="content">
                 <h2><?php echo $this->__('New Customers') ?></h2>
                 <p><?php echo $this->__('By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.') ?></p>
@@ -62,6 +63,7 @@
             <div class="buttons-set">
                 <button type="button" title="<?php echo $this->__('Create an Account') ?>" class="cssc-button cssc-button--default" onclick="window.location='<?php echo Mage::helper('persistent')->getCreateAccountUrl($this->getCreateAccountUrl()) ?>';"><?php echo $this->__('Create an Account') ?></button>
             </div>
+        </div>
         </div>
         <?php if (Mage::helper('checkout')->isContextCheckout()): ?>
             <input name="context" type="hidden" value="checkout" />

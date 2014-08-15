@@ -9,8 +9,8 @@
  * @license     MIT
  */
 ?>
-<div class="box-dashboard">
-    <div class="box-title">
+<div class="box-account box-dashboard">
+    <div class="box-head box-title">
         <h3><?php echo $this->__('Contact Information') ?></h3>
         <a href="<?php echo $this->getUrl('customer/account/edit') ?>"><?php echo $this->__('Edit') ?></a>
     </div>
@@ -23,8 +23,8 @@
     </div>
 </div>
 <?php if( $this->isNewsletterEnabled() ): ?>
-    <div class="box-dashboard">
-        <div class="box-title">
+    <div class="box-account box-dashboard">
+        <div class="box-head box-title">
             <h3><?php echo $this->__('Newsletters') ?></h3>
             <a href="<?php echo $this->getUrl('newsletter/manage') ?>"><?php echo $this->__('Edit') ?></a>
         </div>
