@@ -1,0 +1,15 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+?>
+
+<?php if($this->getWishlist()->getItemsCount()): ?>
+    <button type="submit" name="do" title="<?php echo $this->__('Update Wishlist') ?>" class="button btn-update cssc-button cssc-button--default"><?php echo $this->__('Update Wishlist') ?></button>
+<?php endif;?>
