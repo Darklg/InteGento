@@ -40,6 +40,11 @@
         <remove name="left.permanent.callout"/>
         <remove name="left.newsletter"/>
 
+        <reference name="header">
+            <remove name="top.links"/>
+            <remove name="welcome"/>
+        </reference>
+
         <!-- Add blocks -->
         <block parent="header" type="core/template" name="top.account" as="top_account" template="page/html/header/account.phtml" />
         <block parent="header" type="checkout/cart_sidebar" name="top.cart" as="top_cart" template="checkout/cart/cartheader.phtml" />
