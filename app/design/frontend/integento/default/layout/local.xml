@@ -39,6 +39,7 @@
         <!-- Remove default blocks -->
         <remove name="left.permanent.callout"/>
         <remove name="left.newsletter"/>
+        <remove name="tags_popular"/>
 
         <reference name="header">
             <remove name="top.links"/>
@@ -71,6 +72,9 @@
     <catalog_category_view>
         <update handle="page_one_column"/>
     </catalog_category_view>
+    <catalogsearch_result_index>
+        <update handle="page_one_column"/>
+    </catalogsearch_result_index>
     <sendfriend_product_send>
         <update handle="page_one_column"/>
     </sendfriend_product_send>
