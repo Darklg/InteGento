@@ -1,0 +1,20 @@
+{
+  "name": "InteGento",
+  "version": "0.0.0",
+  "description": "InteGento",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Darklg/InteGento.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Darklg/InteGento/issues"
+  },
+  "homepage": "https://github.com/Darklg/InteGento",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-compass": "^0.9.1",
+    "grunt-imageoptim": "^1.4.1"
+  }
+}
