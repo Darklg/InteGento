@@ -4,14 +4,32 @@
   Cart
 ---------------------------------------------------------- */
 
-.cart-table td {
-    vertical-align: middle;
+.cart-table {
+    table-layout: fixed;
 }
 
-.cart-table tbody td {
+.cart-table td {
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #F0F0F0;
+    vertical-align: middle;
+}
+
+/* Columns
+-------------------------- */
+
+.td-product-qty,
+.td-product-image {
+    width: 100px;
+}
+
+.td-product-details {
+    padding-left: 20px;
+}
+
+.td-product-subtotal {
+    width: 100px;
+    text-align: right;
 }
 
 /* Options
@@ -42,6 +60,8 @@
 }
 
 .product-subtotal .btn-remove {
+    @extend .cssc-btn;
+    @include retina-sprite(icn-x);
     z-index: 1;
     position: absolute;
     top: 0;

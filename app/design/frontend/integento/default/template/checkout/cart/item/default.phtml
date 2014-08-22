@@ -15,19 +15,19 @@ $isVisibleProduct = $_item->getProduct()->isVisibleInSiteVisibility();
 $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM);
 $itemQty = $this->getQty();
 $qtyMax = max(5, $itemQty);
+$imgWidth = 75;
+$imgHeight = 75;
 ?>
 <tr>
     <!-- Image -->
-    <td>
-        <?php if ($this->hasProductUrl()):?><a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>" class="product-image"><?php endif;?>
-        <img src="<?php echo $this->getProductThumbnail()->resize(75); ?>" width="75" height="75" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" />
-        <?php if ($this->hasProductUrl()):?></a><?php endif;?>
+    <td class="td-product-image">
+        <a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>" class="product-image">
+            <img src="<?php echo $this->getProductThumbnail()->resize($imgWidth,$imgHeight); ?>" width="<?php echo $imgWidth; ?>" height="<?php echo $imgHeight; ?>" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" />
+        </a>
     </td>
     <!-- Details -->
-    <td>
-        <h2 class="product-name">
-            <a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->escapeHtml($this->getProductName()) ?></a>
-        </h2>
+    <td class="td-product-details">
+        <h2 class="product-name"><?php echo $this->escapeHtml($this->getProductName()) ?></h2>
         <?php if ($_options = $this->getOptionList()):?>
         <dl class="item-options">
             <?php foreach ($_options as $_option) : ?>
@@ -58,7 +58,7 @@ $qtyMax = max(5, $itemQty);
     </td>
 
     <!-- Quantity -->
-    <td class="a-center">
+    <td class="td-product-qty">
         <!-- Select Qty -->
         <div>
             <select onchange="this.form.submit();this.form.disable();" class="qty" name="cart[<?php echo $_item->getId() ?>][qty]" id="cart-qty-<?php echo $_item->getId() ?>">
@@ -78,7 +78,7 @@ $qtyMax = max(5, $itemQty);
     </td>
 
     <!-- Sub total -->
-    <td class="a-right">
+    <td class="td-product-subtotal">
     <div class="product-subtotal">
         <a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove btn-remove2"><?php echo $this->__('Remove item')?></a>
 
