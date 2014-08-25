@@ -69,6 +69,7 @@
     </cms_index_index>
 
     <!-- Catalog -->
+
     <catalog_category_view>
         <update handle="page_one_column"/>
     </catalog_category_view>
@@ -96,13 +97,18 @@
             <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
             <action method="addLink" translate="label" module="sales"><name>orders</name><path>sales/order/history/</path><label>My Orders</label></action>
             <action method="addLink" translate="label" module="wishlist" ifconfig="wishlist/general/active"><name>wishlist</name><path>wishlist/</path><label>My Wishlist</label></action>
+            <action method="addLink" translate="label" module="customer"><name>logout</name><path>customer/account/logout/</path><label>Log out</label></action>
         </block>
     </customer_account>
     <customer_account_index>
         <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
     </customer_account_index>
+    <sales_order_history>
+        <remove name="customer.account.link.back" />
+    </sales_order_history>
 
     <!-- Checkout -->
+
     <checkout_onepage_index>
         <update handle="page_one_column"/>
     </checkout_onepage_index>
