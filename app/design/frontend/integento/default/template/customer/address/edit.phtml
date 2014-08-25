@@ -25,7 +25,6 @@
     <?php echo $this->getBlockHtml('formkey')?>
     <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
     <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
-        <h2 class="legend"><?php echo $this->__('Contact Information') ?></h2>
         <ul class="cssc-form float-form cssc-form--default">
             <?php echo $this->getNameBlockHtml() ?>
             <li class="box">
@@ -46,11 +45,6 @@
                     <input type="text" name="fax" id="fax" title="<?php echo $this->__('Fax') ?>" value="<?php echo $this->escapeHtml($this->getAddress()->getFax()) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('fax') ?>" />
                 </div>
             </li>
-        </ul>
-    </div>
-    <div class="fieldset">
-        <h2 class="legend"><?php echo $this->__('Address') ?></h2>
-        <ul class="cssc-form float-form cssc-form--default">
         <?php $_streetValidationClass = $this->helper('customer/address')->getAttributeValidationClass('street'); ?>
             <li class="box">
                 <label for="street_1" class="required"><?php echo $this->__('Street Address') ?> <em>*</em></label>
@@ -86,7 +80,7 @@
                     <input type="text" name="city" value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>"  title="<?php echo $this->__('City') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('city') ?>" id="city" />
                 </div>
             </li>
-            <li class="box">
+            <li class="box fakeselect-child">
                 <label for="region_id" class="required"><?php echo $this->__('State/Province') ?> <em>*</em></label>
                 <div class="input-box">
                     <select id="region_id" name="region_id" title="<?php echo $this->__('State/Province') ?>" class="validate-select fakeselect-me" style="display:none;">
@@ -100,7 +94,7 @@
                     <input type="text" id="region" name="region" value="<?php echo $this->escapeHtml($this->getAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('region') ?>" />
                 </div>
             </li>
-            <li class="box">
+            <li class="box fakeselect-child">
                 <label for="country" class="required"><?php echo $this->__('Country') ?> <em>*</em></label>
                 <div class="input-box">
                     <?php echo $this->getCountryHtmlSelect() ?>
