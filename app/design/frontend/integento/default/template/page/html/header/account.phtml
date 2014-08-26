@@ -18,7 +18,7 @@ $h = $this->helper('customer/data');
     </a>
     <div class="toolbar-element__content submenu submenu-r">
         <?php if($isLoggedIn) : ?>
-            <p><?php echo $this->__('Hello, %s!', $this->escapeHtml($this->getCustomerName())) ?></p>
+            <p><?php echo $this->__('Hello, %s!', $this->escapeHtml($h->getCustomerName())) ?></p>
             <p><a href="<?php echo $this->getUrl('customer/account/edit'); ?>"><?php echo $this->__('Edit my infos'); ?></a></p>
             <p><a href="<?php echo $h->getLogoutUrl(); ?>"><?php echo $this->__('Logout'); ?></a></p>
         <?php else: ?>
