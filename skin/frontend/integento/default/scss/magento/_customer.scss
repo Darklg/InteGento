@@ -96,3 +96,15 @@
     display: block;
     width: 190px;
 }
+
+/* ----------------------------------------------------------
+  Orders
+---------------------------------------------------------- */
+
+.my-orders-table tfoot td {
+    text-align: left;
+}
+
+.my-orders-table tfoot td + td {
+    text-align: right;
+}
