@@ -119,6 +119,12 @@
         <update handle="page_one_column"/>
     </checkout_onepage_failure>
 
+    <!-- CMS Blocks -->
+
+    <contacts_index_index>
+        <update handle="page_one_column"/>
+    </contacts_index_index>
+
     <!-- Default template : 1column -->
 
     <page_empty>
