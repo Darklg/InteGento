@@ -9,17 +9,16 @@
  * @license     MIT
  */
 
-
-$blockTitle = trim($this->getTitle());
-$h = $this->helper('krr_catalogtools');
+$_blockTitle = trim($this->getTitle());
+$_h = $this->helper('krr_catalogtools');
 
 if (($_products = $this->getProductCollection()) && $_products->getSize()):
-    if(!empty($blockTitle)){
-        echo '<h2>'.$blockTitle.'</h2>';
+    if (!empty($_blockTitle)) {
+        echo '<h2>' . $_blockTitle . '</h2>';
     }
     echo '<ul class="products-list ig-products-list">';
     foreach ($_products->getItems() as $_product):
-        echo '<li>'.$h->getProductHTML($_product).'</li>';
+        echo '<li>' . $_h->getProductHTML($_product) . '</li>';
     endforeach;
     echo '</ul>';
 endif;

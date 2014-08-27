@@ -1,6 +1,6 @@
 <?php
-$storePhone = trim(Mage::getStoreConfig('general/store_information/phone'));
-$storeEmail = trim(Mage::getStoreConfig('trans_email/ident_general/email'));
+$_storePhone = trim(Mage::getStoreConfig('general/store_information/phone'));
+$_storeEmail = trim(Mage::getStoreConfig('trans_email/ident_general/email'));
 ?>
 </td><td width="10"></td></tr>
 <tr><td colspan="3" height="10"></td></tr>
@@ -9,8 +9,8 @@ $storeEmail = trim(Mage::getStoreConfig('trans_email/ident_general/email'));
 </td></tr>
 <tr><td height="20"></td></tr>
 <tr><td height="20" align="center" style="text-align:center;font-size:11px;color:#333;">
-    <a style="color:#333;" href="mailto:<?php echo $storeEmail; ?>"><?php echo $storeEmail; ?></a> -
-    <?php echo $this->__('Tel : '); ?><a style="color:#333;" href="tel:<?php echo $storePhone; ?>"><?php echo $storePhone; ?></a>
+    <a style="color:#333;" href="mailto:<?php echo $_storeEmail; ?>"><?php echo $_storeEmail; ?></a> -
+    <?php echo $this->__('Tel : '); ?><a style="color:#333;" href="tel:<?php echo $_storePhone; ?>"><?php echo $_storePhone; ?></a>
 </td></tr>
 <tr><td height="20"></td></tr>
 </table>

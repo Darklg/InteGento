@@ -14,12 +14,11 @@
  *
  * @see Mage_Catalog_Block_Product_List_Toolbar
  */
-$sortDirections = array(
+$_sortDirections = array(
     'asc' => 'ascending',
     'desc' => 'descending'
 );
-?>
-<?php if($this->getCollection()->getSize()): ?>
+if($this->getCollection()->getSize()): ?>
 <div class="toolbar">
     <div class="pager">
         <?php echo $this->getPagerHtml() ?>
@@ -40,7 +39,7 @@ $sortDirections = array(
         <?php /*
 <!-- Text version -->
 <?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
-    <?php foreach($sortDirections as $dir => $dirName): ?>
+    <?php foreach($_sortDirections as $dir => $dirName): ?>
     <a href="<?php echo $this->getOrderUrl($_key, $dir) ?>"<?php if($this->isOrderCurrent($_key) && $this->getCurrentDirection() == $dir): ?> class="current"<?php endif; ?>><?php echo $this->__($_order. ' ' . $dirName) ?></a>
     <?php endforeach; ?>
 <?php endforeach; ?>
@@ -49,4 +48,4 @@ $sortDirections = array(
     </div>
     <?php endif; ?>
 </div>
-<?php endif ?>
+<?php endif;

@@ -8,9 +8,10 @@
  * @copyright   Copyright (c) 2014 Darklg
  * @license     MIT
  */
+
+$_orders = $this->getOrders();
+echo $this->getMessagesBlock()->getGroupedHtml();
 ?>
-<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-<?php $_orders = $this->getOrders(); ?>
 <div class="page-title">
     <h1 class="main-title"><?php echo $this->__('My Orders') ?></h1>
 </div>

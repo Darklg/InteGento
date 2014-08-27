@@ -8,19 +8,17 @@
  * @copyright   Copyright (c) 2014 Darklg
  * @license     MIT
  */
-?>
-<?php
+
 /**
  * Product list template
  *
  * @see Mage_Catalog_Block_Product_List
  */
-?>
-<?php
-    $_productCollection=$this->getLoadedProductCollection();
-    $_helper = $this->helper('catalog/output');
-    $h = $this->helper('krr_catalogtools');
-    $_collectionSize = $_productCollection->count();
+
+$_productCollection=$this->getLoadedProductCollection();
+$_helper = $this->helper('catalog/output');
+$_h = $this->helper('krr_catalogtools');
+$_collectionSize = $_productCollection->count();
 
 if($_collectionSize < 1): ?>
     <p class="note-msg">
@@ -30,10 +28,9 @@ if($_collectionSize < 1): ?>
 <div class="category-products">
     <?php
     echo $this->getToolbarHtml();
-    $_columnCount = $this->getColumnCount();
     echo '<ul class="products-grid ig-products-list">';
     foreach ($_productCollection as $_product):
-    echo '<li>'.$h->getProductHTML($_product).'</li>';
+        echo '<li>'.$_h->getProductHTML($_product).'</li>';
     endforeach;
     echo '</ul>';
     ?>

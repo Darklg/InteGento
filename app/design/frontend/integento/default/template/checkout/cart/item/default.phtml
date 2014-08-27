@@ -8,21 +8,20 @@
  * @copyright   Copyright (c) 2014 Darklg
  * @license     MIT
  */
-?>
-<?php
+
 $_item = $this->getItem();
-$isVisibleProduct = $_item->getProduct()->isVisibleInSiteVisibility();
-$canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM);
-$itemQty = $this->getQty();
-$qtyMax = max(5, $itemQty);
-$imgWidth = 75;
-$imgHeight = 75;
+$_canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct() , Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM);
+$_itemQty = $this->getQty();
+$_qtyMax = max(5, $_itemQty);
+$_imgWidth = 75;
+$_imgHeight = 75;
+$_imgUrl = $this->getProductThumbnail()->resize($_imgWidth, $_imgHeight);
 ?>
 <tr>
     <!-- Image -->
     <td class="td-product-image">
         <a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>" class="product-image">
-            <img src="<?php echo $this->getProductThumbnail()->resize($imgWidth,$imgHeight); ?>" width="<?php echo $imgWidth; ?>" height="<?php echo $imgHeight; ?>" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" />
+            <img src="<?php echo $_imgUrl; ?>" width="<?php echo $_imgWidth; ?>" height="<?php echo $_imgHeight; ?>" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" />
         </a>
     </td>
     <!-- Details -->
@@ -62,8 +61,8 @@ $imgHeight = 75;
         <!-- Select Qty -->
         <div>
             <select onchange="this.form.submit();this.form.disable();" class="qty" name="cart[<?php echo $_item->getId() ?>][qty]" id="cart-qty-<?php echo $_item->getId() ?>">
-            <?php for ($i = 0; $i <= $qtyMax; $i++) { ?>
-            <option <?php echo ($i == $itemQty ? 'selected="selected"' : ''); ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+            <?php for ($i = 0; $i <= $_qtyMax; $i++) { ?>
+            <option <?php echo ($i == $_itemQty ? 'selected="selected"' : ''); ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
             <?php } ?>
             </select>
         </div>
@@ -71,7 +70,7 @@ $imgHeight = 75;
         <!-- Input Qty -->
         <div>
             <button type="button" data-decrement="input-cart-qty-<?php echo $_item->getId() ?>">-</button>
-            <input onchange="this.form.submit();this.form.disable();" type="number" name="cart[<?php echo $_item->getId() ?>][qty]" id="input-cart-qty-<?php echo $_item->getId() ?>" value="<?php echo $itemQty; ?>" min="0" max="<?php echo $qtyMax; ?>"/>
+            <input onchange="this.form.submit();this.form.disable();" type="number" name="cart[<?php echo $_item->getId() ?>][qty]" id="input-cart-qty-<?php echo $_item->getId() ?>" value="<?php echo $_itemQty; ?>" min="0" max="<?php echo $_qtyMax; ?>"/>
             <button type="button" data-increment="input-cart-qty-<?php echo $_item->getId() ?>">+</button>
         </div>
          */ ?>
@@ -88,7 +87,7 @@ $imgHeight = 75;
             <?php else: ?>
                 <span class="cart-price">
             <?php endif; ?>
-                <?php if ($canApplyMsrp): ?>
+                <?php if ($_canApplyMsrp): ?>
                     <span class="cart-msrp-subtotal">--</span>
                 <?php else: ?>
                     <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales') && $_item->getWeeeTaxAppliedAmount()): ?>
@@ -131,7 +130,7 @@ $imgHeight = 75;
                 <span class="cart-price">
             <?php endif; ?>
 
-                <?php if ($canApplyMsrp): ?>
+                <?php if ($_canApplyMsrp): ?>
                     <span class="cart-msrp-subtotal">--</span>
                 <?php else: ?>
                     <?php if (Mage::helper('weee')->typeOfDisplay($_item, array(0, 1, 4), 'sales') && $_item->getWeeeTaxAppliedAmount()): ?>

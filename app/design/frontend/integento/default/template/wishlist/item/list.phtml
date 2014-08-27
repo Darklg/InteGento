@@ -9,15 +9,15 @@
  * @license     MIT
  */
 
-$columns = $this->getColumns();
+$_columns = $this->getColumns();
 if (count($this->getItems())): ?>
 <div id="wishlist-table" class="wishlist-items">
-    <?php foreach ($this->getItems() as $item): ?>
-        <div class="item-wishlist" id="item_<?php echo $item->getId();?>">
+    <?php foreach ($this->getItems() as $_item): ?>
+        <div class="item-wishlist" id="item_<?php echo $_item->getId();?>">
         <?php
-        foreach ($columns as $column):
-            $column->setItem($item);
-            echo $column->toHtml($item);
+        foreach ($_columns as $_column):
+            $_column->setItem($_item);
+            echo $_column->toHtml($_item);
         endforeach;
         ?>
         </div>
@@ -26,13 +26,13 @@ if (count($this->getItems())): ?>
 <?php else: ?>
 <p class="wishlist-empty"><?php echo $this->__('This Wishlist has no Items');?></p>
 <?php endif; ?>
-<?php foreach ($columns as $column): ?>
-    <?php echo $column->getAdditionalHtml();?>
+<?php foreach ($_columns as $_column): ?>
+    <?php echo $_column->getAdditionalHtml();?>
 <?php endforeach; ?>
 <script type="text/javascript">
 //<![CDATA[
-<?php foreach ($columns as $column): ?>
-    <?php echo $column->getJs();?>
-<?php endforeach; ?>
+<?php foreach ($_columns as $_column):
+    echo $_column->getJs();
+endforeach; ?>
 //]]>
 </script>

@@ -9,15 +9,16 @@
  * @license     MIT
  */
 
-$imageSize = 135;
 $_product = $this->getProduct();
 $_helper = $this->helper('catalog/output');
+$_imageSize = 135;
+$_imgUrl = $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imageSize);
 
 ?>
 <div class="product-item" itemscope itemtype="http://schema.org/Product">
     <meta itemprop="sku" content="<?php echo $_product->getSku() ?>" />
     <a itemprop="url" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>">
-        <img itemprop="image" class="product-image" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imageSize) ?>" width="<?php echo $imageSize; ?>" height="<?php echo $imageSize; ?>" alt="<?php echo $this->escapeHtml($_product->getName()) ?>" />
+        <img itemprop="image" class="product-image" src="<?php echo $_imgUrl ?>" width="<?php echo $_imageSize; ?>" height="<?php echo $_imageSize; ?>" alt="<?php echo $this->escapeHtml($_product->getName()) ?>" />
         <h3 itemprop="name" class="product-name"><?php echo $this->escapeHtml($_product->getName()) ?></h3>
     </a>
     <div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><?php echo $this->getPriceHtml($_product, true, '-new') ?></div>

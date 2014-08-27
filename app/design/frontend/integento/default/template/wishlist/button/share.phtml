@@ -8,8 +8,7 @@
  * @copyright   Copyright (c) 2014 Darklg
  * @license     MIT
  */
-?>
 
-<?php if($this->getWishlist()->getItemsCount()): ?>
+if($this->getWishlist()->getItemsCount()): ?>
     <button type="submit" name="save_and_share" title="<?php echo $this->__('Share Wishlist') ?>" class="button btn-share cssc-button cssc-button--default"><?php echo $this->__('Share Wishlist') ?></button>
-<?php endif;?>
+<?php endif;
