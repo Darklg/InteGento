@@ -1,0 +1,48 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+
+/**
+ * Product media data template
+ *
+ * @see Mage_Catalog_Block_Product_View_Media
+ */
+
+$_product = $this->getProduct();
+$_helper = $this->helper('catalog/output');
+$_thumbSize = 56;
+$_bigImageSize = 500;
+
+/* Main Image details */
+$_productImage = (string) $this->helper('catalog/image')->init($_product, 'image')->resize($_bigImageSize);
+$_productImageAlt = $this->escapeHtml($this->getImageLabel());
+
+?>
+<div class="product-image">
+    <img src="<?php echo $_productImage; ?>" width="<?php echo $_bigImageSize; ?>" height="<?php echo $_bigImageSize; ?>" alt="<?php echo $_productImageAlt; ?>" />
+</div>
+<?php
+if (count($this->getGalleryImages()) > 0): ?>
+<ul class="more-views">
+<?php
+foreach ($this->getGalleryImages() as $_image):
+    $_imageUrl = (string) $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->resize($_bigImageSize);
+    $_imageThumbUrl = (string) $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($_thumbSize);
+    $_imageAlt = $this->escapeHtml($_image->getLabel());
+    $_isCurrentImage = ($_imageUrl == $_productImage);
+    ?><li>
+        <a target="_blank" href="<?php echo $_imageUrl; ?>" class="<?php echo ($_isCurrentImage ? 'current' : ''); ?>">
+            <img src="<?php echo $_imageThumbUrl ?>" width="<?php echo $_thumbSize; ?>" height="<?php echo $_thumbSize; ?>" alt="<?php echo $_imageAlt ?>" />
+        </a>
+    </li><?php
+endforeach;
+?>
+</ul>
+<?php endif;
