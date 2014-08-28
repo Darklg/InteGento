@@ -34,17 +34,33 @@ $sprites2x: sprite-map("sprites-2x/*.png");  /* :) */
 @import "csscommon/_cssc-grid.scss";
 
 /* ----------------------------------------------------------
-  Magento
+  Project
 ---------------------------------------------------------- */
 
-@import "magento/_default.scss";
-@import "magento/_cart.scss";
-@import "magento/_catalog.scss";
-@import "magento/_checkout.scss";
-@import "magento/_customer.scss";
-@import "magento/_messages.scss";
-@import "magento/_main-menu.scss";
+/* Base
+-------------------------- */
 
-/* ----------------------------------------------------------
-  Base
----------------------------------------------------------- */
+@import "project/_base.scss";
+@import "project/base/_messages.scss";
+
+/* Layout
+-------------------------- */
+
+@import "project/layout/_header.scss";
+@import "project/layout/_main-menu.scss";
+
+/* Catalog
+-------------------------- */
+
+@import "project/_catalog.scss";
+
+/* Cart
+-------------------------- */
+
+@import "project/checkout/_cart.scss";
+@import "project/checkout/_checkout.scss";
+
+/* Customer
+-------------------------- */
+
+@import "project/_customer.scss";

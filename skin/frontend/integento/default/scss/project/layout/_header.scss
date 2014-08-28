@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Toolbar
+---------------------------------------------------------- */
+
+.header-toolbar .form-language,
+.header-toolbar {
+    height: 30px;
+    line-height: 30px;
+}
+
+.header-toolbar {
+    text-align: right;
+    font-size: 0;
+    background-color: #f0f0f0;
+}
+
+.header-toolbar .form-language {
+    float: left;
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+.toolbar-element {
+    display: inline-block;
+    font-size: 12px;
+    vertical-align: 0;
+}
+
+.toolbar-element > a {
+    padding: 0 10px;
+}
+
+.toolbar-element .submenu {
+    padding: 10px;
+    min-width: 200px;
+    text-align: left;
+    background-color: #F0F0F0;
+}
+
+/* ----------------------------------------------------------
+  Logo
+---------------------------------------------------------- */
+
+.logo {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ----------------------------------------------------------
+  Main title
+---------------------------------------------------------- */
+
+.page-title .main-title {
+    z-index: 1;
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.page-title .main-title:after {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 6px;
+    margin: auto;
+    background-color: #000;
+}
