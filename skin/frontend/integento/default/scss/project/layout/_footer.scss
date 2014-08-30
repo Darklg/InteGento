@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Footer
+---------------------------------------------------------- */
+
+.footer {
+    margin-top: 20px;
+}
+
+/* Links
+-------------------------- */
+
+.footer > .links {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 0;
+    color: #999;
+}
+
+.footer> .links li {
+    display: inline;
+    font-size: 13px;
+}
+
+.footer> .links li + li:before {
+    content: '•';
+    margin: 0 10px;
+}
+
+/* Copyright
+-------------------------- */
+
+.footer-copyright {
+    text-align: center;
+    font-size: 11px;
+    line-height: 30px;
+    color: #333;
+    background-color: #F0F0F0;
+}

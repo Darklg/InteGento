@@ -41,6 +41,7 @@ $sprites2x: sprite-map("sprites-2x/*.png");  /* :) */
 -------------------------- */
 
 @import "project/_base.scss";
+@import "project/base/_forms.scss";
 @import "project/base/_messages.scss";
 
 /* Layout
@@ -48,6 +49,7 @@ $sprites2x: sprite-map("sprites-2x/*.png");  /* :) */
 
 @import "project/layout/_header.scss";
 @import "project/layout/_main-menu.scss";
+@import "project/layout/_footer.scss";
 
 /* Catalog
 -------------------------- */
