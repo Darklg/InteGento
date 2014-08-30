@@ -33,6 +33,7 @@
             <action method="addItem"><type>skin_js</type><name>js/jquery/plugins/fake-inputbox/fake-inputbox.min.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/jquery/plugins/fake-select/fake-select.min.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/jquery/plugins/dk-smooth-scroll/dk-smooth-scroll.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/modules/all-pages.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/events.js</name><params/></action>
         </block>
 
@@ -58,6 +59,10 @@
     <cms_index_index>
         <!-- Remove CMS Content -->
         <remove name="cms.wrapper" />
+
+        <reference name="extra_js">
+            <action method="addItem"><type>skin_js</type><name>js/modules/home.js</name><params/></action>
+        </reference>
 
         <!-- Add "new products" block -->
         <block parent="content" type="catalog/product_new" name="home.catalog.product.new" template="krr_catalogtools/products-list.phtml">
@@ -108,7 +113,11 @@
     </sales_order_history>
 
     <!-- Checkout -->
-
+    <checkout_cart_index>
+        <reference name="extra_js">
+            <action method="addItem"><type>skin_js</type><name>js/modules/checkout.js</name><params/></action>
+        </reference>
+    </checkout_cart_index>
     <checkout_onepage_index>
         <update handle="page_one_column"/>
     </checkout_onepage_index>
