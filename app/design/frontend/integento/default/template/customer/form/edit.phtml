@@ -27,15 +27,15 @@
             </li>
         <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
         <?php if ($_dob->isEnabled()): ?>
-            <li><?php echo $_dob->setDate($this->getCustomer()->getDob())->toHtml() ?></li>
+            <li class="box multibox-box"><?php echo $_dob->setDate($this->getCustomer()->getDob())->toHtml() ?></li>
         <?php endif ?>
         <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
         <?php if ($_taxvat->isEnabled()): ?>
-            <li><?php echo $_taxvat->setTaxvat($this->getCustomer()->getTaxvat())->toHtml() ?></li>
+            <li class="box"><?php echo $_taxvat->setTaxvat($this->getCustomer()->getTaxvat())->toHtml() ?></li>
         <?php endif ?>
         <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
         <?php if ($_gender->isEnabled()): ?>
-            <li><?php echo $_gender->setGender($this->getCustomer()->getGender())->toHtml() ?></li>
+            <li class="box"><?php echo $_gender->setGender($this->getCustomer()->getGender())->toHtml() ?></li>
         <?php endif ?>
             <li class="box checked-box control">
                 <input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> class="checkbox fakeinputbox-me" />

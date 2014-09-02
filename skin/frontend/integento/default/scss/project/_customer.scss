@@ -61,6 +61,27 @@
 }
 
 /* ----------------------------------------------------------
+  Infos
+---------------------------------------------------------- */
+
+.customer-dob .dob-day,
+.customer-dob .dob-month,
+.customer-dob .dob-year {
+    display: inline-block;
+    margin-right: 5px;
+    max-width: 100px;
+    vertical-align: top;
+}
+
+.box .customer-dob > div label {
+    display: block;
+    position: static;
+    width: auto;
+    padding: 0;
+    text-align: left;
+}
+
+/* ----------------------------------------------------------
   Address
 ---------------------------------------------------------- */
 
