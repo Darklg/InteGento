@@ -9,6 +9,7 @@ jQuery(document).ready(function() {
     setAllPagesDataTogglers();
 
     /* Cart */
-    setCartQtyModifierButtons();
-
+    if ($jQBody.hasClass('checkout-cart-index')) {
+        setCartQtyModifierButtons();
+    }
 });
