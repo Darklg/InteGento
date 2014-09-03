@@ -1,0 +1,32 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+
+$_product = $this->getProduct();
+$buttonTitle = $this->__('Add to Cart');
+if($_product->isSaleable()):
+    if(!$_product->isGrouped()):
+    $currentQty = $this->getProductDefaultQty() * 1;
+    ?>
+    <div class="add-to-qty">
+        <label for="qty"><?php echo $this->__('Qty:') ?></label>
+        <select name="qty" id="qty" title="<?php echo $this->__('Qty') ?>" class=" qty">
+        <?php for ($i = 1; $i <= 5; $i++) { ?>
+            <option <?php echo ($i == $currentQty ? 'selected="selected"' : '') ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+        <?php } ?>
+        </select>
+    </div>
+    <?php endif; ?>
+
+    <div class="add-to-cart">
+        <button type="button" title="<?php echo $buttonTitle ?>" id="product-addtocart-button" class="button btn-cart cssc-button cssc-button--default" onclick="productAddToCartForm.submit(this)"><?php echo $buttonTitle ?></button>
+        <?php echo $this->getChildHtml('', true, true) ?>
+    </div>
+<?php endif;
