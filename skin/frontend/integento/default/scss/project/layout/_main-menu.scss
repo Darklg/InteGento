@@ -24,9 +24,15 @@
     margin-left: 10px;
 }
 
+/* Link
+-------------------------- */
+
 .nav-container li.level0 > a {
     display: block;
 }
+
+/* Submenu
+-------------------------- */
 
 .nav-container ul.level0 {
     visibility: hidden;
@@ -36,6 +42,7 @@
     left: 0;
     min-width: 150px;
     opacity: 0;
+    background-color: #fff;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
