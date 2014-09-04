@@ -1,0 +1,25 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
+/* @var $this Mage_Reports_Block_Product_Viewed */
+$_h = $this->helper('krr_catalogtools');
+if ($_products = $this->getRecentlyViewedProducts()): ?>
+<div class="recently-viewed">
+<h2 class="subtitle"><?php echo $this->__('Your Recently Viewed') ?></h2>
+    <ul class="products-list ig-products-list">
+        <?php
+        foreach ($_products as $_product):
+            echo '<li>' . $_h->getProductHTML($_product, 'reports/product_viewed') . '</li>';
+        endforeach;
+        ?>
+    </ul>
+</div>
+<?php endif;
+

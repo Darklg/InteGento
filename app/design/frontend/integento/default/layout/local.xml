@@ -85,7 +85,10 @@
         <update handle="page_one_column"/>
     </sendfriend_product_send>
     <catalog_product_view>
-        <block parent="product.info" type="catalog/product_view_type_simple" name="product.share" as="product_share" template="catalog/product/view/share.phtml" />
+        <reference name="content">
+            <block parent="product.info" type="catalog/product_view_type_simple" name="product.share" as="product_share" template="catalog/product/view/share.phtml" />
+            <block type="reports/product_viewed" name="reports.product.viewed" alias="product_viewed" template="catalog/product/view/recently_viewed.phtml" />
+        </reference>
     </catalog_product_view>
 
     <!-- Account -->
