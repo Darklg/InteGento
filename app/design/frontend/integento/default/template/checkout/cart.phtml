@@ -34,15 +34,15 @@
     <?php echo $this->getChildHtml('totals'); ?>
 
     <?php if($this->getContinueShoppingUrl()): ?>
-    <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button btn-continue" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+    <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="cssc-button cssc-button--default btn-continue" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
     <?php endif; ?>
-    <?php if(!$this->hasError()): ?>
-    <ul class="checkout-types">
-    <?php foreach ($this->getMethods('methods') as $method): ?>
-        <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
-        <li><?php echo $methodHtml; ?></li>
-        <?php endif; ?>
-    <?php endforeach; ?>
-    </ul>
-    <?php endif; ?>
+    <?php
+    if(!$this->hasError()):
+        foreach ($this->getMethods('methods') as $method):
+            if ($methodHtml = $this->getMethodHtml($method)):
+                echo $methodHtml;
+            endif;
+        endforeach;
+    endif;
+    ?>
 </div>
