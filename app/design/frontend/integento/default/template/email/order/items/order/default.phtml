@@ -10,7 +10,7 @@
  */
 $_item = $this->getItem();
 $_order = $_item->getOrder();
-$_product = Mage::getModel('catalog/product')->load($_item->getId());
+$_product = Mage::getModel('catalog/product')->load($_item->getProductId());
 $itemImage = Mage::helper('catalog/image')->init($_product, 'small_image')->resize(75);
 ?>
 <tr>
