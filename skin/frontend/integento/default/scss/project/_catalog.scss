@@ -26,11 +26,12 @@
 ---------------------------------------------------------- */
 
 .product-essential .product-img-box,
-.product-essential .product-view {
+.product-essential .product-shop {
     float: left;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 40%;
+    min-height: 10px;
 }
 
 .product-essential .product-img-box {
@@ -52,9 +53,38 @@
     position: relative;
 }
 
+.product-img-box .product-image {
+    text-align: center;
+}
+
+/* Gallery */
+
 .product-img-box .more-views {
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     top: 10px;
     left: 10px;
+}
+
+.product-image-list {
+    z-index: 1;
+    position: relative;
+    min-height: 500px;
+}
+
+.product-image-list > .product-image {
+    visibility: hidden;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.product-image-list > .product-image.current {
+    visibility: visible;
+    opacity: 0.999;
 }

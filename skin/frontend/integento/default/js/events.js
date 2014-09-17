@@ -12,4 +12,9 @@ jQuery(document).ready(function() {
     if ($jQBody.hasClass('checkout-cart-index')) {
         setCartQtyModifierButtons();
     }
+
+    /* Catalog */
+    if ($jQBody.hasClass('catalog-product-view')) {
+        setProductViewImagesSlider();
+    }
 });
