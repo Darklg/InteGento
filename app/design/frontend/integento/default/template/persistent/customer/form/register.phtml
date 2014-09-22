@@ -22,7 +22,7 @@
     </div>
     <?php echo $this->getChildHtml('form_fields_before')?>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">
+    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="customer-register-form-validate">
         <div class="fieldset">
             <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
             <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
@@ -155,7 +155,7 @@
     </form>
     <script type="text/javascript">
     //<![CDATA[
-        var dataForm = new VarienForm('form-validate', true);
+        var dataForm = new VarienForm('customer-register-form-validate', true);
         <?php if($this->getShowAddressFields()): ?>
         new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
         <?php endif; ?>

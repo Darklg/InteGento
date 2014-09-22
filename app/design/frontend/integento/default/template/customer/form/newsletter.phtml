@@ -14,7 +14,7 @@
 </div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <?php echo $this->getChildHtml('form_before')?>
-<form action="<?php echo $this->getAction() ?>" method="post" id="form-validate">
+<form action="<?php echo $this->getAction() ?>" method="post" id="customer-newsletter-form-validate">
     <div class="fieldset">
         <?php echo $this->getBlockHtml('formkey')?>
         <ul class="cssc-form cssc-form--default">
@@ -34,6 +34,6 @@
 <?php echo $this->getChildHtml('customer.form.newsletter.extra2')?>
 <script type="text/javascript">
 //<![CDATA[
-    var dataForm = new VarienForm('form-validate', true);
+    var dataForm = new VarienForm('customer-newsletter-form-validate', true);
 //]]>
 </script>

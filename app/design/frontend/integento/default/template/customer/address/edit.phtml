@@ -17,7 +17,7 @@ if($this->getTitle()): ?>
 <h1><?php echo $this->getTitle() ?></h1>
 <?php endif; ?>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-<form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate">
+<form action="<?php echo $this->getSaveUrl() ?>" method="post" id="customer-address-edit-form-validate">
     <div class="fieldset">
     <?php echo $this->getBlockHtml('formkey')?>
     <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
@@ -126,7 +126,7 @@ if($this->getTitle()): ?>
 </form>
 <script type="text/javascript">
 //<![CDATA[
-    var dataForm = new VarienForm('form-validate', true);
+    var dataForm = new VarienForm('customer-address-edit-form-validate', true);
     new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
 //]]>
 </script>
