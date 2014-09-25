@@ -1,7 +1,52 @@
 <?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2014 Darklg
+ * @license     MIT
+ */
 $_storePhone = trim(Mage::getStoreConfig('general/store_information/phone'));
 $_storeEmail = trim(Mage::getStoreConfig('trans_email/ident_general/email'));
+$_socialMethods = array(
+    'facebook' => array(
+        'name' => 'Facebook',
+        'url' => '#'
+    ) ,
+    'twitter' => array(
+        'name' => 'Twitter',
+        'url' => '#'
+    ) ,
+    'pinterest' => array(
+        'name' => 'Pinterest',
+        'url' => '#'
+    ) ,
+    'twitter' => array(
+        'name' => 'Twitter',
+        'url' => '#'
+    ) ,
+    'gplus' => array(
+        'name' => 'Google Plus',
+        'url' => '#'
+    ) ,
+    'youtube' => array(
+        'name' => 'Youtube',
+        'url' => '#'
+    ) ,
+    'leblog' => array(
+        'name' => 'Le blog',
+        'url' => '#'
+    )
+);
 ?>
+</td><td width="10"></td></tr>
+<tr><td colspan="3" height="10"></td></tr>
+<tr><td width="10"></td><td style="text-align:center;">
+    <?php foreach($_socialMethods as $_id => $_method): ?>
+        <a style="font-size:12px;color:#000;" class="<?php echo $_id; ?>" href="<?php echo $_method['url']; ?>"><?php echo htmlentities($_method['name']); ?></a>
+    <?php endforeach; ?>
 </td><td width="10"></td></tr>
 <tr><td colspan="3" height="10"></td></tr>
 </table>
