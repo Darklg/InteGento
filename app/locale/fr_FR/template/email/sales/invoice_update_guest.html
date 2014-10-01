@@ -15,15 +15,15 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
 
 {{block type="core/template" template="email/header.phtml"}}
 
-<h1 style="font-size:22px; font-weight:normal; line-height:22px; margin:0 0 11px 0;">Chère/Cher, {{htmlescape var=$billing.getName()}},</h1>
-<p style="font-size:12px; line-height:16px; margin:0 0 10px 0;">
+<h1>Chère/Cher, {{htmlescape var=$billing.getName()}},</h1>
+<p>
     Votre commande n°{{var order.increment_id}} est
     <strong>{{var order.getStatusLabel()}}</strong>.
 </p>
-<p style="font-size:12px; line-height:16px; margin:0 0 10px 0;">{{var comment}}</p>
-<p style="font-size:12px; line-height:16px; margin:0;">
+<p>{{var comment}}</p>
+<p>
     Si vous avez des questions, n'hésitez pas à nous contacter à l'adresse
-    <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a>
+    <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a>
     ou par téléphone au {{config path='general/store_information/phone'}}.
 </p>
 {{block type="core/template" template="email/footer.phtml"}}

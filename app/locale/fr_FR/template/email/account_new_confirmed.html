@@ -11,16 +11,16 @@
 body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
 @-->
 {{block type="core/template" template="email/header.phtml"}}
-<h1 style="font-size:22px; font-weight:normal; line-height:22px; margin:0 0 11px 0;">Chère/Cher {{htmlescape var=$customer.name}},</h1>
-<p style="font-size:12px; line-height:16px; margin:0 0 16px 0;">Bienvenue dans {{var store.getFrontendName()}}. Pour vous connecter lorsque vous visitez notre site, il vous suffit de cliquer sur <a href="{{store url="customer/account/"}}" style="color:#1E7EC8;">Connexion</a> ou <a href="{{store url="customer/account/"}}" style="color:#1E7EC8;">Mon compte</a> en haut de chaque page, puis d'entrer votre adresse e-mail et votre mot de passe.</p>
-<p style="font-size:12px; line-height:16px; margin:0 0 8px 0;">Lorsque vous vous connectez à votre compte, vous pouvez effectuer les opérations suivantes:</p>
-<ul style="font-size:12px; line-height:16px; margin:0 0 16px 0; padding:0;">
-    <li style="list-style:none inside; padding:0 0 0 10px;">&ndash; – Procéder au paiement plus rapidement lorsque vous faites un achat</li>
-    <li style="list-style:none inside; padding:0 0 0 10px;">&ndash; – Vérifier l'état des commandes</li>
-    <li style="list-style:none inside; padding:0 0 0 10px;">&ndash; – Afficher les anciennes commandes</li>
-    <li style="list-style:none inside; padding:0 0 0 10px;">&ndash; – Modifier les informations sur votre compte</li>
-    <li style="list-style:none inside; padding:0 0 0 10px;">&ndash; – Changer votre mot de passe</li>
-    <li style="list-style:none inside; padding:0 0 0 10px;">&ndash; – Enregistrer d'autres adresses (pour l'expédition à plusieurs membres de votre famille et amis&nbsp;!)</li>
+<h1>Chère/Cher {{htmlescape var=$customer.name}},</h1>
+<p>Bienvenue dans {{var store.getFrontendName()}}. Pour vous connecter lorsque vous visitez notre site, il vous suffit de cliquer sur <a href="{{store url="customer/account/"}}">Connexion</a> ou <a href="{{store url="customer/account/"}}">Mon compte</a> en haut de chaque page, puis d'entrer votre adresse e-mail et votre mot de passe.</p>
+<p>Lorsque vous vous connectez à votre compte, vous pouvez effectuer les opérations suivantes:</p>
+<ul>
+    <li>&ndash; – Procéder au paiement plus rapidement lorsque vous faites un achat</li>
+    <li>&ndash; – Vérifier l'état des commandes</li>
+    <li>&ndash; – Afficher les anciennes commandes</li>
+    <li>&ndash; – Modifier les informations sur votre compte</li>
+    <li>&ndash; – Changer votre mot de passe</li>
+    <li>&ndash; – Enregistrer d'autres adresses (pour l'expédition à plusieurs membres de votre famille et amis&nbsp;!)</li>
 </ul>
-<p style="font-size:12px; line-height:16px; margin:0;">Si vous avez des questions concernant votre compte ou un autre sujet, n'hésitez pas à nous contacter à l'adresse <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a> ou par téléphone au {{config path='general/store_information/phone'}}.</p>
+<p>Si vous avez des questions concernant votre compte ou un autre sujet, n'hésitez pas à nous contacter à l'adresse <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a> ou par téléphone au {{config path='general/store_information/phone'}}.</p>
 {{block type="core/template" template="email/footer.phtml"}}

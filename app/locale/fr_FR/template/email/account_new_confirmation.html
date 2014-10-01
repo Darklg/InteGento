@@ -15,12 +15,12 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
 @-->
 
 {{block type="core/template" template="email/header.phtml"}}
-<h1 style="font-size:22px; font-weight:normal; line-height:22px; margin:0 0 11px 0;">Chère/Cher {{htmlescape var=$customer.name}},</h1>
-<p style="font-size:12px; line-height:16px; margin:0 0 16px 0;">Votre e-mail {{var customer.email}} doit être confirmé avant de l'utiliser pour vous connecter à notre magasin.</p>
-<p style="font-size:12px; line-height:16px; margin:0 0 8px 0;">Pour confirmer l'e-mail et vous connecter instantanément, veuillez utiliser <a href="{{store url="customer/account/confirm/" _query_id=$customer.id _query_key=$customer.confirmation _query_back_url=$back_url}}" style="color:#1E7EC8;">ce lien de confirmation</a>. Ce lien n'est valide qu'une seule fois.</p>
-<p style="border:1px solid #E0E0E0; font-size:12px; line-height:16px; margin:0 0 16px 0; padding:13px 18px; background:#f9f9f9;">
+<h1>Chère/Cher {{htmlescape var=$customer.name}},</h1>
+<p>Votre e-mail {{var customer.email}} doit être confirmé avant de l'utiliser pour vous connecter à notre magasin.</p>
+<p>Pour confirmer l'e-mail et vous connecter instantanément, veuillez utiliser <a href="{{store url="customer/account/confirm/" _query_id=$customer.id _query_key=$customer.confirmation _query_back_url=$back_url}}">ce lien de confirmation</a>. Ce lien n'est valide qu'une seule fois.</p>
+<p>
     Utilisez les valeurs suivantes lorsque vous êtes invité(e) à vous connecter:<br/>
     <strong>E-mail:</strong> {{var customer.email}}<br/>
     <strong>Mot de passe:</strong> {{htmlescape var=$customer.password}}<p>
-<p style="font-size:12px; line-height:16px; margin:0;">Si vous avez des questions concernant votre compte ou un autre sujet, n'hésitez pas à nous contacter à l'adresse <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a> ou par téléphone au {{config path='general/store_information/phone'}}.</p>
+<p>Si vous avez des questions concernant votre compte ou un autre sujet, n'hésitez pas à nous contacter à l'adresse <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a> ou par téléphone au {{config path='general/store_information/phone'}}.</p>
 {{block type="core/template" template="email/footer.phtml"}}

@@ -12,12 +12,12 @@
 body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
 @-->
 {{block type="core/template" template="email/header.phtml"}}
-<h1 style="font-size:22px; font-weight:normal; line-height:22px; margin:0 0 11px 0;">Chère/Cher {{htmlescape var=$customer.name}},</h1>
-<p style="font-size:12px; line-height:16px; margin:0 0 16px 0;">Bienvenue dans {{var store.getFrontendName()}}. Pour vous connecter lorsque vous visitez notre site, il vous suffit de cliquer sur <a href="{{store url="customer/account/"}}" style="color:#1E7EC8;">Connexion</a> ou <a href="{{store url="customer/account/"}}" style="color:#1E7EC8;">Mon compte</a> en haut de chaque page, puis d'entrer votre adresse e-mail et votre mot de passe.</p>
-<p style="border:1px solid #E0E0E0; font-size:12px; line-height:16px; margin:0; padding:13px 18px; background:#f9f9f9;">
+<h1>Chère/Cher {{htmlescape var=$customer.name}},</h1>
+<p>Bienvenue dans {{var store.getFrontendName()}}. Pour vous connecter lorsque vous visitez notre site, il vous suffit de cliquer sur <a href="{{store url="customer/account/"}}">Connexion</a> ou <a href="{{store url="customer/account/"}}">Mon compte</a> en haut de chaque page, puis d'entrer votre adresse e-mail et votre mot de passe.</p>
+<p>
 Utilisez les valeurs suivantes lorsque vous êtes invité(e) à vous connecter:<br/>
 <strong>E-mail</strong>: {{var customer.email}}<br/>
 <strong>Mot de passe</strong>: {{htmlescape var=$customer.password}}<p>
-<p style="font-size:12px; line-height:16px; margin:0 0 8px 0;">Lorsque vous vous connectez à votre compte, vous pouvez effectuer les opérations suivantes:</p>
-<p style="font-size:12px; line-height:16px; margin:0;">Si vous avez des questions concernant votre compte ou un autre sujet, n'hésitez pas à nous contacter à l'adresse <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a> ou par téléphone au {{config path='general/store_information/phone'}}.</p>
+<p>Lorsque vous vous connectez à votre compte, vous pouvez effectuer les opérations suivantes:</p>
+<p>Si vous avez des questions concernant votre compte ou un autre sujet, n'hésitez pas à nous contacter à l'adresse <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a> ou par téléphone au {{config path='general/store_information/phone'}}.</p>
 {{block type="core/template" template="email/footer.phtml"}}

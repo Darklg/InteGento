@@ -21,7 +21,7 @@ $itemImage = Mage::helper('catalog/image')->init($_product, 'small_image')->resi
         <dl style="margin:0; padding:0;">
             <?php foreach ($this->getItemOptions() as $option): ?>
             <dt><strong><em><?php echo $option['label'] ?></em></strong></dt>
-            <dd style="margin:0; padding:0 0 0 9px;">
+            <dd>
                 <?php echo nl2br($option['value']) ?>
             </dd>
             <?php endforeach; ?>
