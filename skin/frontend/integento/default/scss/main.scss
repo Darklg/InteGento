@@ -19,7 +19,6 @@ $sprites2x: sprite-map("sprites-2x/*.png");  /* :) */
   Utilities
 ---------------------------------------------------------- */
 
-@import "utilities/_plugins.scss";
 @import "utilities/_retina-sprites.scss";
 
 /* ----------------------------------------------------------
@@ -42,6 +41,7 @@ $sprites2x: sprite-map("sprites-2x/*.png");  /* :) */
 
 @import "project/_base.scss";
 @import "project/base/_forms.scss";
+@import "project/base/_forms-plugins.scss";
 @import "project/base/_messages.scss";
 
 /* Layout

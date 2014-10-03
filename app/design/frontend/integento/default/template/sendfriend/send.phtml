@@ -60,7 +60,7 @@
         <div class="fieldset">
             <?php echo $this->getBlockHtml('formkey')?>
             <h2 class="legend"><?php echo $this->__('Sender:') ?></h2>
-            <ul class="cssc-form float-form cssc-form--default" id="sender_options">
+            <ul class="cssc-form float-form cssc-form--mage" id="sender_options">
                 <li class="box">
                     <label for="sender_name" class="required"><?php echo $this->__('Name:') ?> <em>*</em></label>
                     <div class="input-box">
@@ -83,7 +83,7 @@
         </div>
         <div class="fieldset">
             <h2 class="legend"><?php echo $this->__('Recipient:') ?></h2>
-            <ul class="cssc-form float-form cssc-form--default" id="recipients_options">
+            <ul class="cssc-form float-form cssc-form--mage" id="recipients_options">
                 <li class="box">
                     <label for="recipients_name" class="required"><?php echo $this->__('Name:') ?> <em>*</em></label>
                     <div class="input-box">
@@ -105,9 +105,9 @@
                 <?php endif; ?>
             </div>
             <p>
-            <button type="submit" class="cssc-button cssc-button--default button<?php if (!$this->canSend()):?> disabled<?php endif ?>"<?php if (!$this->canSend()):?> disabled="disabled"<?php endif ?>><?php echo $this->__('Send Email') ?></button>
+            <button type="submit" class="cssc-button cssc-button--mage button<?php if (!$this->canSend()):?> disabled<?php endif ?>"<?php if (!$this->canSend()):?> disabled="disabled"<?php endif ?>><?php echo $this->__('Send Email') ?></button>
             <?php if (1 < $this->getMaxRecipients()): ?>
-                <button id="add_recipient_button" type="button" onclick="add_recipient();" class="cssc-button cssc-button--default button"><?php echo $this->__('Add Recipient') ?></button>
+                <button id="add_recipient_button" type="button" onclick="add_recipient();" class="cssc-button cssc-button--mage button"><?php echo $this->__('Add Recipient') ?></button>
             <?php endif; ?>
             </p>
         </div>

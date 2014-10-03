@@ -25,7 +25,7 @@ $_h = $this->helper('customer/data');
         <?php else: ?>
             <form id="header-login-form" action="<?php echo $_loginPostUrl; ?>" method="post">
                 <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
-                <ul class="cssc-form cssc-form--default">
+                <ul class="cssc-form cssc-form--mage">
                     <li class="box">
                         <label for="mini-login"><?php echo $this->__('Email:') ?></label>
                         <input type="text" name="login[username]" id="mini-login" class="input-text" />
@@ -39,7 +39,7 @@ $_h = $this->helper('customer/data');
                     </li>
                     <li class="box login-submit-box">
                         <div class="actions">
-                            <button type="submit" class="cssc-button cssc-button--default"><?php echo $this->__('Login') ?></button>
+                            <button type="submit" class="cssc-button cssc-button--mage"><?php echo $this->__('Login') ?></button>
                         </div>
                     </li>
                 </ul>

@@ -22,7 +22,7 @@ if($this->getTitle()): ?>
     <?php echo $this->getBlockHtml('formkey')?>
     <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
     <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
-        <ul class="cssc-form float-form cssc-form--default">
+        <ul class="cssc-form float-form cssc-form--mage">
             <?php echo $this->getNameBlockHtml() ?>
             <li class="box">
                 <label for="company"><?php echo $this->__('Company') ?></label>
@@ -119,7 +119,7 @@ if($this->getTitle()): ?>
             </li>
             <li class="box submit-box">
                 <p class="required"><?php echo $this->__('* Required Fields') ?></p>
-                <button data-action="save-customer-address" type="submit" title="<?php echo $this->__('Save Address') ?>" class="cssc-button cssc-button--default"><?php echo $this->__('Save Address') ?></button>
+                <button data-action="save-customer-address" type="submit" title="<?php echo $this->__('Save Address') ?>" class="cssc-button cssc-button--mage"><?php echo $this->__('Save Address') ?></button>
             </li>
         </ul>
     </div>

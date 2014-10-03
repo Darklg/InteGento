@@ -26,7 +26,7 @@
             <div class="content">
                 <h2><?php echo $this->__('Registered Customers') ?></h2>
                 <p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
-                <ul class="cssc-form float-form cssc-form--default">
+                <ul class="cssc-form float-form cssc-form--mage">
                     <li class="box">
                         <label for="email" class="required"><?php echo $this->__('Email Address') ?> <em>*</em></label>
                         <div class="input-box">
@@ -45,7 +45,7 @@
                     <?php echo $this->getChildHtml('form.additional.info'); ?>
                     <?php echo $this->getChildHtml('persistent.remember.me'); ?>
                     <li class="box submit-box">
-                        <button type="submit" class="cssc-button cssc-button--default" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><?php echo $this->__('Login') ?></button>
+                        <button type="submit" class="cssc-button cssc-button--mage" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><?php echo $this->__('Login') ?></button>
                         <p class="required"><?php echo $this->__('* Required Fields') ?></p>
                     </li>
                 </ul>
@@ -60,7 +60,7 @@
                 <p><?php echo $this->__('By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.') ?></p>
             </div>
             <div class="buttons-set">
-                <button type="button" title="<?php echo $this->__('Create an Account') ?>" class="cssc-button cssc-button--default" onclick="window.location='<?php echo Mage::helper('persistent')->getCreateAccountUrl($this->getCreateAccountUrl()) ?>';"><?php echo $this->__('Create an Account') ?></button>
+                <button type="button" title="<?php echo $this->__('Create an Account') ?>" class="cssc-button cssc-button--mage" onclick="window.location='<?php echo Mage::helper('persistent')->getCreateAccountUrl($this->getCreateAccountUrl()) ?>';"><?php echo $this->__('Create an Account') ?></button>
             </div>
         </div>
         </div>

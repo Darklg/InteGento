@@ -24,7 +24,7 @@ $_imgUrl = $this->helper('catalog/image')->init($_product, 'small_image')->resiz
     <div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><?php echo $this->getPriceHtml($_product, true, '-new') ?></div>
     <div class="actions">
         <?php if($_product->isSaleable()): ?>
-        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="cssc-button cssc-button--default btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Add to Cart') ?></button>
+        <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="cssc-button cssc-button--mage btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><?php echo $this->__('Add to Cart') ?></button>
         <?php else: ?>
         <p class="availability out-of-stock"><?php echo $this->__('Out of stock') ?></p>
         <?php endif; ?>

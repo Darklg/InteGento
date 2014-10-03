@@ -22,7 +22,7 @@ echo $this->getChildHtml('login_before')?>
             <h3><?php if( $this->getQuote()->isAllowedGuestCheckout() ): ?><?php echo $this->__('Checkout as a Guest or Register') ?><?php else: ?><?php echo $this->__('Register to Create an Account') ?><?php endif; ?></h3>
             <p><?php echo $this->__('Register with us for future convenience:') ?></p>
             <?php if( $this->getQuote()->isAllowedGuestCheckout() ): ?>
-                <ul class="cssc-form cssc-form--default">
+                <ul class="cssc-form cssc-form--mage">
                     <?php if( $this->getQuote()->isAllowedGuestCheckout() ): ?>
                     <li class="box checked-box">
                         <input type="radio" name="checkout_method" id="login:guest" value="guest"<?php if($this->getQuote()->getCheckoutMethod()==Mage_Checkout_Model_Type_Onepage::METHOD_GUEST): ?> checked="checked"<?php endif; ?> class="radio fakeinputbox-me" />
@@ -39,12 +39,12 @@ echo $this->getChildHtml('login_before')?>
             <?php endif; ?>
             <div class="buttons-set">
                 <?php if ($this->getQuote()->isAllowedGuestCheckout()): ?>
-                    <button id="onepage-guest-register-button" type="button" class="cssc-button cssc-button--default" onclick="checkout.setMethod();"><?php echo $this->__('Continue') ?></button>
+                    <button id="onepage-guest-register-button" type="button" class="cssc-button cssc-button--mage" onclick="checkout.setMethod();"><?php echo $this->__('Continue') ?></button>
                 <?php elseif ($this->helper('checkout')->isCustomerMustBeLogged()): ?>
-                    <button id="onepage-guest-register-button" type="button" class="cssc-button cssc-button--default" onclick="window.location='<?php echo $this->helper('checkout/url')->getRegistrationUrl();?>'"><?php echo $this->__('Register') ?></button>
+                    <button id="onepage-guest-register-button" type="button" class="cssc-button cssc-button--mage" onclick="window.location='<?php echo $this->helper('checkout/url')->getRegistrationUrl();?>'"><?php echo $this->__('Register') ?></button>
                 <?php else: ?>
                     <form action="<?php echo $this->getUrl('persistent/index/saveMethod'); ?>">
-                        <button id="onepage-guest-register-button" type="submit" class="cssc-button cssc-button--default"><?php echo $this->__('Register') ?></button>
+                        <button id="onepage-guest-register-button" type="submit" class="cssc-button cssc-button--mage"><?php echo $this->__('Register') ?></button>
                     </form>
                 <?php endif; ?>
             </div>
@@ -58,7 +58,7 @@ echo $this->getChildHtml('login_before')?>
             <fieldset>
                 <?php echo $this->getBlockHtml('formkey'); ?>
                 <p><?php echo $this->__('Please log in below:') ?></p>
-                <ul class="cssc-form cssc-form--default">
+                <ul class="cssc-form cssc-form--mage">
                     <li class="box">
                         <label for="login-email" class="required"><?php echo $this->__('Email Address') ?> <em>*</em></label>
                         <div class="input-box">
@@ -81,7 +81,7 @@ echo $this->getChildHtml('login_before')?>
                     </li>
                     <li class="box submit-box">
                         <p class="required"><?php echo $this->__('* Required Fields') ?></p>
-                        <button type="submit" class="cssc-button cssc-button--default" onclick="onepageLogin(this)"><?php echo $this->__('Login') ?></button>
+                        <button type="submit" class="cssc-button cssc-button--mage" onclick="onepageLogin(this)"><?php echo $this->__('Login') ?></button>
                     </li>
                 </ul>
 

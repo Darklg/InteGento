@@ -4,15 +4,249 @@
   Forms
 ---------------------------------------------------------- */
 
-.checked-box .input-box {
-    display: inline-block;
-    vertical-align: middle;
+.cssc-form--mage {
+    margin-bottom: 20px;
+    max-width: 100%;
 }
 
-.fake-inputbox-wrapper {
-    vertical-align: -3px;
+/* Fieldsets */
+
+.cssc-form--mage fieldset {
+    margin-bottom: 15px;
+    border-top: 1px solid #e0e0e0;
 }
 
-.fake-inputbox-wrapper + label {
-    margin-left: 3px;
+.cssc-form--mage fieldset:last-child {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cssc-form--mage legend {
+    display: block;
+    margin-bottom: 10px;
+    padding-right: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Boxes
+-------------------------- */
+
+.cssc-form--mage .box {
+    margin-bottom: 10px;
+    min-height: 25px;
+    line-height: 25px;
+}
+
+.cssc-form--mage .box:last-child {
+    margin-bottom: 0;
+}
+
+.cssc-form--mage .twoboxes li.box:first-child {
+    padding-right: 10px;
+}
+
+.cssc-form--mage .twoboxes li.box + li.box {
+    padding-left: 10px;
+}
+
+.cssc-form--mage.float-form .twoboxes li.box + li.box {
+    padding-left: 140px;
+}
+
+/* Boxes with multiple fields */
+
+.cssc-form.cssc-form--mage .multibox-box input[type=text],
+.cssc-form.cssc-form--mage .multibox-box input[type=url],
+.cssc-form.cssc-form--mage .multibox-box input[type=email],
+.cssc-form.cssc-form--mage .multibox-box input[type=password] {
+    width: 65px;
+}
+
+.cssc-form.cssc-form--mage .multibox-box input.halfling {
+    width: 45px;
+}
+
+/* Labels
+-------------------------- */
+
+.cssc-form--mage.float-form .box {
+    padding-left: 130px;
+}
+
+.cssc-form--mage.float-form .fake-label,
+.cssc-form--mage.float-form label {
+    width: 120px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.cssc-form--mage .fake-label,
+.cssc-form--mage label {
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cssc-form--mage.float-form .box .long-label {
+    top: -1px;
+    line-height: 13px;
+}
+
+.cssc-form--mage .fake-label em,
+.cssc-form--mage label em {
+    font-style: normal;
+    font-weight: bold;
+    color: #369;
+}
+
+/* Fields
+-------------------------- */
+
+.inputbase,
+.cssc-select,
+.cssc-form--mage textarea,
+.cssc-form--mage .fake-input,
+.cssc-form--mage input[type=text],
+.cssc-form--mage input[type=url],
+.cssc-form--mage input[type=email],
+.cssc-form--mage input[type=password] {
+    height: 25px;
+    padding: 0 5px;
+    border: 1px solid #999;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #333;
+    background: #fafafa no-repeat center right;
+}
+
+.cssc-select {
+    padding: 3px 23px 3px 5px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAQAAADvCgS4AAAAGklEQVR4AWNg+I8BcQGCyhAAXRlhpcQAQsoAMGIY6KADYAUAAAAASUVORK5CYII=);
+}
+
+.cssc-form--mage .fake-input,
+.lt_ie9 .inputbase,
+.lt_ie9 .cssc-form--mage input[type=text],
+.lt_ie9 .cssc-form--mage input[type=url],
+.lt_ie9 .cssc-form--mage input[type=email],
+.lt_ie9 .cssc-form--mage input[type=password] {
+    line-height: 25px;
+}
+
+.cssc-form--mage textarea {
+    padding: 5px;
+    min-height: 80px;
+}
+
+.inputbase:focus,
+.cssc-select:focus,
+.cssc-form--mage textarea:focus,
+.cssc-form--mage input[type=text]:focus,
+.cssc-form--mage input[type=url]:focus,
+.cssc-form--mage input[type=email]:focus,
+.cssc-form--mage input[type=password]:focus {
+    border-color: #333;
+    color: #000;
+    background-color: #fff;
+}
+
+.cssc-form--mage input[type=radio],
+.cssc-form--mage input[type=checkbox] {
+    width: 12px;
+    height: 12px;
+}
+
+/* Help
+-------------------------- */
+
+.cssc-form--mage small {
+    font-size: 11px;
+    line-height: 16px;
+    color: #676767;
+}
+
+.cssc-form--mage.block-form .side-small {
+    line-height: 25px;
+}
+
+/* Autocomplete
+-------------------------- */
+
+.cssc-form--mage .box-autocomplete,
+.cssc-form--mage .box-autocomplete .result {
+    -webkit-transition: background 0.3s ease,color 0.3s ease;
+    transition: background 0.3s ease,color 0.3s ease;
+}
+
+.cssc-form--mage .box-autocomplete {
+    border: 1px solid #f0f0f0;
+    border-top: 0;
+    background: #FFF;
+    background-color: rgba(255,255,255,.9);
+}
+
+.cssc-form--mage.float-form .box-autocomplete {
+    top: 25px;
+    left: 130px;
+}
+
+.cssc-form--mage .box:hover .box-autocomplete {
+    background-color: #fff;
+}
+
+.cssc-form--mage .box-autocomplete .result {
+    padding: 0 10px;
+    font-size: 13px;
+    line-height: 25px;
+    color: #999;
+    cursor: pointer;
+}
+
+.cssc-form--mage .box-autocomplete .result:hover {
+    color: #333;
+    background-color: #EEE;
+}
+
+/* ----------------------------------------------------------
+  Buttons
+---------------------------------------------------------- */
+
+.cssc-button--mage {
+    height: 25px;
+    padding: 0 8px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+    font: 12px/25px sans-serif;
+    color: #333;
+    background: #e0e0e0 no-repeat 0 0;
+}
+
+.cssc-button--mage:focus,
+.cssc-button--mage:hover {
+    border-color: #bbb;
+    color: #000;
+    background-position: 0 12px;
+}
+
+.cssc-button--mage:active {
+    border-color: #888;
+    background-position: 0 25px;
+}
+
+.cssc-button--mage[disabled],
+.cssc-button--mage[disabled]:focus,
+.cssc-button--mage[disabled]:hover,
+.cssc-button--mage[disabled]:active {
+    border: 1px solid #ccc;
+    color: #333;
+    opacity: 0.66;
+    background: #e0e0e0;
+    cursor: default;
+    filter: alpha(opacity=66);
 }

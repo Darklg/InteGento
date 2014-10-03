@@ -27,7 +27,7 @@
             <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
             <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
             <h2 class="legend"><?php echo $this->__('Personal Information') ?></h2>
-            <ul class="cssc-form cssc-form--default float-form">
+            <ul class="cssc-form cssc-form--mage float-form">
                 <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
                 <li class="box">
                     <label for="email_address" class="required"><?php echo $this->__('Email Address') ?> <em>*</em></label>
@@ -61,7 +61,7 @@
         <div class="fieldset">
             <input type="hidden" name="create_address" value="1" />
             <h2 class="legend"><?php echo $this->__('Address Information') ?></h2>
-            <ul class="cssc-form cssc-form--default float-form">
+            <ul class="cssc-form cssc-form--mage float-form">
                 <li class="box">
                     <label for="company"><?php echo $this->__('Company') ?></label>
                     <div class="input-box">
@@ -127,7 +127,7 @@
     <?php endif; ?>
         <div class="fieldset">
             <h2 class="legend"><?php echo $this->__('Login Information') ?></h2>
-            <ul class="cssc-form cssc-form--default float-form">
+            <ul class="cssc-form cssc-form--mage float-form">
                 <li class="box">
                     <label for="password" class="required"><?php echo $this->__('Password') ?> <em>*</em></label>
                     <div class="input-box">
@@ -147,7 +147,7 @@
         </div>
         <div class="buttons-set">
             <p class="required"><?php echo $this->__('* Required Fields') ?></p>
-            <button type="submit" title="<?php echo $this->__('Submit') ?>" class="cssc-button cssc-button--default"><?php echo $this->__('Submit') ?></button>
+            <button type="submit" title="<?php echo $this->__('Submit') ?>" class="cssc-button cssc-button--mage"><?php echo $this->__('Submit') ?></button>
         </div>
         <?php if (Mage::helper('checkout')->isContextCheckout()): ?>
             <input name="context" type="hidden" value="checkout" />

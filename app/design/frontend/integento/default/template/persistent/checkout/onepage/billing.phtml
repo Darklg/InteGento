@@ -15,7 +15,7 @@
     <ul>
     <?php if ($this->customerHasAddresses()): ?>
         <li>
-            <ul class="cssc-form cssc-form--default">
+            <ul class="cssc-form cssc-form--mage">
             <li class="box">
                 <label for="billing-address-select"><?php echo $this->__('Select a billing address from your address book or enter a new address.') ?></label>
                 <div class="input-box fakeselect-child">
@@ -28,7 +28,7 @@
     <li id="billing-new-address-form"<?php if ($this->customerHasAddresses()): ?> style="display:none;"<?php endif; ?>>
         <fieldset>
             <input type="hidden" name="billing[address_id]" value="<?php echo $this->getAddress()->getId() ?>" id="billing:address_id" />
-            <ul class="cssc-form float-form cssc-form--default">
+            <ul class="cssc-form float-form cssc-form--mage">
                 <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getAddress()->getFirstname() ? $this->getAddress() : $this->getQuote()->getCustomer())->setForceUseCustomerRequiredAttributes(!$this->isCustomerLoggedIn())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
                 <li class="box">
                     <label for="billing:company"><?php echo $this->__('Company') ?></label>
@@ -177,10 +177,10 @@
     <?php if (!$this->canShip()): ?>
         <input type="hidden" name="billing[use_for_shipping]" value="1" />
     <?php endif; ?>
-    <ul class="cssc-form cssc-form--default">
+    <ul class="cssc-form cssc-form--mage">
         <li class="box submit-box" id="billing-buttons-container">
             <p class="required"><?php echo $this->__('* Required Fields') ?></p>
-            <button type="button" title="<?php echo $this->__('Continue') ?>" class="cssc-button cssc-button--default" onclick="billing.save()"><?php echo $this->__('Continue') ?></button>
+            <button type="button" title="<?php echo $this->__('Continue') ?>" class="cssc-button cssc-button--mage" onclick="billing.save()"><?php echo $this->__('Continue') ?></button>
 
         </li>
     </ul>

@@ -17,7 +17,7 @@
 <form action="<?php echo $this->getAction() ?>" method="post" id="customer-newsletter-form-validate">
     <div class="fieldset">
         <?php echo $this->getBlockHtml('formkey')?>
-        <ul class="cssc-form cssc-form--default">
+        <ul class="cssc-form cssc-form--mage">
             <li class="box checked-box">
                 <input type="checkbox" name="is_subscribed" id="subscription" value="1" title="<?php echo $this->__('General Subscription') ?>"<?php if($this->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox fakeinputbox-me" />
                 <label for="subscription"><?php echo $this->__('General Subscription') ?></label>
@@ -25,7 +25,7 @@
             <?php /* Extensions placeholder */ ?>
             <?php echo $this->getChildHtml('customer.form.newsletter.extra')?>
             <li class="box">
-                <button type="submit" title="<?php echo $this->__('Save') ?>" class="cssc-button cssc-button--default"><?php echo $this->__('Save') ?></button>
+                <button type="submit" title="<?php echo $this->__('Save') ?>" class="cssc-button cssc-button--mage"><?php echo $this->__('Save') ?></button>
             </li>
         </ul>
     </div>

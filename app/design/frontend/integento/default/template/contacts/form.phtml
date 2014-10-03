@@ -15,7 +15,7 @@
 </div>
 <form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post">
     <h2 class="legend"><?php echo Mage::helper('contacts')->__('Contact Information') ?></h2>
-    <ul class="cssc-form cssc-form--default float-form">
+    <ul class="cssc-form cssc-form--mage float-form">
         <li class="box">
             <label for="name" class="required"><?php echo Mage::helper('contacts')->__('Name') ?> <em>*</em></label>
             <div class="input-box">
@@ -43,7 +43,7 @@
         <li class="box submit-box">
             <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
             <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
-            <button type="submit" title="<?php echo Mage::helper('contacts')->__('Submit') ?>" class="cssc-button cssc-button--default"><?php echo Mage::helper('contacts')->__('Submit') ?></button>
+            <button type="submit" title="<?php echo Mage::helper('contacts')->__('Submit') ?>" class="cssc-button cssc-button--mage"><?php echo Mage::helper('contacts')->__('Submit') ?></button>
         </li>
     </ul>
 </form>

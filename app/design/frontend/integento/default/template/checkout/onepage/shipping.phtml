@@ -14,7 +14,7 @@
     <ul>
     <?php if ($this->customerHasAddresses()): ?>
         <li>
-            <ul class="cssc-form cssc-form--default">
+            <ul class="cssc-form cssc-form--mage">
                 <li class="box">
                     <label for="shipping-address-select"><?php echo $this->__('Select a shipping address from your address book or enter a new address.') ?></label>
                     <div class="input-box fakeselect-child">
@@ -27,7 +27,7 @@
         <li id="shipping-new-address-form"<?php if ($this->customerHasAddresses()): ?> style="display:none;"<?php endif ?>>
             <fieldset>
                 <input type="hidden" name="shipping[address_id]" value="<?php echo $this->getAddress()->getId() ?>" id="shipping:address_id" />
-                <ul class="cssc-form float-form cssc-form--default">
+                <ul class="cssc-form float-form cssc-form--mage">
                     <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getAddress())->setFieldIdFormat('shipping:%s')->setFieldNameFormat('shipping[%s]')->setFieldParams('onchange="shipping.setSameAsBilling(false)"')->toHtml() ?>
                     <li class="box">
                         <label for="shipping:company"><?php echo $this->__('Company') ?></label>
@@ -114,7 +114,7 @@
             </fieldset>
         </li>
         <li>
-            <ul class="cssc-form cssc-form--default">
+            <ul class="cssc-form cssc-form--mage">
                 <li class="box checked-box">
                     <input type="checkbox" name="shipping[same_as_billing]" id="shipping:same_as_billing" value="1"<?php if($this->getAddress()->getSameAsBilling()): ?> checked="checked"<?php endif; ?> title="<?php echo $this->__('Use Billing Address') ?>" onclick="shipping.setSameAsBilling(this.checked)" class="fakeinputbox-me" />
                     <label for="shipping:same_as_billing"><?php echo $this->__('Use Billing Address') ?></label>
@@ -123,7 +123,7 @@
         </li>
         <li class="buttons-set" id="shipping-buttons-container">
             <p class="required"><?php echo $this->__('* Required Fields') ?></p>
-            <button type="button" class="cssc-button cssc-button--default" title="<?php echo $this->__('Continue') ?>" onclick="shipping.save()"><?php echo $this->__('Continue') ?></button>
+            <button type="button" class="cssc-button cssc-button--mage" title="<?php echo $this->__('Continue') ?>" onclick="shipping.save()"><?php echo $this->__('Continue') ?></button>
             <span id="shipping-please-wait" class="please-wait" style="display:none;">
                 <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Loading next step...') ?>" title="<?php echo $this->__('Loading next step...') ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
             </span>

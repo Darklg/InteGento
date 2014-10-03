@@ -26,7 +26,7 @@ if($_product->isSaleable()):
     <?php endif; ?>
 
     <div class="add-to-cart">
-        <button type="button" title="<?php echo $buttonTitle ?>" id="product-addtocart-button" class="button btn-cart cssc-button cssc-button--default" onclick="productAddToCartForm.submit(this)"><?php echo $buttonTitle ?></button>
+        <button type="button" title="<?php echo $buttonTitle ?>" id="product-addtocart-button" class="button btn-cart cssc-button cssc-button--mage" onclick="productAddToCartForm.submit(this)"><?php echo $buttonTitle ?></button>
         <?php echo $this->getChildHtml('', true, true) ?>
     </div>
 <?php endif;

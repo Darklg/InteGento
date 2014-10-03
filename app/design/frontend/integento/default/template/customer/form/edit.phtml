@@ -17,7 +17,7 @@
     <div class="fieldset">
         <?php echo $this->getBlockHtml('formkey')?>
         <h2 class="legend"><?php echo $this->__('Account Information') ?></h2>
-        <ul class="cssc-form cssc-form--default float-form">
+        <ul class="cssc-form cssc-form--mage float-form">
             <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getCustomer())->toHtml() ?>
             <li class="box">
                 <label for="email" class="required"><?php echo $this->__('Email Address') ?> <em>*</em></label>
@@ -45,7 +45,7 @@
     </div>
     <div class="fieldset" style="display:none;">
         <h2 class="legend"><?php echo $this->__('Change Password') ?></h2>
-        <ul class="cssc-form cssc-form--default float-form">
+        <ul class="cssc-form cssc-form--mage float-form">
             <li class="box">
                 <label for="current_password" class="required long-label"><?php echo $this->__('Current Password') ?> <em>*</em></label>
                 <div class="input-box">
@@ -70,7 +70,7 @@
     </div>
     <div class="buttons-set">
         <p class="required"><?php echo $this->__('* Required Fields') ?></p>
-        <button type="submit" title="<?php echo $this->__('Save') ?>" class="cssc-button cssc-button--default"><?php echo $this->__('Save') ?></button>
+        <button type="submit" title="<?php echo $this->__('Save') ?>" class="cssc-button cssc-button--mage"><?php echo $this->__('Save') ?></button>
     </div>
 </form>
 <script type="text/javascript">
