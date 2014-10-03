@@ -7,6 +7,7 @@ jQuery(document).ready(function() {
     jQuery('[href^=#]').dkSmoothScroll();
     setAllPagesFakeElements();
     setAllPagesDataTogglers();
+    setAllPagesResponsiveMainMenu();
 
     /* Cart */
     if ($jQBody.hasClass('checkout-cart-index')) {

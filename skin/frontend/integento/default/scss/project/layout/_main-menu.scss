@@ -51,3 +51,119 @@
     visibility: visible;
     opacity: 0.99;
 }
+
+/* Responsive
+-------------------------- */
+
+@media(max-width:767px) {
+    .nav-container__toggle,
+    .nav-container__filter,
+    .nav-container {
+        z-index: 99;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+    }
+
+    /* Menu components */
+
+    .nav-container {
+        z-index: 100;
+        bottom: 0;
+        width: 130px;
+        padding-top: 50px;
+        background-color: #f0f0f0;
+        -webkit-transition: -webkit-transform 0.3s ease;
+        transition: transform 0.3s ease;
+        -webkit-transform: translate3d(-200px,0,0);
+        -moz-transform: translate3d(-200px,0,0);
+        transform: translate3d(-200px,0,0);
+    }
+
+    .nav-container__toggle {
+        z-index: 101;
+        padding: 10px;
+        background-color: #F0F0F0;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    .nav-container__toggle:before {
+        content: 'menu';
+    }
+
+    .nav-container__filter {
+        visibility: hidden;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        background-color: #F0F0F0;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+
+    .has-nav-container-open .nav-container__filter {
+        visibility: visible;
+        opacity: 0.80;
+    }
+
+    .has-nav-container-open .nav-container {
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+
+    /* Menu items */
+
+    .nav-container li.level0 {
+        display: block;
+        position: static;
+    }
+
+    .nav-container li.level0 > a {
+        z-index: 1;
+        position: relative;
+    }
+
+    .nav-container .nav-toggler {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        padding: 3px;
+    }
+
+    .nav-container .nav-toggler:before {
+        content: '>';
+    }
+
+    .nav-container ul.level0 {
+        top: 0;
+        bottom: 0;
+        left: 100%;
+        width: 100%;
+        overflow: auto;
+    }
+
+    .nav-container .over > ul.level0 {
+        visibility: hidden;
+    }
+
+    .nav-container .is-opened > a {
+        background-color: #fff;
+    }
+
+    .nav-container .is-opened > ul.level0 {
+        visibility: visible;
+        opacity: 0.99;
+    }
+
+    .nav-container li.level0 + li.level0 {
+        margin-left: 0;
+    }
+}

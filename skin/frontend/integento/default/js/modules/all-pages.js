@@ -44,3 +44,38 @@ var setAllPagesDataTogglers = function() {
     }
     jQuery('[data-togglefor]').on('click', clickAction);
 };
+
+/**
+ * Set Responsive main menu
+ */
+var setAllPagesResponsiveMainMenu = function() {
+    var nav = jQuery('#nav'),
+        linkReq = 'li.level0.parent',
+        openNavClassName = 'has-nav-container-open',
+        openNavElClassName = 'is-opened',
+        navLinks = false;
+    if (nav.length < 1) {
+        return false;
+    }
+
+    navLinks = nav.find(linkReq);
+
+    /* Inject links */
+    navLinks.each(function() {
+        var $this = jQuery(this),
+            toggler = jQuery('<span class="nav-toggler"></span>');
+        toggler.appendTo($this.children('a'));
+        toggler.on('click', function(e) {
+            e.preventDefault();
+            navLinks.removeClass(openNavElClassName);
+            toggler.closest(linkReq).toggleClass(openNavElClassName);
+        })
+    });
+
+    /* Responsive menu */
+    jQuery('.toggle-mobile-menu').on('click', function(e) {
+        e.preventDefault();
+        $jQBody.toggleClass(openNavClassName);
+        navLinks.removeClass(openNavElClassName);
+    });
+};
