@@ -8,6 +8,9 @@ body {
   Fixes
 ---------------------------------------------------------- */
 
+/* Hide an element
+-------------------------- */
+
 .no-display {
     z-index: 1;
     position: absolute;
@@ -15,6 +18,21 @@ body {
     left: -9999px;
     opacity: 0.01;
     filter: alpha(opacity=01);
+}
+
+/* Remove an element
+-------------------------- */
+
+@media(max-width:$mobile-max) {
+    .mobile-hide {
+        display: none;
+    }
+}
+
+@media(max-width:$tablet-max) {
+    .only-desktop {
+        display: none;
+    }
 }
 
 /* ----------------------------------------------------------
