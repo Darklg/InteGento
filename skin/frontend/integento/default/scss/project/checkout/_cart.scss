@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* ----------------------------------------------------------
-  Cart
+  Items
 ---------------------------------------------------------- */
 
 .cart-table {
@@ -67,4 +67,25 @@
     top: 0;
     right: 0;
     line-height: 10px;
+}
+
+/* ----------------------------------------------------------
+  Coupon
+---------------------------------------------------------- */
+
+.discount-coupon-form {
+    margin-bottom: 10px;
+}
+
+.discount-coupon-form label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.discount-coupon-form .input-box,
+.discount-coupon-form .buttons-set {
+    display: inline-block;
+    max-width: 150px;
+    vertical-align: middle;
 }
