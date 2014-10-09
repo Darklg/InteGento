@@ -39,7 +39,7 @@ app/etc/local.xml.template
 shell
 includes
 pkginfo
-errors
+
 app/etc/modules/Cm_RedisSession.xml
 app/etc/modules/Mage_All.xml
 app/etc/modules/Mage_Api.xml
@@ -62,3 +62,12 @@ app/etc/modules/Mage_XmlConnect.xml
 app/etc/modules/Phoenix_Moneybookers.xml
 .sass-cache
 app/locale/*/*.csv
+maintenance.flag
+errors/.htaccess
+errors/404.php
+errors/503.php
+errors/processor.php
+errors/report.php
+errors/design.xml
+errors/local.xml.sample
+errors/default
