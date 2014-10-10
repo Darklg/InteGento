@@ -75,3 +75,55 @@
     margin: auto;
     background-color: #000;
 }
+
+/* ----------------------------------------------------------
+  Search
+---------------------------------------------------------- */
+
+/* Form
+-------------------------- */
+
+.search_mini_form {
+    z-index: 10;
+    position: relative;
+    padding-right: 85px;
+    max-width: 500px;
+}
+
+.search_mini_form button {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* Autocomplete
+-------------------------- */
+
+.search_mini_form .search-autocomplete {
+    z-index: 1;
+    position: absolute;
+    top: 100%!important;
+    left: 0!important;
+    border: 1px solid #999;
+    border-top: 0;
+    background-color: #fff;
+}
+
+.search_mini_form .search-autocomplete ul {
+    padding: 5px 0;
+}
+
+.search_mini_form .search-autocomplete li {
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.search_mini_form .search-autocomplete li:hover {
+    background-color: #F0F0F0;
+}
+
+.search_mini_form .search-autocomplete .amount {
+    margin-right: 5px;
+    font-weight: bold;
+}
