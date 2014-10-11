@@ -5,6 +5,7 @@
 ---------------------------------------------------------- */
 
 .cart-table {
+    margin-bottom: 20px;
     table-layout: fixed;
 }
 
@@ -80,6 +81,7 @@
 .discount-coupon-form label {
     display: block;
     margin-bottom: 5px;
+    font-size: 12px;
     cursor: pointer;
 }
 
@@ -88,4 +90,33 @@
     display: inline-block;
     max-width: 150px;
     vertical-align: middle;
+}
+
+/* ----------------------------------------------------------
+  Totals
+---------------------------------------------------------- */
+
+.shopping-cart-totals-table {
+    margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+.shopping-cart-totals-table th,
+.shopping-cart-totals-table td {
+    padding: 5px 0;
+    border-bottom: 1px solid #CCC;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+.shopping-cart-totals-table th + th,
+.shopping-cart-totals-table td + td {
+    text-align: right;
+}
+
+.shopping-cart-totals-table tfoot tr:last-child th,
+.shopping-cart-totals-table tfoot tr:last-child td {
+    font-size: 20px;
 }

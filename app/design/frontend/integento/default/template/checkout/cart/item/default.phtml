@@ -57,7 +57,7 @@ $_imgUrl = $this->getProductThumbnail()->resize($_imgWidth, $_imgHeight);
     </td>
 
     <!-- Quantity -->
-    <td class="td-product-qty">
+    <td class="td-product-qty fakeselect-child">
         <!-- Select Qty -->
         <div>
             <select onchange="this.form.submit();this.form.disable();" class="qty" name="cart[<?php echo $_item->getId() ?>][qty]" id="cart-qty-<?php echo $_item->getId() ?>">

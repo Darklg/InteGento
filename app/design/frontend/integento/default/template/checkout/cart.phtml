@@ -15,28 +15,31 @@
  */
 ?>
 <div class="cart">
-    <h1><?php echo $this->__('Shopping Cart') ?></h1>
+    <header class="page-title">
+        <h1 class="main-title"><?php echo $this->__('Shopping Cart') ?></h1>
+    </header>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <?php echo $this->getChildHtml('form_before') ?>
     <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
         <?php echo $this->getBlockHtml('formkey'); ?>
-        <fieldset>
-            <table id="shopping-cart-table" class="data-table cart-table">
-                <?php foreach($this->getItems() as $_item): ?>
-                    <?php echo $this->getItemHtml($_item) ?>
-                <?php endforeach ?>
-            </table>
-        </fieldset>
+        <table id="shopping-cart-table" class="data-table cart-table">
+            <?php foreach($this->getItems() as $_item): ?>
+                <?php echo $this->getItemHtml($_item) ?>
+            <?php endforeach ?>
+        </table>
     </form>
 
-    <?php echo $this->getChildHtml('checkout.cart.extra') ?>
-    <?php echo $this->getChildHtml('coupon') ?>
-    <?php echo $this->getChildHtml('totals'); ?>
-
-    <?php if($this->getContinueShoppingUrl()): ?>
-    <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="cssc-button cssc-button--mage btn-continue" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
-    <?php endif; ?>
     <?php
+    echo $this->getChildHtml('checkout.cart.extra');
+    echo $this->getChildHtml('coupon');
+    echo $this->getChildHtml('totals');
+    ?>
+
+    <div class="cart-buttons">
+    <?php
+    if($this->getContinueShoppingUrl()):
+        ?><button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="cssc-button cssc-button--mage btn-continue" onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')"><?php echo $this->__('Continue Shopping') ?></button><?php
+    endif;
     if(!$this->hasError()):
         foreach ($this->getMethods('methods') as $method):
             if ($methodHtml = $this->getMethodHtml($method)):
@@ -45,4 +48,5 @@
         endforeach;
     endif;
     ?>
+    </div>
 </div>
