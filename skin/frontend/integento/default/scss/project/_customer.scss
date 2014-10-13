@@ -150,3 +150,13 @@
     padding-bottom: 20px;
     border-bottom: 1px solid #CCC;
 }
+
+.order-comments-list {
+    margin-bottom: 20px;
+}
+
+.order-comments-list li + li {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #F0F0F0;
+}
