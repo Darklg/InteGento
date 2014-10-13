@@ -23,9 +23,21 @@ body {
 /* Remove an element
 -------------------------- */
 
+.mobile-hide {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
 @media(max-width:$mobile-max) {
     .mobile-hide {
         display: none;
+    }
+
+    .mobile-only {
+        display: block;
     }
 }
 
