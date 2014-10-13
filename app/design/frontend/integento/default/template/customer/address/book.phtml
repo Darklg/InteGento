@@ -21,7 +21,7 @@
     <button type="button" title="<?php echo $this->__('Add New Address') ?>" class="cssc-button cssc-button--mage" onclick="window.location='<?php echo $this->getAddAddressUrl() ?>';"><?php echo $this->__('Add New Address') ?></button>
 </p>
 <div class="addresses-primary">
-    <h2><?php echo $this->__('Default Addresses') ?></h2>
+    <h2 class="account-subtitle"><?php echo $this->__('Default Addresses') ?></h2>
     <ol>
         <li class="item-address">
             <h3><?php echo $this->__('Default Billing Address') ?></h3>
@@ -46,7 +46,7 @@
     </ol>
 </div>
 <div class="addresses-additional">
-    <h2><?php echo $this->__('Additional Address Entries') ?></h2>
+    <h2 class="account-subtitle"><?php echo $this->__('Additional Address Entries') ?></h2>
     <?php if($_pAddsses = $this->getAdditionalAddresses()): ?>
     <ol>
         <?php foreach($_pAddsses as $_address): ?>
