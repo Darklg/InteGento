@@ -20,13 +20,13 @@ fi;
 ## Conf
 ###################################
 
-if [ ! -f app/etc/config.xml ]; then
-    echo "- Add default config.xml";
-    cp "${SOURCEDIR}files/config.xml" "app/etc/config.xml";
+if [ ! -f app/etc/local.xml ]; then
+    echo "- Add default local.xml";
+    cp "${SOURCEDIR}files/local.xml" "app/etc/local.xml";
 fi;
 
 read -p "Project ID : " project_id;
-sed -i '' "s/INTEGENTODBNAME/${project_id}/" "app/etc/config.xml";
+sed -i '' "s/INTEGENTODBNAME/${project_id}/" "app/etc/local.xml";
 
 ###################################
 ## DB
