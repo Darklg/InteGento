@@ -1,0 +1,19 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2015 Darklg
+ * @license     MIT
+ */
+$pageId = Mage::app()->getRequest()->getParam('page_id', Mage::app()->getRequest()->getParam('id', false));
+$page = Mage::getModel('cms/page')->load($pageId);
+$pageContent = Mage::helper('cms')->getPageTemplateProcessor()->filter($page->getContent());
+$pageTitle = $page->getTitle();
+?>
+<div class="cms-layout">
+    <h1 class="cms-layout__title"><?php echo $pageTitle; ?></h1>
+    <div class="cms-layout__content"><?php echo $pageContent; ?></div>
+</div>
