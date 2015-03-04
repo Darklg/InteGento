@@ -58,7 +58,9 @@
 
     <cms_index_index>
         <!-- Remove CMS Content -->
-        <remove name="cms.wrapper" />
+        <reference name="content">
+            <action method="unsetChild"><alias>cms.wrapper</alias></action>
+        </reference>
 
         <reference name="extra_js">
             <action method="addItem"><type>skin_js</type><name>js/modules/home.js</name><params/></action>
