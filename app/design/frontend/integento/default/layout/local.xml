@@ -75,15 +75,6 @@
         </block>
     </cms_index_index>
 
-    <!-- CMS Page view -->
-
-    <cms_page_view translate="label">
-        <reference name="content">
-            <action method="unsetChild"><alias>page_content_heading</alias></action>
-            <action method="unsetChild"><alias>cms.wrapper</alias></action>
-            <block type="core/template" name="page" as="page" template="page/cms/default-layout.phtml" />
-        </reference>
-    </cms_page_view>
 
     <!-- Catalog -->
 

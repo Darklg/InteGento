@@ -1,0 +1,8 @@
+<config>
+  <modules>
+    <Krr_CmsTools>
+      <active>true</active>
+      <codePool>local</codePool>
+    </Krr_CmsTools>
+  </modules>
+</config>

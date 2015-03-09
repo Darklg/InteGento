@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout>
+    <!-- CMS Page view -->
+    <cms_page_view translate="label">
+        <reference name="content">
+            <action method="unsetChild"><alias>page_content_heading</alias></action>
+            <action method="unsetChild"><alias>cms.wrapper</alias></action>
+            <block type="core/template" name="page" as="page" template="krr_cmstools/default-layout.phtml" />
+        </reference>
+    </cms_page_view>
+</layout>
