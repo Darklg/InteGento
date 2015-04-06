@@ -102,6 +102,7 @@
     <customer_account>
         <remove name="catalog.compare.sidebar" />
         <remove name="sale.reorder.sidebar" />
+        <action method="addBodyClass" block="root"><classname>customer-account</classname></action>
         <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
         <action method="unsetChild" block="left"><alias>customer_account_navigation</alias></action>
         <block parent="content" type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
