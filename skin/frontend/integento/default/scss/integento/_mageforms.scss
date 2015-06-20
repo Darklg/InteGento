@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+/**
+ * InteGento forms : Default CSS for Magento forms in base theme
+ *
+ * @version 0.1
+ * @license MIT
+ * @author Darklg <darklg.blog@gmail.com> <@darklg>
+ * @url http://github.com/Darklg/InteGento
+ */
+
+/* ----------------------------------------------------------
+  Common
+---------------------------------------------------------- */
+
+.no-display {
+    visibility: hidden;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* ----------------------------------------------------------
+  Mage forms
+---------------------------------------------------------- */
+
+.form-list {
+    z-index: 1;
+    position: relative;
+    font-size: 13px;
+}
+
+.form-list .fields,
+.form-list > li {
+    margin-bottom: 1em;
+}
+
+/* Grid
+-------------------------- */
+
+.form-list > li,
+.form-list .fields .field {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+    padding-right: 10px;
+}
+
+.form-list .fields:after {
+    @extend .clearfix;
+}
+
+.form-list > .wide,
+.form-list > .fields {
+    width: auto;
+    padding-right: 0;
+}
+
+.form-list .fields .field {
+    float: left;
+    padding-left: 10px;
+}
+
+.form-list .fields .field:first-child {
+    padding-left: 0;
+}
+
+.form-list .fields .field + .field:last-child {
+    padding-right: 0;
+}
+
+/* Labels
+-------------------------- */
+
+.form-list label {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.form-list label.required em:first-child {
+    margin-right: 5px;
+    font-style: normal;
+}
+
+/* Fields
+-------------------------- */
+
+.form-list .input-box input[type=text],
+.form-list .input-box input[type=password] {
+    @extend .inputreset;
+}
+
+/* Checkboxes */
+
+.form-list .control .input-box {
+    display: inline-block;
+    vertical-align: 0;
+}
+
+.form-list .control [type=radio] {
+    margin-right: 3px;
+    margin-left: 6px;
+    vertical-align: 0;
+}
+
+/* Select */
+
+.form-list .input-box select {
+    display: block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    line-height: 1;
+    background: transparent;
+}
