@@ -3,7 +3,7 @@
 /**
  * InteGento forms : Default CSS for Magento forms in base theme
  *
- * @version 0.1
+ * @version 0.2
  * @license MIT
  * @author Darklg <darklg.blog@gmail.com> <@darklg>
  * @url http://github.com/Darklg/InteGento
@@ -31,7 +31,9 @@
     font-size: 13px;
 }
 
+.form-list .wide,
 .form-list .fields,
+.form-list .half-field,
 .form-list > li {
     margin-bottom: 1em;
 }
@@ -40,6 +42,7 @@
 -------------------------- */
 
 .form-list > li,
+.form-list .half-field,
 .form-list .fields .field {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -51,8 +54,8 @@
     @extend .clearfix;
 }
 
-.form-list > .wide,
-.form-list > .fields {
+.form-list .wide,
+.form-list .fields {
     width: auto;
     padding-right: 0;
 }
@@ -95,6 +98,11 @@
 
 /* Checkboxes */
 
+.form-list .control > input[type=checkbox] {
+    margin-right: 3px;
+}
+
+.form-list .control > input[type=checkbox],
 .form-list .control .input-box {
     display: inline-block;
     vertical-align: 0;
@@ -117,6 +125,19 @@
     padding: 0;
     border: 0;
     border-radius: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
     line-height: 1;
     background: transparent;
+}
+
+/* Messages
+-------------------------- */
+
+.input-box .validation-advice {
+    display: block;
+    margin-top: 0.3em;
+    font-size: 12px;
+    font-style: italic;
+    color: #F00;
 }
