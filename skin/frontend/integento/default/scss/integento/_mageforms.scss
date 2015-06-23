@@ -3,7 +3,7 @@
 /**
  * InteGento forms : Default CSS for Magento forms in base theme
  *
- * @version 0.2
+ * @version 0.3
  * @license MIT
  * @author Darklg <darklg.blog@gmail.com> <@darklg>
  * @url http://github.com/Darklg/InteGento
@@ -88,12 +88,44 @@
     font-style: normal;
 }
 
+/* Control */
+
+.form-list .control .input-box label {
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
 /* Fields
 -------------------------- */
 
 .form-list .input-box input[type=text],
 .form-list .input-box input[type=password] {
     @extend .inputreset;
+}
+
+/* Dob */
+
+.customer-dob {
+    z-index: 1;
+    position: relative;
+    margin-right: -10px;
+}
+
+.customer-dob label {
+    display: block;
+}
+
+.customer-dob > * {
+    display: inline-block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 15%;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.customer-dob .dob-year {
+    width: 20%;
 }
 
 /* Checkboxes */
@@ -108,10 +140,19 @@
     vertical-align: 0;
 }
 
+.form-list .control > label:first-child + .input-box:last-child {
+    display: block;
+}
+
 .form-list .control [type=radio] {
     margin-right: 3px;
     margin-left: 6px;
     vertical-align: 0;
+}
+
+.form-list .control label [type=radio] {
+    margin-right: 5px;
+    margin-left: 1px;
 }
 
 /* Select */
@@ -140,4 +181,27 @@
     font-size: 12px;
     font-style: italic;
     color: #F00;
+}
+
+/* ----------------------------------------------------------
+  Responsive
+---------------------------------------------------------- */
+
+@media(max-width:$mobile-max) {
+    .form-list > li,
+    .form-list .half-field,
+    .form-list .fields .field {
+        float: none;
+        width: auto;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .customer-dob > * {
+        width: 30%;
+    }
+
+    .customer-dob .dob-year {
+        width: 40%;
+    }
 }
