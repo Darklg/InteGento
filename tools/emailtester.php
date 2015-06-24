@@ -1,17 +1,23 @@
 <?php
 
 /**
- * Email tester v 0.1.1
+ * Email tester v 0.2
  *
  * @author      Darklg <darklg.blog@gmail.com>
  * @copyright   Copyright (c) 2015 Darklg
  * @license     MIT
  */
 
+/**
+ * Please install this file in a subfolder in the root of your Magento install.
+ */
+
 $templates = array(
     'sales_email_order_template' => 'sales_email_order_template',
     'contacts_email_email_template' => 'contacts_email_email_template',
     'sendfriend_email_template' => 'sendfriend_email_template',
+    'customer_create_account_email_template' => 'customer_create_account_email_template',
+    'customer_password_forgot_email_template' => 'customer_password_forgot_email_template',
 );
 
 /* ----------------------------------------------------------
@@ -80,12 +86,27 @@ if ($tpl == 'contacts_email_email_template') {
  -------------------------- */
 
 if ($tpl == 'sendfriend_email_template') {
-
     $datas['name'] = 'Jean-Michel Lorem';
     $datas['product_url'] = 'https://github.com/Darklg';
     $datas['product_name'] = 'Barre de faire';
     $datas['product_image'] = 'http://placehold.it/75x75';
     $datas['message'] = 'The world needs dreamers and the world needs doers. But above all, the world needs dreamers who do — Sarah Ban Breathnach. Everyone who has ever taken a shower has had an idea. It’s the person who gets out of the shower, dries off, and does something about it that makes a difference — Nolan Bushnell. ';
+}
+
+/* New account & Forgot password
+ -------------------------- */
+
+if ($tpl == 'customer_create_account_email_template' || $tpl == 'customer_password_forgot_email_template') {
+    $collection = Mage::getModel('customer/customer')->getCollection()->addAttributeToSelect('*')->addAttributeToSort('entity_id', 'desc')->setPageSize(1);
+    $datas['customer'] = $collection->getFirstItem();
+    $datas['customer']->setData('password', '****');
+}
+
+/* Forgotten password
+ -------------------------- */
+
+if ($tpl == 'customer_password_forgot_email_template') {
+    $datas['customer']->setData('rp_token', md5('coucou'));
 }
 
 /* ----------------------------------------------------------
