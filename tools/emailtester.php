@@ -1,12 +1,12 @@
 <?php
+
 /**
- * Email tester v 0.1
+ * Email tester v 0.1.1
  *
  * @author      Darklg <darklg.blog@gmail.com>
  * @copyright   Copyright (c) 2015 Darklg
  * @license     MIT
  */
-
 
 $templates = array(
     'sales_email_order_template' => 'sales_email_order_template',
@@ -39,7 +39,9 @@ $tpl = $_GET['template'];
 require_once '../app/Mage.php';
 Mage::app();
 
-$datas = array();
+$datas = array(
+    'store' => Mage::app()->getStore()
+);
 
 /* ----------------------------------------------------------
   Templates vars
