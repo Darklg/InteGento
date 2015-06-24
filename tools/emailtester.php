@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Email tester v 0.2
+ * Email tester v 0.2.1
  *
  * @author      Darklg <darklg.blog@gmail.com>
  * @copyright   Copyright (c) 2015 Darklg
@@ -112,5 +112,7 @@ if ($tpl == 'customer_password_forgot_email_template') {
 /* ----------------------------------------------------------
   Display template
 ---------------------------------------------------------- */
+
+header('Content-Type: text/html; charset=utf-8');
 
 echo Mage::getModel('core/email_template')->load(3)->loadDefault($tpl)->getProcessedTemplate($datas);
