@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Email tester v 0.2.1
+ * Email tester v 0.3
  *
  * @author      Darklg <darklg.blog@gmail.com>
  * @copyright   Copyright (c) 2015 Darklg
@@ -11,6 +11,9 @@
 /**
  * Please install this file in a subfolder in the root of your Magento install.
  */
+
+$testerVersion = '0_3';
+$cachePrefixKey = 'integento__emailtester__' . $testerVersion . '__';
 
 $templates = array(
     'sales_email_order_template' => 'sales_email_order_template',
@@ -58,15 +61,27 @@ $datas = array(
 
 if ($tpl == 'sales_email_order_template') {
 
-    /* Load latest order */
-    $orders = Mage::getModel('sales/order')->getCollection()->setOrder('created_at', 'DESC')->setPageSize(1)->setCurPage(1);
-    $order = Mage::getModel('sales/order')->load($orders->getFirstItem()->getEntityId());
-    $storeId = $order->getStore()->getId();
-    $paymentBlock = Mage::helper('payment')->getInfoBlock($order->getPayment());
-    $paymentBlock->getMethod()->setStore($storeId);
-    $datas['order'] = $order;
-    $datas['billing'] = $order->getBillingAddress();
-    $datas['payment_html'] = $paymentBlock->toHtml();
+    $cacheId = $cachePrefixKey . 'sales_email_order_template';
+    if (false !== ($data = Mage::app()->getCache()->load($cacheId))) {
+        $_datas = unserialize($data);
+        $datas['order'] = $_datas['order'];
+        $datas['billing'] = $_datas['billing'];
+        $datas['payment_html'] = $_datas['payment_html'];
+    }
+    else {
+
+        /* Load latest order */
+        $orders = Mage::getModel('sales/order')->getCollection()->setOrder('created_at', 'DESC')->setPageSize(1)->setCurPage(1);
+        $order = Mage::getModel('sales/order')->load($orders->getFirstItem()->getEntityId());
+        $storeId = $order->getStore()->getId();
+        $paymentBlock = Mage::helper('payment')->getInfoBlock($order->getPayment());
+        $paymentBlock->getMethod()->setStore($storeId);
+
+        $datas['order'] = $order;
+        $datas['billing'] = $order->getBillingAddress();
+        $datas['payment_html'] = $paymentBlock->toHtml();
+        Mage::app()->getCache()->save(serialize($datas) , $cacheId);
+    }
 }
 
 /* Contact template
@@ -97,16 +112,19 @@ if ($tpl == 'sendfriend_email_template') {
  -------------------------- */
 
 if ($tpl == 'customer_create_account_email_template' || $tpl == 'customer_password_forgot_email_template') {
-    $collection = Mage::getModel('customer/customer')->getCollection()->addAttributeToSelect('*')->addAttributeToSort('entity_id', 'desc')->setPageSize(1);
-    $datas['customer'] = $collection->getFirstItem();
-    $datas['customer']->setData('password', '****');
-}
 
-/* Forgotten password
- -------------------------- */
-
-if ($tpl == 'customer_password_forgot_email_template') {
-    $datas['customer']->setData('rp_token', md5('coucou'));
+    $cacheId = $cachePrefixKey . 'customer_data';
+    if (false !== ($data = Mage::app()->getCache()->load($cacheId))) {
+        $_datas = unserialize($data);
+        $datas['customer'] = $_datas['customer'];
+    }
+    else {
+        $collection = Mage::getModel('customer/customer')->getCollection()->addAttributeToSelect('*')->addAttributeToSort('entity_id', 'desc')->setPageSize(1);
+        $datas['customer'] = $collection->getFirstItem();
+        $datas['customer']->setData('password', '****');
+        $datas['customer']->setData('rp_token', md5('coucou'));
+        Mage::app()->getCache()->save(serialize($datas) , $cacheId);
+    }
 }
 
 /* ----------------------------------------------------------
