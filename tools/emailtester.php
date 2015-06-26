@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Email tester v 0.3
+ * Email tester v 0.4
  *
  * @author      Darklg <darklg.blog@gmail.com>
  * @copyright   Copyright (c) 2015 Darklg
@@ -12,15 +12,20 @@
  * Please install this file in a subfolder in the root of your Magento install.
  */
 
-$testerVersion = '0_3';
+$testerVersion = '0_4';
 $cachePrefixKey = 'integento__emailtester__' . $testerVersion . '__';
 
 $templates = array(
-    'sales_email_order_template' => 'sales_email_order_template',
     'contacts_email_email_template' => 'contacts_email_email_template',
-    'sendfriend_email_template' => 'sendfriend_email_template',
     'customer_create_account_email_template' => 'customer_create_account_email_template',
     'customer_password_forgot_email_template' => 'customer_password_forgot_email_template',
+    'newsletter_subscription_confirm_email_template' => 'newsletter_subscription_confirm_email_template',
+    'newsletter_subscription_success_email_template' => 'newsletter_subscription_success_email_template',
+    'newsletter_subscription_un_email_template' => 'newsletter_subscription_un_email_template',
+    'sales_email_order_comment_template' => 'sales_email_order_comment_template',
+    'sales_email_order_template' => 'sales_email_order_template',
+    'sales_email_shipment_template' => 'sales_email_shipment_template',
+    'sendfriend_email_template' => 'sendfriend_email_template',
 );
 
 /* ----------------------------------------------------------
@@ -59,7 +64,7 @@ $datas = array(
 /* New order template
  -------------------------- */
 
-if ($tpl == 'sales_email_order_template') {
+if ($tpl == 'sales_email_order_template' || $tpl == 'sales_email_order_comment_template' || $tpl == 'sales_email_shipment_template') {
 
     $cacheId = $cachePrefixKey . 'sales_email_order_template';
     if (false !== ($data = Mage::app()->getCache()->load($cacheId))) {
@@ -82,6 +87,16 @@ if ($tpl == 'sales_email_order_template') {
         $datas['payment_html'] = $paymentBlock->toHtml();
         Mage::app()->getCache()->save(serialize($datas) , $cacheId);
     }
+}
+
+/* Shipment
+-------------------------- */
+
+if($tpl == 'sales_email_shipment_template' && is_object($datas['order'])) {
+    $datas['shipment'] = new Varien_Object();
+    $datas['shipment']->setData(array(
+        'increment_id' => '100000022'
+    ));
 }
 
 /* Contact template
@@ -124,6 +139,17 @@ if ($tpl == 'customer_create_account_email_template' || $tpl == 'customer_passwo
         $datas['customer']->setData('password', '****');
         $datas['customer']->setData('rp_token', md5('coucou'));
         Mage::app()->getCache()->save(serialize($datas) , $cacheId);
+    }
+}
+
+/* Subscription confirmation
+ -------------------------- */
+
+if ($tpl == 'newsletter_subscription_confirm_email_template') {
+    $collection = Mage::getModel('newsletter/subscriber')->getCollection()->setPageSize(1)->setOrder('subscriber_id', 'desc');
+    foreach ($collection as $subscriber) {
+        $datas['subscriber'] = $subscriber;
+        break;
     }
 }
 
