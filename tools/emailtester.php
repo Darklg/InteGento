@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Email tester v 0.4
+ * Email tester v 0.5
  *
  * @author      Darklg <darklg.blog@gmail.com>
  * @copyright   Copyright (c) 2015 Darklg
@@ -26,6 +26,7 @@ $templates = array(
     'sales_email_order_template' => 'sales_email_order_template',
     'sales_email_shipment_template' => 'sales_email_shipment_template',
     'sendfriend_email_template' => 'sendfriend_email_template',
+    'wishlist_email_email_template' => 'wishlist_email_email_template',
 );
 
 /* ----------------------------------------------------------
@@ -90,9 +91,9 @@ if ($tpl == 'sales_email_order_template' || $tpl == 'sales_email_order_comment_t
 }
 
 /* Shipment
--------------------------- */
+ -------------------------- */
 
-if($tpl == 'sales_email_shipment_template' && is_object($datas['order'])) {
+if ($tpl == 'sales_email_shipment_template' && is_object($datas['order'])) {
     $datas['shipment'] = new Varien_Object();
     $datas['shipment']->setData(array(
         'increment_id' => '100000022'
@@ -126,7 +127,7 @@ if ($tpl == 'sendfriend_email_template') {
 /* New account & Forgot password
  -------------------------- */
 
-if ($tpl == 'customer_create_account_email_template' || $tpl == 'customer_password_forgot_email_template') {
+if ($tpl == 'customer_create_account_email_template' || $tpl == 'customer_password_forgot_email_template' || $tpl == 'wishlist_email_email_template') {
 
     $cacheId = $cachePrefixKey . 'customer_data';
     if (false !== ($data = Mage::app()->getCache()->load($cacheId))) {
@@ -151,6 +152,38 @@ if ($tpl == 'newsletter_subscription_confirm_email_template') {
         $datas['subscriber'] = $subscriber;
         break;
     }
+}
+
+/* Wishlist
+ -------------------------- */
+
+if ($tpl == 'wishlist_email_email_template') {
+
+    // Get latest shared wishlist ID
+    $resource = Mage::getSingleton('core/resource');
+    $readConnection = $resource->getConnection('core_read');
+    $table = $resource->getTableName('wishlist/wishlist');
+    $wishlist_id = $readConnection->fetchCol('SELECT wishlist_id FROM ' . $table . ' WHERE shared=1 ORDER BY wishlist_id DESC LIMIT 0,1');
+
+    if (empty($wishlist_id)) {
+        $wishlist_id = array(
+            0
+        );
+    }
+
+    // Register wishlist
+    Mage::register('wishlist', Mage::getSingleton('wishlist/wishlist')->load($wishlist_id[0]));
+
+    // Load wishlist vars
+    $datas['salable'] = 'yes';
+    $datas['addAllLink'] = Mage::getUrl('*/shared/allcart', array(
+        'code' => 'foo'
+    ));
+    $datas['viewOnSiteLink'] = Mage::getUrl('*/shared/index', array(
+        'code' => 'foo'
+    ));
+    $datas['message'] = 'Buy this';
+    $datas['items'] = Mage::app()->getLayout()->createBlock('wishlist/share_email_items')->toHtml();
 }
 
 /* ----------------------------------------------------------
