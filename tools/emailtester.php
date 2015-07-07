@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Email tester v 0.5
+ * Email tester v 0.6
  *
  * @author      Darklg <darklg.blog@gmail.com>
  * @copyright   Copyright (c) 2015 Darklg
@@ -12,7 +12,7 @@
  * Please install this file in a subfolder in the root of your Magento install.
  */
 
-$testerVersion = '0_4';
+$testerVersion = '0_6';
 $cachePrefixKey = 'integento__emailtester__' . $testerVersion . '__';
 
 $templates = array(
@@ -22,6 +22,7 @@ $templates = array(
     'newsletter_subscription_confirm_email_template' => 'newsletter_subscription_confirm_email_template',
     'newsletter_subscription_success_email_template' => 'newsletter_subscription_success_email_template',
     'newsletter_subscription_un_email_template' => 'newsletter_subscription_un_email_template',
+    'sales_email_creditmemo_template' => 'sales_email_creditmemo_template',
     'sales_email_order_comment_template' => 'sales_email_order_comment_template',
     'sales_email_order_template' => 'sales_email_order_template',
     'sales_email_shipment_template' => 'sales_email_shipment_template',
@@ -65,7 +66,7 @@ $datas = array(
 /* New order template
  -------------------------- */
 
-if ($tpl == 'sales_email_order_template' || $tpl == 'sales_email_order_comment_template' || $tpl == 'sales_email_shipment_template') {
+if ($tpl == 'sales_email_order_template' || $tpl == 'sales_email_order_comment_template' || $tpl == 'sales_email_shipment_template' || $tpl == 'sales_email_creditmemo_template') {
 
     $cacheId = $cachePrefixKey . 'sales_email_order_template';
     if (false !== ($data = Mage::app()->getCache()->load($cacheId))) {
@@ -98,6 +99,24 @@ if ($tpl == 'sales_email_shipment_template' && is_object($datas['order'])) {
     $datas['shipment']->setData(array(
         'increment_id' => '100000022'
     ));
+}
+
+/* Credit memo
+ -------------------------- */
+
+if ($tpl == 'sales_email_creditmemo_template' && is_object($datas['order'])) {
+
+    $datas['creditmemo'] = new Varien_Object();
+    $datas['creditmemo']->setData(array(
+        'increment_id' => '100000022'
+    ));
+
+    $h = Mage::getResourceModel('sales/order_creditmemo_collection');
+    $collection = $h->setPageSize(1)->setCurPage(1);
+    foreach ($collection as $item) {
+        $datas['creditmemo'] = $item;
+        break;
+    }
 }
 
 /* Contact template
