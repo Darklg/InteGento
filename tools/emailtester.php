@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Email tester v 0.6
+ * Email tester v 0.7
  *
  * @author      Darklg <darklg.blog@gmail.com>
  * @copyright   Copyright (c) 2015 Darklg
@@ -12,34 +12,56 @@
  * Please install this file in a subfolder in the root of your Magento install.
  */
 
-$testerVersion = '0_6';
+$testerVersion = '0_7';
 $cachePrefixKey = 'integento__emailtester__' . $testerVersion . '__';
 
 $templates = array(
+    'catalog_productalert_email_price_template' => array(
+        'alertGrid' => 1,
+        'customer' => 1,
+    ) ,
+    'catalog_productalert_email_stock_template' => array(
+        'alertGrid' => 1,
+        'customer' => 1,
+    ) ,
     'contacts_email_email_template' => 'contacts_email_email_template',
-    'customer_create_account_email_template' => 'customer_create_account_email_template',
-    'customer_password_forgot_email_template' => 'customer_password_forgot_email_template',
+    'customer_create_account_email_template' => array(
+        'customer' => 1
+    ) ,
+    'customer_password_forgot_email_template' => array(
+        'customer' => 1
+    ) ,
     'newsletter_subscription_confirm_email_template' => 'newsletter_subscription_confirm_email_template',
     'newsletter_subscription_success_email_template' => 'newsletter_subscription_success_email_template',
     'newsletter_subscription_un_email_template' => 'newsletter_subscription_un_email_template',
-    'sales_email_creditmemo_template' => 'sales_email_creditmemo_template',
-    'sales_email_order_comment_template' => 'sales_email_order_comment_template',
-    'sales_email_order_template' => 'sales_email_order_template',
-    'sales_email_shipment_template' => 'sales_email_shipment_template',
+    'sales_email_creditmemo_template' => array(
+        'order' => 1
+    ) ,
+    'sales_email_order_comment_template' => array(
+        'order' => 1
+    ) ,
+    'sales_email_order_template' => array(
+        'order' => 1
+    ) ,
+    'sales_email_shipment_template' => array(
+        'order' => 1
+    ) ,
     'sendfriend_email_template' => 'sendfriend_email_template',
-    'wishlist_email_email_template' => 'wishlist_email_email_template',
+    'wishlist_email_email_template' => array(
+        'customer' => 1
+    ) ,
 );
 
 /* ----------------------------------------------------------
   Default page
 ---------------------------------------------------------- */
 
-if (!isset($_GET['template']) || !in_array($_GET['template'], $templates)) {
+if (!isset($_GET['template']) || !array_key_exists($_GET['template'], $templates)) {
 
     echo '<!DOCTYPE HTML><html lang="en_EN"><head><meta charset="UTF-8" /><title>Mail preview</title></head><body><h1>Mail preview</h1>';
     echo '<ul>';
-    foreach ($templates as $template) {
-        echo '<li><a href="emailtester.php?template=' . $template . '">' . $template . '</a></li>';
+    foreach ($templates as $tpl_id => $template) {
+        echo '<li><a href="emailtester.php?template=' . $tpl_id . '">' . $tpl_id . '</a></li>';
     }
     echo '</ul>';
     echo '</body></html>';
@@ -66,7 +88,7 @@ $datas = array(
 /* New order template
  -------------------------- */
 
-if ($tpl == 'sales_email_order_template' || $tpl == 'sales_email_order_comment_template' || $tpl == 'sales_email_shipment_template' || $tpl == 'sales_email_creditmemo_template') {
+if (isset($templates[$tpl]['order'])) {
 
     $cacheId = $cachePrefixKey . 'sales_email_order_template';
     if (false !== ($data = Mage::app()->getCache()->load($cacheId))) {
@@ -146,20 +168,45 @@ if ($tpl == 'sendfriend_email_template') {
 /* New account & Forgot password
  -------------------------- */
 
-if ($tpl == 'customer_create_account_email_template' || $tpl == 'customer_password_forgot_email_template' || $tpl == 'wishlist_email_email_template') {
+if (isset($templates[$tpl]['customer'])) {
 
     $cacheId = $cachePrefixKey . 'customer_data';
     if (false !== ($data = Mage::app()->getCache()->load($cacheId))) {
         $_datas = unserialize($data);
         $datas['customer'] = $_datas['customer'];
+        $datas['customerName'] = $_datas['customer']->getName();
     }
     else {
         $collection = Mage::getModel('customer/customer')->getCollection()->addAttributeToSelect('*')->addAttributeToSort('entity_id', 'desc')->setPageSize(1);
         $datas['customer'] = $collection->getFirstItem();
         $datas['customer']->setData('password', '****');
         $datas['customer']->setData('rp_token', md5('coucou'));
+        $datas['customerName'] = $_datas['customer']->getName();
         Mage::app()->getCache()->save(serialize($datas) , $cacheId);
     }
+}
+
+/* Stock & price alert
+ -------------------------- */
+
+if (isset($templates[$tpl]['alertGrid'])) {
+    $_nbProducts = 2;
+    $_stockProducts = array();
+    $_stockBlock = Mage::helper('productalert')->createBlock('productalert/email_stock');
+    $products = Mage::getModel('catalog/product')->getCollection()->setPageSize($_nbProducts);
+    foreach ($products as $prod) {
+        $product = Mage::getModel('catalog/product')->load($prod->getId());
+        $_stockProducts[$product->getId() ] = $product;
+        if (count($_stockProducts) >= $_nbProducts) {
+            break;
+        }
+    }
+    foreach ($_stockProducts as $product) {
+        $product->setCustomerGroupId($datas['customer']->getGroupId());
+        $_stockBlock->addProduct($product);
+    }
+
+    $datas['alertGrid'] = $_stockBlock->toHtml();
 }
 
 /* Subscription confirmation
