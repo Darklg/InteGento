@@ -1,0 +1,3 @@
+[submodule "tools/InteGentoEmailTester"]
+	path = tools/InteGentoEmailTester
+	url = git@github.com:Darklg/InteGentoEmailTester.git
