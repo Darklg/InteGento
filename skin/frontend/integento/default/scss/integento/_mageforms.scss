@@ -3,7 +3,7 @@
 /**
  * InteGento forms : Default CSS for Magento forms in base theme
  *
- * @version 0.3.1
+ * @version 0.3.2
  * @license MIT
  * @author Darklg <darklg.blog@gmail.com> <@darklg>
  * @url http://github.com/Darklg/InteGento
@@ -100,6 +100,7 @@
 
 .form-list .input-box textarea,
 .form-list .input-box input[type=text],
+.form-list .input-box input[type=email],
 .form-list .input-box input[type=password] {
     @extend .inputreset;
 }
