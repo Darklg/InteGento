@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Stars : Core
+---------------------------------------------------------- */
+
+.cssc-stars {
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.cssc-stars-list {
+    float: left;
+}
+
+.cssc-stars label {
+    float: right;
+    cursor: pointer;
+}
+
+.cssc-stars input {
+    z-index: 1;
+    position: absolute;
+    top: -100px;
+    left: -100px;
+}

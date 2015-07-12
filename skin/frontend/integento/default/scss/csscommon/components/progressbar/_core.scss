@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Progress bar : Core
+---------------------------------------------------------- */
+
+.progress-bar {
+    display: block;
+    z-index: 1;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 1px;
+    background-color: #f0f0f0;
+}
+
+.progress-bar .bar,
+.progress-bar:before {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.progress-bar:before {
+    content: '';
+    z-index: 9;
+}
+
+.progress-bar .bar {
+    width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-align: left;
+    text-indent: -9999px;
+    background: #000 no-repeat 0 0;
+}

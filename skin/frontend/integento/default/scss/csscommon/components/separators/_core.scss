@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Separators : Core
+---------------------------------------------------------- */
+
+.cssc-sep {
+    z-index: 1;
+    position: relative;
+}
+
+.cssc-sep-before:before,
+.cssc-sep-after:after {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+.cssc-sep-before:before {
+    top: 0;
+}
+
+.cssc-sep-after:after {
+    bottom: 0;
+}

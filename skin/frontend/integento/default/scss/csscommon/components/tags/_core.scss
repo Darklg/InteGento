@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Tags : Core
+---------------------------------------------------------- */
+
+.cssc-tags a,
+.cssc-tag {
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    *display: inline;
+    *zoom: 1;
+}
+
+.cssc-tags a:before,
+.cssc-tag:before {
+    margin-right: 3px;
+    vertical-align: baseline;
+}

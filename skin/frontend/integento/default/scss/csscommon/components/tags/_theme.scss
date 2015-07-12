@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Tags : Theme
+---------------------------------------------------------- */
+
+.cssc-tags--default a,
+.cssc-tag--default {
+    margin-right: 1px;
+    margin-bottom: 5px;
+    padding: 1px 4px;
+    border: 1px solid #e0e0e0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #333;
+}
+
+.cssc-tags--default a:before,
+.cssc-tag--default:before {
+    content: '✔';
+    color: #676767;
+}

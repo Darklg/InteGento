@@ -33,12 +33,20 @@ $sprites2x: sprite-map("sprites-2x/*.png");  /* :) */
   CSSCommon
 ---------------------------------------------------------- */
 
-@import "csscommon/_cssc-default.scss";
-@import "csscommon/_cssc-common.scss";
-@import "csscommon/_cssc-content.scss";
-@import "csscommon/_cssc-buttons.scss";
-@import "csscommon/_cssc-forms.scss";
-@import "csscommon/_cssc-grid.scss";
+@import "csscommon/components/default";
+@import "csscommon/components/common";
+@import "csscommon/components/common/blockmedia";
+@import "csscommon/components/common/codepresentation";
+@import "csscommon/components/common/drawers";
+@import "csscommon/components/common/imagereplace";
+@import "csscommon/components/common/messages";
+@import "csscommon/components/content";
+@import "csscommon/components/buttons/core";
+@import "csscommon/components/forms/core";
+@import "csscommon/components/grid";
+@import "csscommon/components/print";
+@import "csscommon/components/tables";
+@import "csscommon/components/push";
 
 /* ----------------------------------------------------------
   Project

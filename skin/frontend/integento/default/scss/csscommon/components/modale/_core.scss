@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Modale : Core
+---------------------------------------------------------- */
+
+body.has-modale {
+    overflow: hidden;
+}
+
+.cssc-modale {
+    z-index: 999;
+    position: relative;
+}
+
+.cssc-modale__filter,
+.cssc-modale__content {
+    visibility: hidden;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    filter: alpha(opacity=0);
+}
+
+.cssc-modale__filter {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}

@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Block Media : Floating block
+---------------------------------------------------------- */
+
+/* By @Stubbornella : http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/ */
+
+.bmedia,
+.bmedia-right,
+.bm-cont {
+    display: block;
+    z-index: 1;
+    position: relative;
+    zoom: 1;
+    overflow: hidden;
+}
+
+.bmedia >:first-child {
+    float: left;
+    margin-right: 10px;
+}
+
+.bmedia-right >:first-child {
+    float: right;
+    margin-left: 10px;
+}
+
+.bmedia-right > .bm-cont:first-child,
+.bmedia > .bm-cont:first-child {
+    float: none;
+    margin-right: 0;
+    margin-left: 0;
+}

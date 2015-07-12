@@ -1,0 +1,249 @@
+@charset "UTF-8";
+
+/*
+Name: Forms
+URL: http://github.com/Darklg/CSSCommon
+Version: 2.2.2
+License: MIT
+*/
+
+/* ----------------------------------------------------------
+  Form : Core
+---------------------------------------------------------- */
+
+.cssc-form {
+    clear: both;
+}
+
+.cssc-form:after,
+.form-append:after,
+.cssc-form .twoboxes:after,
+.cssc-form .box:after {
+    content: " ";
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+}
+
+/* Boxes
+-------------------------- */
+
+.cssc-form .box {
+    z-index: 1;
+    position: relative;
+    vertical-align: baseline;
+}
+
+/* Submit box */
+
+.cssc-form .submit-box {
+    z-index: 1;
+    position: relative;
+}
+
+.cssc-form .submit-box button {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* Two boxes side to side */
+
+.cssc-form .twoboxes li.box {
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+}
+
+/* Labels
+-------------------------- */
+
+.cssc-form .fake-label,
+.cssc-form label {
+    display: block;
+    line-height: inherit;
+}
+
+.float-form .fake-label,
+.float-form label {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.cssc-form .radio-box label,
+.cssc-form.block-form .radio-box label,
+.cssc-form.float-form .radio-box label,
+.cssc-form .checked-box label,
+.cssc-form.block-form .checked-box label,
+.cssc-form.float-form .checked-box label {
+    display: inline-block;
+    position: static;
+    width: auto;
+    padding: 0;
+    font-weight: normal;
+    line-height: inherit;
+    vertical-align: baseline;
+}
+
+/* Fields
+-------------------------- */
+
+textarea {
+    max-width: 100%;
+    overflow: auto;
+    resize: vertical;
+}
+
+input[type="submit"],
+input[type="image"],
+button {
+    cursor: pointer;
+}
+
+.cssc-form input[type=radio],
+.cssc-form input[type=checkbox] {
+    vertical-align: 0;
+}
+
+/* Reset */
+
+.inputreset,
+.inputbase,
+.cssc-form textarea,
+.cssc-form .fake-input,
+.cssc-form input[type=text],
+.cssc-form input[type=url],
+.cssc-form input[type=email],
+.cssc-form input[type=password] {
+    -webkit-appearance: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: inherit;
+    vertical-align: middle;
+    outline: 0;
+}
+
+.cssc-form .fake-input {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+}
+
+.cssc-form .fake-input,
+.cssc-form [disabled] {
+    cursor: not-allowed;
+}
+
+/* Select */
+
+.cssc-select {
+    display: block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    text-align: left;
+    text-indent: 0.01px;
+    text-overflow: ellipsis;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.cssc-select:focus {
+    outline: none;
+}
+
+/* Help
+-------------------------- */
+
+.cssc-form small {
+    display: block;
+}
+
+.cssc-form.block-form .side-small {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* Autocomplete
+-------------------------- */
+
+.cssc-form .box.has-autocomplete {
+    z-index: 2;
+}
+
+.cssc-form .box-autocomplete {
+    z-index: 1;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    margin-top: 1px;
+    background-color: #fff;
+}
+
+/* Append form
+   ----------------------- */
+
+.form-append {
+    min-height: 1;
+    overflow: auto;
+}
+
+.form-append > * {
+    float: left;
+    width: auto;
+}
+
+/* Responsive float form
+-------------------------- */
+
+/* fix float form */
+
+@media(max-width:720px) {
+    .float-form.cssc-form--responsive .box {
+        padding-left: 0!important;
+    }
+
+    .float-form.cssc-form--responsive .fake-label,
+    .float-form.cssc-form--responsive .box:not(.checked-box):not(.radio-box) label {
+        display: block;
+        position: static;
+        width: auto!important;
+        padding-right: 0!important;
+        text-align: left;
+    }
+
+    .float-form.cssc-form--responsive .box .long-label {
+        line-height: inherit!important;
+    }
+}
+
+/* fix twoboxes */
+
+@media(max-width:720px) {
+    .cssc-form.cssc-form--responsive .twoboxes .box {
+        display: block;
+        float: none;
+        width: auto;
+        padding-right: 0!important;
+        padding-left: 0!important;
+    }
+}

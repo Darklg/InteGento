@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Stars : Theme
+---------------------------------------------------------- */
+
+.cssc-stars--default label {
+    padding: 2px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cssc-stars--default .current ~ label,
+.cssc-stars--default input:checked ~ label {
+    color: #F99;
+}
+
+.cssc-stars--default label:hover,
+.cssc-stars--default input:checked ~ label:hover,
+.cssc-stars--default label:hover ~ label {
+    color: #F33;
+}

@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Tooltip : Theme
+---------------------------------------------------------- */
+
+.tooltip--default .tooltip-bubble {
+    width: 150px;
+    margin-bottom: 5px;
+    padding: 10px;
+    color: #333;
+    background-color: #e0e0e0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+/* Triangle bubble */
+
+.tooltip--default .tooltip-bubble:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 25px;
+    width: 0;
+    height: 0;
+    margin-left: -5px;
+    border-top: 5px solid #e0e0e0;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+/* Theme direction
+-------------------------- */
+
+.tooltip--default.tooltip--bottom .tooltip-bubble {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.tooltip--default.tooltip--bottom .tooltip-bubble:after {
+    top: auto;
+    bottom: 100%;
+    border-top: 0;
+    border-bottom: 5px solid #e0e0e0;
+}

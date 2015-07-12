@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Image replacement
+---------------------------------------------------------- */
+
+.ir-children a,
+.cssc-btn-px,
+.cssc-btn,
+.ir {
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    direction: ltr;
+    text-align: left;
+    text-indent: -9999px;
+    white-space: nowrap;
+    vertical-align: 0;
+    background: transparent no-repeat top left;
+    *text-indent: 0;
+    *color: transparent;
+    *font-size: 1px;
+    *line-height: 0;
+    *display: inline;
+    *zoom: 1;
+}
+
+.cssc-btn-px {
+    -webkit-background-size: contain;
+    background-size: contain;
+}
+
+/* Icon button
+-------------------------- */
+
+/* Reset */
+
+.cssc-btn {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+/* :Hover */
+
+.cssc-btn:focus,
+.cssc-btn:hover {
+    opacity: 0.50;
+    filter: alpha(opacity=50);
+}
+
+/* ----------------------------------------------------------
+  Switch between IR
+---------------------------------------------------------- */
+
+.ir-switch {
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+    vertical-align: middle;
+    background: none!important;
+}
+
+.ir-switch > * {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    vertical-align: 0;
+    opacity: 0.999;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+
+.ir-switch * + *,
+.ir-switch:hover > * {
+    opacity: 0;
+}
+
+.ir-switch:hover * + * {
+    opacity: 0.999;
+}

@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Vertical center
+---------------------------------------------------------- */
+
+.vertical-center {
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.vertical-center__wrapper {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+}
+
+.vertical-center__centered {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    *display: inline;
+    *zoom: 1;
+}
+
+/* Personalization
+-------------------------- */
+
+/* This block can be of any height, but bigger than the centered element */
+
+.vertical-center {
+    height: 100px;
+}
+
+/*
+ * Arbitrary height (way bigger than the parent if possible)
+ * margin-top should be 0-(height/2)
+ * line-height should be equal to height
+ */
+
+.vertical-center__wrapper {
+    height: 400px;
+    margin-top: -200px;
+    line-height: 400px;
+}
+
+/* Theme
+-------------------------- */
+
+.vertical-center {
+    background-color: #f0f0f0;
+}
+
+.vertical-center p {
+    padding: 0 10px;
+    font-size: 12px;
+}

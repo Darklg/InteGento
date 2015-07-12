@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Separators : Theme
+---------------------------------------------------------- */
+
+.cssc-sep--default {
+    text-align: center;
+}
+
+.cssc-sep--default:before,
+.cssc-sep--default:after {
+    width: 20px;
+    height: 5px;
+    border-radius: 10px;
+    background-color: #BDF;
+}
+
+/* Before */
+
+.cssc-sep--default.cssc-sep-before {
+    padding-top: 15px;
+}
+
+/* After */
+
+.cssc-sep--default.cssc-sep-after {
+    padding-bottom: 15px;
+}

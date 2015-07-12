@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Tooltip : Core
+---------------------------------------------------------- */
+
+.tooltip {
+    z-index: 2;
+    position: relative;
+}
+
+.tooltip:hover {
+    z-index: 3;
+}
+
+.tooltip-bubble {
+    visibility: hidden;
+    z-index: 1;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    opacity: 0;
+}
+
+.tooltip:hover .tooltip-bubble {
+    visibility: visible;
+    opacity: 0.99;
+}
+
+/* Directions
+-------------------------- */
+
+.tooltip--bottom .tooltip-bubble {
+    top: 100%;
+    bottom: auto;
+}
