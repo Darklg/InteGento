@@ -3,7 +3,7 @@
 /**
  * InteGento forms : Default CSS for Magento forms in base theme
  *
- * @version 0.3.2
+ * @version 0.4
  * @license MIT
  * @author Darklg <darklg.blog@gmail.com> <@darklg>
  * @url http://github.com/Darklg/InteGento
@@ -13,12 +13,20 @@
   Common
 ---------------------------------------------------------- */
 
+.hidden {
+    display: block!important;
+    width: 0!important;
+    height: 0!important;
+    margin: 0!important;
+    padding: 0!important;
+    border: 0!important;
+    overflow: hidden!important;
+    font-size: 0!important;
+    line-height: 0!important;
+}
+
 .no-display {
-    visibility: hidden;
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: none!important;
 }
 
 /* ----------------------------------------------------------
@@ -36,6 +44,10 @@
 .form-list .half-field,
 .form-list > li {
     margin-bottom: 1em;
+}
+
+.form-list .fields .fields:last-child {
+    margin-bottom: 0;
 }
 
 /* Grid
@@ -66,6 +78,12 @@
 }
 
 .form-list .fields .field:first-child {
+    padding-left: 0;
+}
+
+.form-list .fields .field:first-child:last-child {
+    float: none;
+    padding-right: 0;
     padding-left: 0;
 }
 
@@ -160,18 +178,14 @@
 /* Select */
 
 .form-list .input-box select {
-    display: block;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 100%;
-    padding: 0;
+    @extend .cssc-select;
     border: 0;
     border-radius: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1;
-    background: transparent;
+}
+
+.form-list .input-box select {
+    background: transparent no-repeat 98% 50%;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAQAAADvCgS4AAAAGklEQVR4AWNg+I8BcQGCyhAAXRlhpcQAQsoAMGIY6KADYAUAAAAASUVORK5CYII=);
 }
 
 /* Messages
@@ -197,6 +211,10 @@
         width: auto;
         padding-right: 0;
         padding-left: 0;
+    }
+
+    .form-list .fields .field:first-child {
+        margin-bottom: 1em;
     }
 
     .customer-dob > * {
