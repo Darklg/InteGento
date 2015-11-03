@@ -4,3 +4,6 @@
 [submodule "skin/frontend/integento/default/scss/csscommon"]
 	path = skin/frontend/integento/default/scss/csscommon
 	url = https://github.com/Darklg/SassCSSCommon.git
+[submodule "tools/InteGentoMageTools"]
+	path = tools/InteGentoMageTools
+	url = git@github.com:Darklg/InteGentoMageTools.git
