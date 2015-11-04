@@ -7,3 +7,6 @@
 [submodule "tools/InteGentoMageTools"]
 	path = tools/InteGentoMageTools
 	url = git@github.com:Darklg/InteGentoMageTools.git
+[submodule "skin/frontend/integento/default/scss/integento"]
+	path = skin/frontend/integento/default/scss/integento
+	url = git@github.com:Darklg/InteGentoStyles.git

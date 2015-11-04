@@ -52,7 +52,7 @@ $sprites2x: sprite-map("sprites-2x/*.png");  /* :) */
   Project
 ---------------------------------------------------------- */
 
-@import "integento/_mageforms.scss";
+@import "integento/integento";
 
 /* Base
 -------------------------- */
@@ -60,7 +60,6 @@ $sprites2x: sprite-map("sprites-2x/*.png");  /* :) */
 @import "project/_base.scss";
 @import "project/base/_forms.scss";
 @import "project/base/_forms-plugins.scss";
-@import "project/base/_messages.scss";
 
 /* Layout
 -------------------------- */
