@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
     'use strict';
 
-    var skinDir = 'skin/frontend/integento/default/';
+    var skinDir = '../skin/frontend/integento/default/';
 
     // load tasks
     grunt.loadNpmTasks('grunt-imageoptim');

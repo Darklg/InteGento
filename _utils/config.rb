@@ -1,0 +1,9 @@
+http_path = "/"
+css_dir = "../skin/frontend/integento/default/css"
+sass_dir = "../skin/frontend/integento/default/scss"
+images_dir = "../skin/frontend/integento/default/images"
+javascripts_dir = "../skin/frontend/integento/default/js"
+output_style = :compressed
+relative_assets = true
+line_comments = false
+preferred_syntax = :scss
