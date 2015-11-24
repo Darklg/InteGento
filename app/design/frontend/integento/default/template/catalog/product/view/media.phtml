@@ -23,7 +23,7 @@ $_imageSize = 500;
 $_zoomSize = 1024;
 $_images = array();
 $_imagesGallery = $this->getGalleryImages();
-$is_galleryMode = (count($_imagesGallery) > 0);
+$is_galleryMode = (count($_imagesGallery) > 1);
 
 /* Main Image details */
 $_productImage = (string)$this->helper('catalog/image')->init($_product, 'image')->resize($_imageSize);
