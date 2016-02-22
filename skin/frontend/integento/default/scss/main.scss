@@ -16,6 +16,15 @@ $mobile-max: 767px;
 $tablet-min: 768px;
 $tablet-max: 1023px;
 $desktop-min: 1024px;
+$desktop-max: 1399px;
+$large-min: 1400px;
+
+$mobile_only: "max-width:"+$mobile-max;
+$mobile_excluded: "min-width:"+$tablet-min;
+$desktop_excluded: "max-width:"+$tablet-max;
+$desktop_only: "min-width:"+$desktop-min;
+$large_excluded: "max-width:"+$desktop-max;
+$large_only: "min-width:"+$large-min;
 
 /* Directories
 -------------------------- */
