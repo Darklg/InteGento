@@ -23,11 +23,16 @@
 <div class="wrapper">
     <?php echo $this->getChildHtml('global_notices') ?>
     <?php echo $this->getChildHtml('header') ?>
-    <div class="main-container">
+    <div class="main-container col2-right-layout">
         <?php echo $this->getChildHtml('breadcrumbs') ?>
-        <?php echo $this->getChildHtml('global_messages') ?>
+        <div class="col-main">
+            <?php echo $this->getChildHtml('global_messages') ?>
+            <?php echo $this->getChildHtml('content') ?>
+        </div>
+        <div class="col-right sidebar">
+        <?php echo $this->getChildHtml('right') ?>
         <?php echo $this->getChildHtml('left') ?>
-        <?php echo $this->getChildHtml('content') ?>
+        </div>
     </div>
     <?php echo $this->getChildHtml('footer') ?>
     <?php echo $this->getChildHtml('global_cookie_notice') ?>

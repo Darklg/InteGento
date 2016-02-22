@@ -79,11 +79,12 @@
     <!-- Catalog -->
 
     <catalog_category_view>
-        <update handle="page_one_column"/>
+        <update handle="page_two_columns_left"/>
     </catalog_category_view>
     <catalogsearch_result_index>
-        <update handle="page_one_column"/>
+        <update handle="page_two_columns_left"/>
     </catalogsearch_result_index>
+
     <sendfriend_product_send>
         <update handle="page_one_column"/>
     </sendfriend_product_send>
@@ -153,14 +154,6 @@
     <page_one_column>
         <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
     </page_one_column>
-
-    <page_two_columns_left>
-        <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
-    </page_two_columns_left>
-
-    <page_two_columns_right>
-        <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
-    </page_two_columns_right>
 
     <page_three_columns>
         <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
