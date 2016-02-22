@@ -38,9 +38,17 @@
         </block>
 
         <!-- Remove default blocks -->
-        <remove name="left.permanent.callout"/>
+        <remove name="catalog.compare.sidebar"/>
         <remove name="left.newsletter"/>
+        <remove name="left.permanent.callout"/>
+        <remove name="left.reports.product.viewed"/>
+        <remove name="right.newsletter"/>
+        <remove name="right.permanent.callout"/>
+        <remove name="right.reports.product.viewed"/>
+        <remove name="sale.reorder.sidebar"/>
         <remove name="tags_popular"/>
+        <remove name="wishlist_sidebar"/>
+
 
         <reference name="header">
             <remove name="top.links"/>
@@ -104,9 +112,8 @@
         <remove name="catalog.compare.sidebar" />
         <remove name="sale.reorder.sidebar" />
         <action method="addBodyClass" block="root"><classname>customer-account</classname></action>
-        <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
         <action method="unsetChild" block="left"><alias>customer_account_navigation</alias></action>
-        <block parent="content" type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
+        <block parent="left" type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
             <action method="addLink" translate="label" module="customer"><name>account</name><path>customer/account/</path><label>Account Dashboard</label></action>
             <action method="addLink" translate="label" module="customer"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
             <action method="addLink" translate="label" module="newsletter"><name>newsletter</name><path>newsletter/manage/</path><label>Newsletter Subscriptions</label></action>
@@ -117,7 +124,7 @@
         </block>
     </customer_account>
     <customer_account_index>
-        <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
+        <action method="setTemplate" block="root"><template>page/2columns-left.phtml</template></action>
     </customer_account_index>
     <sales_order_history>
         <remove name="customer.account.link.back" />
