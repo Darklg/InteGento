@@ -22,9 +22,9 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
 <h1>Bonjour, {{htmlescape var=$billing.getName()}}</h1>
 <p>
     Nous vous remercions pour votre commande auprès de {{var store.getFrontendName()}}. Si vous avez des questions au sujet de votre commande, veuillez nous contacter à l'adresse.
-    ou nous appeler au <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a> du lundi au vendredi entre 8h et 17h <span class="nobr">{{config path='general/store_information/phone'}}</span> Votre facture #{{var invoice.increment_id}} pour la commande #{{var order.increment_id}}.
+    ou nous appeler au <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a> du lundi au vendredi entre 8h et 17h <span class="nobr">{{config path='general/store_information/phone'}}</span>
 </p>
-<h2>Informations de facturation</h2>
+<h2>Votre facture #{{var invoice.increment_id}} pour la commande #{{var order.increment_id}}.</h2>
 <table cellspacing="0" cellpadding="0" border="0" width="650">
     <thead>
     <tr>

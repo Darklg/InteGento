@@ -28,10 +28,9 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
     vous connectant à votre compte <a href="{{store url="customer/account/"}}">Si vous avez des questions au sujet de votre commande, veuillez nous contacter à l'adresse</a>.
     ou nous appeler au <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a> du lundi au vendredi entre 8h et 17h <span class="nobr">{{config path='general/store_information/phone'}}</span> Vous trouverez votre confirmation d'expédition ci-dessous. Merci encore de votre confiance.
 </p>
-<p>
+<h2>
     Votre expédition #{{var shipment.increment_id}} pour la commande #{{var order.increment_id}}.
-</p>
-<h2>Informations de facturation</h2>
+</h2>
 <table cellspacing="0" cellpadding="0" border="0" width="650">
     <thead>
     <tr>
