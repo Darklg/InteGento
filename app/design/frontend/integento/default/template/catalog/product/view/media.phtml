@@ -44,6 +44,7 @@ if ($is_galleryMode) {
     endforeach;
 }
 
+echo '<div class="product-medias">';
 if ($is_galleryMode): ?>
     <ul class="more-views">
     <?php foreach ($_images as $i => $_image): ?>
@@ -54,15 +55,20 @@ if ($is_galleryMode): ?>
         </li>
     <?php endforeach; ?>
     </ul>
+    <div class="product-image-wrapper">
     <div class="product-image-list">
         <?php foreach ($_images as $i => $_image): ?>
-        <div data-i="<?php echo $i; ?>" class="product-image <?php echo ($_image['isCurrentImage'] ? 'current' : ''); ?>">
+        <div data-i="<?php echo $i; ?>" class="<?php echo ($_image['isCurrentImage'] ? 'current' : ''); ?>">
             <img src="<?php echo $_image['imageUrl']; ?>" width="<?php echo $_imageSize; ?>" height="<?php echo $_imageSize; ?>" alt="<?php echo $_image['imageAlt']; ?>" />
         </div>
         <?php endforeach; ?>
     </div>
+    </div>
 <?php else: ?>
+    <div class="product-image-wrapper">
     <div class="product-image">
         <img src="<?php echo $_productImage; ?>" width="<?php echo $_imageSize; ?>" height="<?php echo $_imageSize; ?>" alt="<?php echo $_productImageAlt; ?>" />
     </div>
+    </div>
 <?php endif; ?>
+<?php echo '</div>'; ?>

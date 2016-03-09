@@ -3,7 +3,7 @@
  */
 var setProductViewImagesSlider = function() {
     var moreViews = jQuery('.product-img-box .more-views a'),
-        productImages = jQuery('.product-img-box .product-image-list .product-image');
+        productImages = jQuery('.product-img-box .product-image-list > *');
 
     moreViews.on('click', function(e) {
         if (e) e.preventDefault();
