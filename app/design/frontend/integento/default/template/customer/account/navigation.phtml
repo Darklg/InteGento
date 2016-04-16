@@ -10,12 +10,12 @@
  */
 $_links = $this->getLinks();
 ?>
-<ul class="menu-account mobile-hide">
+<ul class="menu-account hide-on-mobile">
     <?php foreach ($_links as $_link): ?>
         <li <?php if ($this->isActive($_link)) { echo ' class="current"'; } ?>><a href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getLabel() ?></a></li>
     <?php endforeach; ?>
 </ul>
-<select class="mobile-only" name="menu-account" id="menu-account" onchange="window.location.href=this.value;return false;">
+<select class="hide-on-desktop" name="menu-account" id="menu-account" onchange="window.location.href=this.value;return false;">
 <?php foreach ($_links as $_link): ?>
     <option <?php if ($this->isActive($_link)) { echo ' selected="selected"'; } ?> value="<?php echo $_link->getUrl() ?>"><?php echo $_link->getLabel() ?></option>
 <?php endforeach; ?>
