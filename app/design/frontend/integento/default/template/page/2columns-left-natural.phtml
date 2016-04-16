@@ -1,0 +1,42 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) 2016 Darklg
+ * @license     MIT
+ */
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html>
+<!--[if IE 9 ]><html dir="ltr" lang="<?php echo $this->getLang() ?>" class="is_ie9 lt_ie10"><![endif]-->
+<!--[if !IE]><!--><html dir="ltr" lang="<?php echo $this->getLang() ?>"><!--<![endif]-->
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body class="cssc-is-responsive <?php echo $this->getBodyClass(); ?>">
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <?php echo $this->getChildHtml('header') ?>
+    <div class="main-container col2-left-layout col2-left-layout--natural">
+        <?php echo $this->getChildHtml('breadcrumbs') ?>
+        <div class="col-left sidebar">
+        <?php echo $this->getChildHtml('left') ?>
+        </div>
+        <div class="col-main">
+            <?php echo $this->getChildHtml('global_messages') ?>
+            <?php echo $this->getChildHtml('content') ?>
+        </div>
+    </div>
+    <?php echo $this->getChildHtml('footer') ?>
+    <?php echo $this->getChildHtml('global_cookie_notice') ?>
+    <?php echo $this->getChildHtml('before_body_end') ?>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>
