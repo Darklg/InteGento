@@ -34,6 +34,8 @@ $large_only: "min-width:"+$large-min;
 $sprites: sprite-map("sprites/*.png");       /* :) */
 $sprites2x: sprite-map("sprites-2x/*.png");  /* :) */
 
+$font-main: sans-serif;
+
 /* ----------------------------------------------------------
   Utilities
 ---------------------------------------------------------- */
@@ -65,6 +67,7 @@ $sprites2x: sprite-map("sprites-2x/*.png");  /* :) */
 ---------------------------------------------------------- */
 
 @import "integento/integento";
+@import "project/forms";
 
 /* Base
 -------------------------- */
