@@ -67,7 +67,9 @@ if ($is_galleryMode): ?>
 <?php else: ?>
     <div class="product-image-wrapper">
     <div class="product-image">
-        <img src="<?php echo $_productImage; ?>" width="<?php echo $_imageSize; ?>" height="<?php echo $_imageSize; ?>" alt="<?php echo $_productImageAlt; ?>" />
+        <div>
+            <img src="<?php echo $_productImage; ?>" width="<?php echo $_imageSize; ?>" height="<?php echo $_imageSize; ?>" alt="<?php echo $_productImageAlt; ?>" />
+        </div>
     </div>
     </div>
 <?php endif; ?>
