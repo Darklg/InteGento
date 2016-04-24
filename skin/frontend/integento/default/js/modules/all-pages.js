@@ -2,14 +2,6 @@
  * Allow customisation for fake elements
  */
 var setAllPagesFakeElements = function() {
-    /* Fake Select */
-    var $fakeSelect = jQuery('.fakeselect-child select, select.fakeselect-me, select[name=country_id]');
-    $fakeSelect.FakeSelect();
-    $fakeSelect.on('change', function(e) {
-        setTimeout(function() {
-            $fakeSelect.FakeSelect();
-        }, 300);
-    });
 
     /* Fake Input box */
     jQuery('input.fakeinputbox-me').fakeInputBox();
