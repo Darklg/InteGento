@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <!-- Emails -->
+    <sales_email_order_items>
+        <reference name="order_totals">
+            <action method="setLabelProperties">
+                <value>align="left" style="font-size:12px;"</value>
+            </action>
+            <action method="setValueProperties">
+                <value>align="right" style="font-size:12px;"</value>
+            </action>
+        </reference>
+    </sales_email_order_items>
+</layout>

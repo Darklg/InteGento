@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+
+            <!-- Remove default CSS -->
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/styles.css</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/styles-ie.css</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/widgets.css</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/print.css</name>
+            </action>
+
+            <!-- Remove default JS -->
+            <action method="removeItem">
+                <type>js</type>
+                <name>lib/ds-sleight.js</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_js</type>
+                <name>js/ie6.js</name>
+            </action>
+
+        </reference>
+
+        <!-- Remove default blocks -->
+        <remove name="catalog.compare.sidebar"/>
+        <remove name="left.newsletter"/>
+        <remove name="left.permanent.callout"/>
+        <remove name="left.reports.product.viewed"/>
+        <remove name="right.newsletter"/>
+        <remove name="right.permanent.callout"/>
+        <remove name="right.reports.product.viewed"/>
+        <remove name="sale.reorder.sidebar"/>
+        <remove name="tags_popular"/>
+        <remove name="wishlist_sidebar"/>
+        <reference name="header">
+            <remove name="top.links"/>
+            <remove name="welcome"/>
+        </reference>
+
+    </default>
+</layout>

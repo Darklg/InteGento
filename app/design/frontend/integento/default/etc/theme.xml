@@ -1,0 +1,26 @@
+<theme>
+    <layout>
+        <updates>
+            <!-- Clean base theme -->
+            <basedefault_cleaner>
+                <file>basedefault_cleaner.xml</file>
+            </basedefault_cleaner>
+            <!-- Sections -->
+            <integento_home>
+                <file>integento_home.xml</file>
+            </integento_home>
+            <integento_catalog>
+                <file>integento_catalog.xml</file>
+            </integento_catalog>
+            <integento_customer>
+                <file>integento_customer.xml</file>
+            </integento_customer>
+            <integento_checkout>
+                <file>integento_checkout.xml</file>
+            </integento_checkout>
+            <integento_emails>
+                <file>integento_emails.xml</file>
+            </integento_emails>
+        </updates>
+    </layout>
+</theme>

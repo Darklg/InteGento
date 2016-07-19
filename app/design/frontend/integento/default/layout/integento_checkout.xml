@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <!-- Checkout -->
+    <checkout_cart_index>
+        <!-- JS Cart -->
+        <reference name="extra_js">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/modules/checkout.js</name>
+                <params/>
+            </action>
+        </reference>
+    </checkout_cart_index>
+    <!-- Layout -->
+    <checkout_onepage_index>
+        <update handle="page_one_column"/>
+    </checkout_onepage_index>
+    <checkout_onepage_success>
+        <update handle="page_one_column"/>
+    </checkout_onepage_success>
+    <checkout_onepage_failure>
+        <update handle="page_one_column"/>
+    </checkout_onepage_failure>
+</layout>

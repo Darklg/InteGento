@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <!-- Homepage -->
+    <cms_index_index>
+        <!-- Remove CMS Content -->
+        <reference name="content">
+            <action method="unsetChild">
+                <alias>cms.wrapper</alias>
+            </action>
+        </reference>
+        <reference name="extra_js">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/modules/home.js</name>
+                <params/>
+            </action>
+        </reference>
+        <!-- Add "new products" block -->
+        <block parent="content" type="catalog/product_new" name="home.catalog.product.new" template="krr_catalogtools/products-list.phtml">
+            <!-- Set block title (displayed) -->
+            <action method="setTitle" translate="value">
+                <value>New products</value>
+            </action>
+            <!-- Product limit -->
+            <action method="setProductsCount">
+                <count>5</count>
+            </action>
+        </block>
+    </cms_index_index>
+</layout>

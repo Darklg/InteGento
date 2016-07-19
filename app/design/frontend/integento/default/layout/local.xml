@@ -4,16 +4,6 @@
         <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
         <reference name="head">
 
-            <!-- Remove default CSS -->
-            <action method="removeItem"><type>skin_css</type><name>css/styles.css</name></action>
-            <action method="removeItem"><type>skin_css</type><name>css/styles-ie.css</name></action>
-            <action method="removeItem"><type>skin_css</type><name>css/widgets.css</name></action>
-            <action method="removeItem"><type>skin_css</type><name>css/print.css</name></action>
-
-            <!-- Remove default JS -->
-            <action method="removeItem"><type>js</type><name>lib/ds-sleight.js</name></action>
-            <action method="removeItem"><type>skin_js</type><name>js/ie6.js</name></action>
-
             <!-- Add Theme CSS -->
             <action method="addItem"><type>skin_css</type><name>css/main.css</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>css/print.css</name><params/></action>
@@ -21,10 +11,6 @@
             <!-- Add Theme JS -->
             <block type="core/text" name="jquery.noconflict"><action method="setText"><text><![CDATA[<script>var $j=jQuery.noConflict();</script>]]></text></action></block>
             <action method="addItem"><type>skin_js</type><name>js/jquery/jquery-1.11.1.min.js</name><params/></action>
-
-            <!-- Add IE JS -->
-            <action method="addItem"><type>skin_js</type><name>js/ie/html5.js</name><params/><if>lt IE 9</if></action>
-            <action method="addItem"><type>skin_js</type><name>js/ie/selectivizr-min.js</name><params/><if>lt IE 9</if></action>
 
         </reference>
 
@@ -37,24 +23,6 @@
             <action method="addItem"><type>skin_js</type><name>js/events.js</name><params/></action>
         </block>
 
-        <!-- Remove default blocks -->
-        <remove name="catalog.compare.sidebar"/>
-        <remove name="left.newsletter"/>
-        <remove name="left.permanent.callout"/>
-        <remove name="left.reports.product.viewed"/>
-        <remove name="right.newsletter"/>
-        <remove name="right.permanent.callout"/>
-        <remove name="right.reports.product.viewed"/>
-        <remove name="sale.reorder.sidebar"/>
-        <remove name="tags_popular"/>
-        <remove name="wishlist_sidebar"/>
-
-
-        <reference name="header">
-            <remove name="top.links"/>
-            <remove name="welcome"/>
-        </reference>
-
         <!-- Add blocks -->
         <block parent="header" type="core/template" name="top.account" as="top_account" template="page/html/header/account.phtml" />
         <block parent="header" type="checkout/cart_sidebar" name="top.cart" as="top_cart" template="checkout/cart/cartheader.phtml" />
@@ -62,118 +30,20 @@
 
     </default>
 
-    <!-- Homepage -->
-
-    <cms_index_index>
-        <!-- Remove CMS Content -->
-        <reference name="content">
-            <action method="unsetChild"><alias>cms.wrapper</alias></action>
-        </reference>
-
-        <reference name="extra_js">
-            <action method="addItem"><type>skin_js</type><name>js/modules/home.js</name><params/></action>
-        </reference>
-
-        <!-- Add "new products" block -->
-        <block parent="content" type="catalog/product_new" name="home.catalog.product.new" template="krr_catalogtools/products-list.phtml">
-            <!-- Set block title (displayed) -->
-            <action method="setTitle" translate="value"><value>New products</value></action>
-            <!-- Product limit -->
-            <action method="setProductsCount"><count>5</count></action>
-        </block>
-    </cms_index_index>
-
-
-    <!-- Catalog -->
-
-    <catalog_category_view>
-        <update handle="page_two_columns_left"/>
-    </catalog_category_view>
-    <catalogsearch_result_index>
-        <update handle="page_two_columns_left"/>
-    </catalogsearch_result_index>
-
-    <sendfriend_product_send>
-        <update handle="page_one_column"/>
-    </sendfriend_product_send>
-    <catalog_product_view>
-        <reference name="extra_js">
-            <action method="addItem"><type>skin_js</type><name>js/modules/catalog.js</name><params/></action>
-        </reference>
-        <reference name="content">
-            <block parent="product.info" type="catalog/product_view_type_simple" name="product.share" as="product_share" template="catalog/product/view/share.phtml" />
-            <block type="reports/product_viewed" name="reports.product.viewed" alias="product_viewed" template="catalog/product/view/recently_viewed.phtml" />
-        </reference>
-    </catalog_product_view>
-
-    <!-- Account -->
-
-    <customer_account>
-        <remove name="catalog.compare.sidebar" />
-        <remove name="sale.reorder.sidebar" />
-        <action method="setTemplate" block="root"><template>page/2columns-left-natural.phtml</template></action>
-        <action method="addBodyClass" block="root"><classname>customer-account</classname></action>
-        <action method="unsetChild" block="left"><alias>customer_account_navigation</alias></action>
-        <block parent="left" type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
-            <action method="addLink" translate="label" module="customer"><name>account</name><path>customer/account/</path><label>Account Dashboard</label></action>
-            <action method="addLink" translate="label" module="customer"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
-            <action method="addLink" translate="label" module="newsletter"><name>newsletter</name><path>newsletter/manage/</path><label>Newsletter Subscriptions</label></action>
-            <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
-            <action method="addLink" translate="label" module="sales"><name>orders</name><path>sales/order/history/</path><label>My Orders</label></action>
-            <action method="addLink" translate="label" module="wishlist" ifconfig="wishlist/general/active"><name>wishlist</name><path>wishlist/</path><label>My Wishlist</label></action>
-            <action method="addLink" translate="label" module="customer"><name>logout</name><path>customer/account/logout/</path><label>Log out</label></action>
-        </block>
-    </customer_account>
-    <customer_account_index>
-        <action method="setTemplate" block="root"><template>page/2columns-left-natural.phtml</template></action>
-    </customer_account_index>
-    <sales_order_history>
-        <remove name="customer.account.link.back" />
-    </sales_order_history>
-
-    <!-- Checkout -->
-    <checkout_cart_index>
-        <reference name="extra_js">
-            <action method="addItem"><type>skin_js</type><name>js/modules/checkout.js</name><params/></action>
-        </reference>
-    </checkout_cart_index>
-    <checkout_onepage_index>
-        <update handle="page_one_column"/>
-    </checkout_onepage_index>
-    <checkout_onepage_success>
-        <update handle="page_one_column"/>
-    </checkout_onepage_success>
-    <checkout_onepage_failure>
-        <update handle="page_one_column"/>
-    </checkout_onepage_failure>
-
     <!-- CMS Blocks -->
-
     <contacts_index_index>
         <update handle="page_one_column"/>
     </contacts_index_index>
 
     <!-- Default template : 1column -->
-
     <page_empty>
         <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
     </page_empty>
-
     <page_one_column>
         <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
     </page_one_column>
-
     <page_three_columns>
         <action method="setTemplate" block="root"><template>page/1column.phtml</template></action>
     </page_three_columns>
-
-    <!-- Emails -->
-    <sales_email_order_items>
-        <reference name="order_totals">
-            <action method="setLabelProperties"><value>align="left" style="font-size:12px;"</value></action>
-            <action method="setValueProperties"><value>align="right" style="font-size:12px;"</value></action>
-        </reference>
-    </sales_email_order_items>
-
 
 </layout>

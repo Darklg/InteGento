@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <!-- Catalog -->
+    <catalog_category_view>
+        <update handle="page_two_columns_left"/>
+    </catalog_category_view>
+    <catalogsearch_result_index>
+        <update handle="page_two_columns_left"/>
+    </catalogsearch_result_index>
+    <sendfriend_product_send>
+        <update handle="page_one_column"/>
+    </sendfriend_product_send>
+    <catalog_product_view>
+        <reference name="extra_js">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/modules/catalog.js</name>
+                <params/>
+            </action>
+        </reference>
+        <reference name="content">
+            <block parent="product.info" type="catalog/product_view_type_simple" name="product.share" as="product_share" template="catalog/product/view/share.phtml" />
+            <block type="reports/product_viewed" name="reports.product.viewed" alias="product_viewed" template="catalog/product/view/recently_viewed.phtml" />
+        </reference>
+    </catalog_product_view>
+</layout>
