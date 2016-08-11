@@ -34,6 +34,9 @@
         </reference>
 
         <!-- Remove default blocks -->
+        <remove name="account.links"/>
+        <remove name="accountLinks"/>
+        <remove name="cart_sidebar"/>
         <remove name="catalog.compare.sidebar"/>
         <remove name="left.newsletter"/>
         <remove name="left.permanent.callout"/>
