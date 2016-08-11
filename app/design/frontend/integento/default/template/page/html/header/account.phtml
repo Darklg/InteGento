@@ -25,21 +25,25 @@ $_h = $this->helper('customer/data');
         <?php else: ?>
             <form id="header-login-form" action="<?php echo $_loginPostUrl; ?>" method="post">
                 <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
-                <ul class="cssc-form cssc-form--mage">
-                    <li class="box">
+                <ul class="form-list">
+                    <li class="field">
                         <label for="mini-login"><?php echo $this->__('Email:') ?></label>
-                        <input type="text" name="login[username]" id="mini-login" class="input-text" />
+                        <div class="input-box">
+                            <input type="text" name="login[username]" id="mini-login" class="input-text" />
+                        </div>
                     </li>
-                    <li class="box">
+                    <li class="field">
                         <label for="mini-password"><?php echo $this->__('Password:') ?></label>
-                        <input type="password" name="login[password]" id="mini-password" class="input-text" />
+                        <div class="input-box">
+                            <input type="password" name="login[password]" id="mini-password" class="input-text" />
+                        </div>
                         <small class="help">
                             <a href="<?php echo $this->getUrl('customer/account/forgotpassword') ?>"><?php echo $this->__('Forgot Your Password?') ?></a>
                         </small>
                     </li>
-                    <li class="box login-submit-box">
+                    <li class="field login-submit-box">
                         <div class="actions">
-                            <button type="submit" class="cssc-button cssc-button--mage"><?php echo $this->__('Login') ?></button>
+                            <button type="submit" class="button"><?php echo $this->__('Login') ?></button>
                         </div>
                     </li>
                 </ul>
