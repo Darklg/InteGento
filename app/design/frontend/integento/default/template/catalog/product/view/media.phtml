@@ -18,6 +18,7 @@
 $_product = $this->getProduct();
 $_helper = $this->helper('catalog/output');
 $_imageHelper = $this->helper('catalog/image');
+$_maxImagesNb = 10;
 $_thumbSize = 56;
 $_imageSize = 500;
 $_zoomSize = 1024;
@@ -26,7 +27,7 @@ $_imagesGallery = $this->getGalleryImages();
 $is_galleryMode = (count($_imagesGallery) > 1);
 
 /* Main Image details */
-$_productImage = (string)$this->helper('catalog/image')->init($_product, 'image')->resize($_imageSize);
+$_productImage = (string) $this->helper('catalog/image')->init($_product, 'image')->resize($_imageSize);
 $_productImageAlt = $this->escapeHtml($this->getImageLabel());
 
 /* Gallery image details */
@@ -34,13 +35,16 @@ if ($is_galleryMode) {
     $i = 0;
     foreach ($_imagesGallery as $_image):
         $_imageInfo = array(
-            'imageUrl' => (string)$_imageHelper->init($this->getProduct() , 'image', $_image->getFile())->resize($_imageSize) ,
-            'imageZoomUrl' => (string)$_imageHelper->init($this->getProduct() , 'image', $_image->getFile())->resize($_zoomSize) ,
-            'imageThumbUrl' => (string)$_imageHelper->init($this->getProduct() , 'thumbnail', $_image->getFile())->resize($_thumbSize) ,
-            'imageAlt' => $this->escapeHtml($_image->getLabel()) ,
+            'imageUrl' => (string) $_imageHelper->init($_product, 'image', $_image->getFile())->resize($_imageSize),
+            'imageZoomUrl' => (string) $_imageHelper->init($_product, 'image', $_image->getFile())->resize($_zoomSize),
+            'imageThumbUrl' => (string) $_imageHelper->init($_product, 'thumbnail', $_image->getFile())->resize($_thumbSize),
+            'imageAlt' => $this->escapeHtml($_image->getLabel())
         );
         $_imageInfo['isCurrentImage'] = ($_imageInfo['imageUrl'] == $_productImage);
         $_images[$i++] = $_imageInfo;
+        if($i >= $_maxImagesNb){
+            break;
+        }
     endforeach;
 }
 
@@ -53,7 +57,7 @@ if ($is_galleryMode): ?>
                 <img src="<?php echo $_image['imageThumbUrl']; ?>" width="<?php echo $_thumbSize; ?>" height="<?php echo $_thumbSize; ?>" alt="<?php echo $_image['imageAlt']; ?>" />
             </a>
         </li>
-    <?php endforeach; ?>
+    <?php endforeach;?>
     </ul>
     <div class="product-image-wrapper">
     <div class="product-image-list">
@@ -61,7 +65,7 @@ if ($is_galleryMode): ?>
         <div data-i="<?php echo $i; ?>" class="<?php echo ($_image['isCurrentImage'] ? 'current' : ''); ?>">
             <img src="<?php echo $_image['imageUrl']; ?>" width="<?php echo $_imageSize; ?>" height="<?php echo $_imageSize; ?>" alt="<?php echo $_image['imageAlt']; ?>" />
         </div>
-        <?php endforeach; ?>
+        <?php endforeach;?>
     </div>
     </div>
 <?php else: ?>
@@ -72,5 +76,5 @@ if ($is_galleryMode): ?>
         </div>
     </div>
     </div>
-<?php endif; ?>
+<?php endif;?>
 <?php echo '</div>'; ?>
