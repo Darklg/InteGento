@@ -18,4 +18,9 @@ jQuery(document).ready(function() {
     if ($jQBody.hasClass('catalog-product-view')) {
         setProductViewImagesSlider();
     }
+
+    /* Collateral */
+    if (jQuery('.product-collateral')) {
+        setIntegentoProductViewCollateral(jQuery('.product-collateral'));
+    }
 });
