@@ -11,6 +11,7 @@
         <update handle="page_one_column"/>
     </sendfriend_product_send>
     <catalog_product_view>
+        <remove name="product_tag_list" />
         <reference name="extra_js">
             <action method="addItem">
                 <type>skin_js</type>
