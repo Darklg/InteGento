@@ -1,5 +1,27 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
+    <!-- Public account -->
+    <integento_customer_account_public>
+        <action method="addBodyClass" block="root">
+            <classname>customer-account-public</classname>
+        </action>
+    </integento_customer_account_public>
+    <customer_account_login>
+        <update handle="integento_customer_account_public"/>
+    </customer_account_login>
+    <customer_account_logoutsuccess>
+        <update handle="integento_customer_account_public"/>
+    </customer_account_logoutsuccess>
+    <customer_account_create>
+        <update handle="integento_customer_account_public"/>
+    </customer_account_create>
+    <customer_account_forgotpassword>
+        <update handle="integento_customer_account_public"/>
+    </customer_account_forgotpassword>
+    <customer_account_changeforgotten>
+        <update handle="integento_customer_account_public"/>
+    </customer_account_changeforgotten>
+
     <!-- Account -->
     <customer_account>
         <remove name="catalog.compare.sidebar" />
