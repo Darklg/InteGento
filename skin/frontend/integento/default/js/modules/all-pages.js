@@ -71,3 +71,21 @@ var setAllPagesResponsiveMainMenu = function() {
         navLinks.removeClass(openNavElClassName);
     });
 };
+
+
+var setTouchMenusDesktop = function() {
+    var target = '.main-link--has-submenu > a',
+        minWidth = 1024,
+        $window = jQuery(window),
+        isTouchScreen = function() {
+            return 'ontouchstart' in window;
+        };
+
+    /* Prevent click on some links but triggers hover */
+    jQuery('body').on('click', target, function(e) {
+        if ($window.width() < minWidth || !isTouchScreen()) {
+            return;
+        }
+        e.preventDefault();
+    });
+};
