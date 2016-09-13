@@ -41,6 +41,7 @@ $_socialMethods = array(
     )
 );
 ?>
+<?php /* Main Content end */ ?>
 </td><td width="10"></td></tr>
 <tr><td colspan="3" height="10"></td></tr>
 <tr><td width="10"></td><td style="text-align:center;">
@@ -50,27 +51,22 @@ $_socialMethods = array(
 </td><td width="10"></td></tr>
 <tr><td colspan="3" height="10"></td></tr>
 </table>
-<!-- Main Container end -->
+<?php /* Main Container end */ ?>
 </td></tr>
 <tr><td height="20"></td></tr>
 <tr><td height="20" align="center" style="text-align:center;font-size:11px;color:#333;">
-    <a style="color:#333;" href="mailto:<?php echo $_storeEmail; ?>"><?php echo $_storeEmail; ?></a> -
-    <?php echo $this->__('Tel : '); ?><a style="color:#333;" href="tel:<?php echo $_storePhone; ?>"><?php echo $_storePhone; ?></a>
+    <?php if($_storeEmail): ?>
+        <a style="color:#333;" href="mailto:<?php echo $_storeEmail; ?>"><?php echo $_storeEmail; ?></a>
+    <?php endif; ?>
+    <?php if($_storeEmail && $_storePhone): ?>
+        -
+    <?php endif; ?>
+    <?php if($_storePhone): ?>
+        <?php echo $this->__('Tel : '); ?><a style="color:#333;" href="tel:<?php echo $_storePhone; ?>"><?php echo $_storePhone; ?></a>
+    <?php endif; ?>
 </td></tr>
 <tr><td height="20"></td></tr>
 </table>
 </div>
-<style type="text/css">
-body {}
-html,body{width:100%!important;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;margin:0;padding:0;font-family:sans-serif;}
-img{text-align:center;color:#000;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;height:auto;max-width:100%}
-.ReadMsgBody{width:100%;}
-.ExternalClass{width:100%;}
-span.yshortcuts{color:#000;background-color:none;border:none;}
-span.yshortcuts:hover,
-span.yshortcuts:active,
-span.yshortcuts:focus{color:#000;background-color:none;border:none;}
-p{margin:0 0 10px;}
-</style>
 </body>
 </html>
