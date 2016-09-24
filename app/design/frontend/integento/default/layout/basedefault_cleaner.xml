@@ -41,8 +41,10 @@
         <remove name="left.newsletter"/>
         <remove name="left.permanent.callout"/>
         <remove name="left.reports.product.viewed"/>
+        <remove name="paypal.partner.right.logo"/>
         <remove name="right.newsletter"/>
         <remove name="right.permanent.callout"/>
+        <remove name="right.poll"/>
         <remove name="right.reports.product.viewed"/>
         <remove name="sale.reorder.sidebar"/>
         <remove name="tags_popular"/>
