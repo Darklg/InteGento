@@ -23,23 +23,25 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
 
 <h1>Bonjour {{htmlescape var=$order.getCustomerName()}}</h1>
 <p>
-    Nous vous remercions pour votre commande auprès de {{var store.getFrontendName()}}.
+    Nous vous remercions pour votre commande auprès de <strong>{{var store.getFrontendName()}}</strong>.
     Une fois votre colis expédié, nous vous enverrons un e-mail avec un lien pour suivre votre commande.
-    Vous pouvez vérifier l'état de votre commande en <a href="{{store url="customer/account/"}}">vous connectant à votre compte</a>.
-    <br />
-    Si vous avez des questions au sujet de votre commande, veuillez nous contacter à l'adresse <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a>
-    ou nous appeler au <span class="nobr">{{config path='general/store_information/phone'}}</span> du lundi au vendredi entre 8h et 17h.
+    Vous pouvez vérifier l'état de votre commande en vous connectant à <a href="{{store url="customer/account/"}}">votre compte</a>.
+    Si vous avez des questions au sujet de votre commande,
+    veuillez nous contacter à l'adresse <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a>
+    ou nous appeler au <span class="nobr">{{config path='general/store_information/phone'}}</span>.
+    {{config path='general/store_information/hours'}}
 </p>
+
 <p>
     Vous trouverez la confirmation de votre commande ci-dessous. Merci encore de votre confiance.
 </p>
 <h2>Votre commande #{{var order.increment_id}}. (enregistrée le {{var order.getCreatedAtFormated('long')}}).</h2>
-<table cellspacing="0" cellpadding="0" border="0" width="580">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
     <thead>
     <tr>
-        <th align="left" width="285">Informations d'expédition:</th>
+        <th align="left" width="50%">Informations d'expédition:</th>
         <th width="10"></th>
-        <th align="left" width="285">Méthode de paiement:</th>
+        <th align="left" width="50%">Méthode de paiement:</th>
     </tr>
     </thead>
     <tbody>
@@ -56,12 +58,12 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
 </table>
 <br/>
 {{depend order.getIsNotVirtual()}}
-<table cellspacing="0" cellpadding="0" border="0" width="580">
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
     <thead>
     <tr>
-        <th align="left" width="285">Informations de facturation:</th>
+        <th align="left" width="50%">Informations de facturation:</th>
         <th width="10"></th>
-        <th align="left" width="285">Méthode d'expédition:</th>
+        <th align="left" width="50%">Méthode d'expédition:</th>
     </tr>
     </thead>
     <tbody>

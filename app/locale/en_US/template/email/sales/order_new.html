@@ -22,21 +22,21 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
 {{block type="core/template" template="email/header.phtml"}}
 <h1>Hello {{htmlescape var=$order.getCustomerName()}}</h1>
 <p>
-    Thank you for your order from {{var store.getFrontendName()}}.
+    Thank you for your order from <strong>{{var store.getFrontendName()}}</strong>.
     Once your package ships we will send an email with a link to track your order.
     You can check the status of your order by <a href="{{store url="customer/account/"}}">logging into your account</a>.
 </p>
 <p>
-    If you have any questions about your order please contact us at <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a> or call us at <span class="nobr">{{config path='general/store_information/phone'}}</span> Monday - Friday, 8am - 5pm PST.
+    If you have any questions about your order please contact us at <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a> or call us at <span class="nobr">{{config path='general/store_information/phone'}}</span> {{config path='general/store_information/hours'}}.
 </p>
 <p>Your order confirmation is below. Thank you again for your business.</p>
 <h2>Your Order #{{var order.increment_id}} <small>(placed on {{var order.getCreatedAtFormated('long')}})</small></h2>
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
     <thead>
     <tr>
-        <th align="left" width="325">Billing Information:</th>
+        <th align="left" width="50%">Billing Information:</th>
         <th width="10"></th>
-        <th align="left" width="325">Payment Method:</th>
+        <th align="left" width="50%">Payment Method:</th>
     </tr>
     </thead>
     <tbody>
@@ -56,9 +56,9 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
     <thead>
     <tr>
-        <th align="left" width="325">Shipping Information:</th>
+        <th align="left" width="50%">Shipping Information:</th>
         <th width="10"></th>
-        <th align="left" width="325">Shipping Method:</th>
+        <th align="left" width="50%">Shipping Method:</th>
     </tr>
     </thead>
     <tbody>

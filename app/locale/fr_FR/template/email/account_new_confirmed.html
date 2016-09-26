@@ -11,7 +11,7 @@
 body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
 @-->
 {{block type="core/template" template="email/header.phtml"}}
-<h1>Chère/Cher {{htmlescape var=$customer.name}},</h1>
+<h1>Bonjour {{htmlescape var=$customer.name}},</h1>
 <p>Bienvenue dans {{var store.getFrontendName()}}. Pour vous connecter lorsque vous visitez notre site, il vous suffit de cliquer sur <a href="{{store url="customer/account/"}}">Connexion</a> ou <a href="{{store url="customer/account/"}}">Mon compte</a> en haut de chaque page, puis d'entrer votre adresse e-mail et votre mot de passe.</p>
 <p>Lorsque vous vous connectez à votre compte, vous pouvez effectuer les opérations suivantes:</p>
 <ul>

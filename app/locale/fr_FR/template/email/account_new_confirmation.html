@@ -15,7 +15,7 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
 @-->
 
 {{block type="core/template" template="email/header.phtml"}}
-<h1>Chère/Cher {{htmlescape var=$customer.name}},</h1>
+<h1>Bonjour {{htmlescape var=$customer.name}},</h1>
 <p>Votre e-mail {{var customer.email}} doit être confirmé avant de l'utiliser pour vous connecter à notre magasin.</p>
 <p>Pour confirmer l'e-mail et vous connecter instantanément, veuillez utiliser <a href="{{store url="customer/account/confirm/" _query_id=$customer.id _query_key=$customer.confirmation _query_back_url=$back_url}}">ce lien de confirmation</a>. Ce lien n'est valide qu'une seule fois.</p>
 <p>

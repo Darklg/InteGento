@@ -15,7 +15,7 @@ body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;
 
 {{block type="core/template" template="email/header.phtml"}}
 
-<h1>Chère/Cher, {{htmlescape var=$billing.getName()}},</h1>
+<h1>Bonjour {{htmlescape var=$billing.getName()}},</h1>
 <p>
     Votre commande n°{{var order.increment_id}} est
     <strong>{{var order.getStatusLabel()}}</strong>.
