@@ -11,12 +11,13 @@
 $_item = $this->getItem();
 $_order = $_item->getOrder();
 $_product = Mage::getModel('catalog/product')->load($_item->getProductId());
-$itemImage = Mage::helper('catalog/image')->init($_product, 'small_image')->resize(75);
+$_imgWidth = 75;
+$_itemImage = Mage::helper('catalog/image')->init($_product, 'small_image')->resize($_imgWidth);
 ?>
 <tr>
-    <td width="90"><img src="<?php echo $itemImage; ?>" width="75" height="75" alt="" /></td>
+    <td width="90"><img src="<?php echo $_itemImage; ?>" width="<?php echo $_imgWidth; ?>" height="<?php echo $_imgWidth; ?>" alt="" /></td>
     <td>
-        <strong style="font-size:11px;"><?php echo $this->escapeHtml($_item->getName()) ?></strong>
+        <h3 style="margin-top:0"><?php echo $this->escapeHtml($_item->getName()) ?></h3>
         <?php if ($this->getItemOptions()): ?>
         <dl style="margin:0; padding:0;">
             <?php foreach ($this->getItemOptions() as $option): ?>
@@ -34,8 +35,9 @@ $itemImage = Mage::helper('catalog/image')->init($_product, 'small_image')->resi
         <?php echo $this->escapeHtml($_item->getDescription()) ?>
 
         <div><?php echo $this->escapeHtml($this->getSku($_item)) ?></div>
-        <div><?php echo $this->__('Quantity:') . ' ' . $_item->getQtyOrdered()*1 ?></div>
-
+    </td>
+    <td><?php echo $_item->getQtyOrdered()*1 ?></td>
+    <td>
         <?php if ($this->helper('tax')->displaySalesPriceExclTax($_order->getStore()) || $this->helper('tax')->displaySalesBothPrices($_order->getStore())): ?>
             <?php if ($this->helper('tax')->displaySalesBothPrices($_order->getStore())): ?>
                 <span class="label"><?php echo Mage::helper('tax')->__('Excl. Tax'); ?>:</span>
@@ -111,6 +113,7 @@ $itemImage = Mage::helper('catalog/image')->init($_product, 'small_image')->resi
             <?php endif; ?>
         <?php endif; ?>
     </td>
+
 </tr>
 <?php if ($_item->getGiftMessageId() && $_giftMessage = $this->helper('giftmessage/message')->getGiftMessage($_item->getGiftMessageId())): ?>
 <tr>
