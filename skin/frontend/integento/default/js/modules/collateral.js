@@ -1,5 +1,5 @@
 /*
- Integento Collateral accordion v 0.1.0 | @darklg | MIT/GPL2 Licensed
+ Integento Collateral accordion v 0.1.1 | @darklg | MIT/GPL2 Licensed
 */
 
 var setIntegentoProductViewCollateral = function($parent, userConfig) {
@@ -24,6 +24,10 @@ var setIntegentoProductViewCollateral = function($parent, userConfig) {
 
     this.init = function() {
         this.setConfig();
+        if(this.$targets.length < 1){
+            $parent.remove();
+            return;
+        }
         this.gotoTarget(0);
         this.setEvents();
     };
