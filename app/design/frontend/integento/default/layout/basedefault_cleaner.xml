@@ -38,6 +38,7 @@
         <remove name="accountLinks"/>
         <remove name="cart_sidebar"/>
         <remove name="catalog.compare.sidebar"/>
+        <remove name="customer_account_dashboard_hello"/>
         <remove name="left.newsletter"/>
         <remove name="left.permanent.callout"/>
         <remove name="left.reports.product.viewed"/>
@@ -49,10 +50,15 @@
         <remove name="sale.reorder.sidebar"/>
         <remove name="tags_popular"/>
         <remove name="wishlist_sidebar"/>
+
+        <!-- Header -->
         <reference name="header">
             <remove name="top.links"/>
             <remove name="welcome"/>
         </reference>
+
+        <!-- Cart -->
+        <remove name="checkout.cart.top_methods" />
 
     </default>
 </layout>
