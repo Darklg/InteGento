@@ -32,7 +32,7 @@ if($this->getCollection()->getSize()): ?>
             <?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
                 <?php foreach($_sortDirections as $dir => $dirName): ?>
                     <option value="<?php echo $this->getOrderUrl($_key, $dir) ?>"<?php if($this->isOrderCurrent($_key) && $this->getCurrentDirection() == $dir): ?> selected="selected"<?php endif; ?>>
-                    <?php echo $this->__($_order) . ' ' . $dirName; ?>
+                    <?php echo $this->__($_order . ' ' . $dirName); ?>
                     </option>
                 <?php endforeach; ?>
             <?php endforeach; ?>
