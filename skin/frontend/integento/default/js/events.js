@@ -20,7 +20,7 @@ jQuery(document).ready(function() {
     }
 
     /* Collateral */
-    if (jQuery('.product-collateral')) {
-        setIntegentoProductViewCollateral(jQuery('.product-collateral'));
+    if (jQuery('.product-collateral').length > 0) {
+        new setIntegentoProductViewCollateral(jQuery('.product-collateral'));
     }
 });
