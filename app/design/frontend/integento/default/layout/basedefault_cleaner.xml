@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<layout version="0.1.0">
+<layout version="0.2.0">
     <default>
         <reference name="head">
 
@@ -30,6 +30,17 @@
                 <type>skin_js</type>
                 <name>js/ie6.js</name>
             </action>
+
+            <!-- Needed in advices -->
+            <!-- <action method="removeItem"><type>js</type><name>scriptaculous/builder.js</name></action> -->
+
+            <!-- Needed in ajax autocompleter -->
+            <!-- <action method="removeItem"><type>js</type><name>scriptaculous/controls.js</name></action> -->
+            <!-- <action method="removeItem"><type>js</type><name>scriptaculous/effects.js</name></action> -->
+
+            <!-- Needed in native product zoom -->
+            <action method="removeItem"><type>js</type><name>scriptaculous/dragdrop.js</name></action>
+            <action method="removeItem"><type>js</type><name>scriptaculous/slider.js</name></action>
 
         </reference>
 
