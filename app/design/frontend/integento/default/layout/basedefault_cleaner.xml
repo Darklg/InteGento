@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<layout version="0.2.0">
+<layout version="0.2.1">
     <default>
         <reference name="head">
 
@@ -41,6 +41,9 @@
             <!-- Needed in native product zoom -->
             <action method="removeItem"><type>js</type><name>scriptaculous/dragdrop.js</name></action>
             <action method="removeItem"><type>js</type><name>scriptaculous/slider.js</name></action>
+
+            <!-- If JS hover are needed on main menu -->
+            <!-- <action method="removeItem"><type>js</type><name>varien/menu.js</name></action> -->
 
         </reference>
 
