@@ -10,9 +10,19 @@
  */
 
 /* ----------------------------------------------------------
+  Page Title
+---------------------------------------------------------- */
+?>
+<div class="page-title">
+    <h1>Page Title</h1>
+</div>
+
+<?
+/* ----------------------------------------------------------
   CRUMBS
 ---------------------------------------------------------- */
 ?>
+<hr />
 <div class="breadcrumbs">
     <ul>
         <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="home">
@@ -28,18 +38,10 @@
 
 <?php
 /* ----------------------------------------------------------
-  Page Title
----------------------------------------------------------- */
-?>
-<div class="page-title">
-    <h1>Styleguide</h1>
-</div>
-
-<?php
-/* ----------------------------------------------------------
   CMS Content
 ---------------------------------------------------------- */
 ?>
+<hr />
 <h1>CMS Content</h1>
 <div class="std">
     <h2>Liste de citations</h2>
@@ -97,6 +99,7 @@
   Forms
 ---------------------------------------------------------- */
 ?>
+<hr />
 <h1>Forms</h1>
 <form action="#" method="post">
     <div class="fieldset">
@@ -189,6 +192,7 @@
   Tables
 ---------------------------------------------------------- */
 ?>
+<hr />
 <h1>Tables</h1>
 <h2>Product table</h2>
 <p>Cart / Success / Sales</p>
@@ -243,4 +247,70 @@
   Various
 ---------------------------------------------------------- */
 ?>
+<hr />
+<h1>No results</h1>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+
+<?php
+/* ----------------------------------------------------------
+  Pager
+---------------------------------------------------------- */
+?>
+<hr />
+<h1>Pager</h1>
+<div class="pager">
+    <div class="pages">
+        <strong>Page:</strong>
+        <ol>
+            <li class="current">1</li>
+            <li>
+                <a href="#2">2</a>
+            </li>
+            <li>
+                <a href="#3">3</a>
+            </li>
+            <li>
+                <a class="next i-next" href="#2" title="Next">
+                    <img src="http://placehold.it/30x30" alt="Next" class="v-middle"/>
+                </a>
+            </li>
+        </ol>
+    </div>
+</div>
+<?php
+/* ----------------------------------------------------------
+  Messages
+---------------------------------------------------------- */
+?>
+<hr />
+<h1>Messages</h1>
+<ul class="messages">
+    <li class="success-msg">
+        <ul>
+            <li>
+                <span>Success message.</span>
+            </li>
+        </ul>
+    </li>
+    <li class="error-msg">
+        <ul>
+            <li>
+                <span>Error message.</span>
+            </li>
+        </ul>
+    </li>
+    <li class="note-msg">
+        <ul>
+            <li>
+                <span>Note message.</span>
+            </li>
+        </ul>
+    </li>
+    <li class="warning-msg">
+        <ul>
+            <li>
+                <span>Warning message.</span>
+            </li>
+        </ul>
+    </li>
+</ul>
