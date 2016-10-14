@@ -9,9 +9,8 @@
             <action method="addItem"><type>skin_css</type><name>css/print.css</name><params/></action>
 
             <!-- Add Theme JS -->
-            <block type="core/text" name="jquery.noconflict"><action method="setText"><text><![CDATA[<script>var $j=jQuery.noConflict();</script>]]></text></action></block>
-            <action method="addItem"><type>skin_js</type><name>js/jquery/jquery-1.11.1.min.js</name><params/></action>
-
+            <action method="addJs"><script>lib/jquery/jquery-1.10.2.min.js</script></action>
+            <action method="addJs"><script>lib/jquery/noconflict.js</script></action>
         </reference>
 
         <!-- Footer JS -->
