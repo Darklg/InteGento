@@ -21,6 +21,11 @@
     <customer_account_changeforgotten>
         <update handle="integento_customer_account_public"/>
     </customer_account_changeforgotten>
+    <customer_account_edit translate="label">
+       <reference name="my.account.wrapper">
+           <block type="customer/newsletter" name="customer_newsletter" template="integento_customer/form/newsletter.phtml" />
+       </reference>
+   </customer_account_edit>
 
     <!-- Account -->
     <customer_account>
@@ -45,11 +50,6 @@
                 <name>account_edit</name>
                 <path>customer/account/edit/</path>
                 <label>Account Information</label>
-            </action>
-            <action method="addLink" translate="label" module="newsletter">
-                <name>newsletter</name>
-                <path>newsletter/manage/</path>
-                <label>Newsletter Subscriptions</label>
             </action>
             <action method="addLink" translate="label" module="customer">
                 <name>address_book</name>
