@@ -10,7 +10,7 @@
  */
 
 $_blockTitle = trim($this->getTitle());
-$_h = $this->helper('krr_catalogtools');
+$_h = $this->helper('integento_catalog');
 
 if (($_products = $this->getProductCollection()) && $_products->getSize()):
     if (!empty($_blockTitle)) {
