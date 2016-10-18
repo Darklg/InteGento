@@ -1,8 +1,0 @@
-<config>
-  <modules>
-    <Krr_CatalogTools>
-      <active>true</active>
-      <codePool>local</codePool>
-    </Krr_CatalogTools>
-  </modules>
-</config>
