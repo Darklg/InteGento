@@ -13,16 +13,19 @@ $_product = $this->getProduct();
 $buttonTitle = $this->__('Add to Cart');
 if($_product->isSaleable()):
     if(!$_product->isGrouped()):
-    $currentQty = $this->getProductDefaultQty() * 1;
+    $_itemQty = $this->getProductDefaultQty() * 1;
+    $_qtyMax = min(10, max($_product->getStockItem()->getMaxSaleQty(), $_itemQty));
+    if($_qtyMax > 0):
     ?>
     <div class="add-to-qty">
         <label for="qty"><?php echo $this->__('Qty:') ?></label>
         <select name="qty" id="qty" title="<?php echo $this->__('Qty') ?>" class=" qty">
-        <?php for ($i = 1; $i <= 5; $i++) { ?>
-            <option <?php echo ($i == $currentQty ? 'selected="selected"' : '') ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+        <?php for ($i = 1; $i <= $_qtyMax; $i++) { ?>
+            <option <?php echo ($i == $_itemQty ? 'selected="selected"' : '') ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
         <?php } ?>
         </select>
     </div>
+    <?php endif; ?>
     <?php endif; ?>
 
     <div class="add-to-cart">

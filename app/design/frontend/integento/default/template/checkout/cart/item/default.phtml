@@ -10,12 +10,13 @@
  */
 
 $_item = $this->getItem();
-$_canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct() , Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM);
+$_product = $_item->getProduct();
 $_itemQty = $this->getQty();
-$_qtyMax = max(5, $_itemQty);
+$_qtyMax = min(10, max($_product->getStockItem()->getMaxSaleQty(), $_itemQty));
 $_imgWidth = 75;
 $_imgHeight = 75;
 $_imgUrl = $this->getProductThumbnail()->resize($_imgWidth, $_imgHeight);
+$_canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_product , Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM);
 ?>
 <tr>
     <!-- Image -->
