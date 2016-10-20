@@ -72,7 +72,6 @@ var setAllPagesResponsiveMainMenu = function() {
     });
 };
 
-
 var setTouchMenusDesktop = function() {
     var target = '.main-link--has-submenu > a',
         minWidth = 1024,
@@ -89,3 +88,53 @@ var setTouchMenusDesktop = function() {
         e.preventDefault();
     });
 };
+
+/* ----------------------------------------------------------
+  Set integento menu with arrows
+---------------------------------------------------------- */
+
+function setAllPagesResponsiveSubMenus() {
+    var $nav = jQuery('#nav'),
+        visibleSubmenuClassname = 'has-visible-submenu',
+        arrowHTML = '<span class="display-submenu">&gt;</span>',
+        backLinkHTML = '<li class="close-submenu"><a href="#">Back</a></li>',
+        linksSelector = '.level0, .level1',
+        linksASelector = '.level0 > a, .level1 > a',
+        $links = false;
+    if (!$nav) {
+        return;
+    }
+
+    $links = $nav.find(linksSelector);
+    $linksA = $nav.find(linksASelector);
+    $linksA.each(function(i, el) {
+
+        // If link is followed by a submenu
+        $next = jQuery(this).next();
+        if ($next.length < 1 || $next.get(0).tagName != 'UL') {
+            return;
+        }
+
+        // Create arrows after each link
+        var $arrow = jQuery(arrowHTML);
+        jQuery(this).append($arrow);
+
+        // Close all links and leave only parents opened
+        $arrow.on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $links.removeClass(visibleSubmenuClassname);
+            jQuery(this).parents(linksSelector).addClass(visibleSubmenuClassname);
+        });
+
+        // Create back link to hide submenu
+        var $back = jQuery(backLinkHTML);
+        $next.prepend($back);
+        $back.on('click', 'a', function(e) {
+            e.preventDefault();
+            jQuery(this).closest('.' + visibleSubmenuClassname).removeClass(visibleSubmenuClassname);
+        });
+
+    });
+
+}
