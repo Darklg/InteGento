@@ -59,7 +59,7 @@ $_canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_product , Mage_Catalog_
 
     <!-- Unit price -->
 
-    <?php if ($canApplyMsrp): ?>
+    <?php if ($_canApplyMsrp): ?>
         <td class="a-right"<?php if ($this->helper('tax')->displayCartBothPrices()): ?> colspan="2"<?php endif; ?>>
             <span class="cart-price">
                 <span class="cart-msrp-unit"><?php echo $this->__('See price before order confirmation.'); ?></span>
