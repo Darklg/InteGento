@@ -1,0 +1,89 @@
+<?php
+/**
+ * Magento
+ *
+ * @category    design
+ * @package     integento_default
+ * @author      Darklg <darklg.blog@gmail.com>
+ * @copyright   Copyright (c) Darklg
+ * @license     MIT
+ */
+
+/**
+ * @see Mage_Customer_Block_Widget_Dob
+ */
+
+/* ----------------------------------------------------------
+  INPUT VALUES
+---------------------------------------------------------- */
+
+/* DAY */
+$_currentDay = intval($this->getDay(), 10);
+$_dayHTML = '<select id="' . $this->getFieldId('day') . '" name="' . $this->getFieldName('day') . '" value="' . $this->getDay() . '" title="' . $this->__('Day') . '" class="input-text validate-custom" ' . $this->getFieldParams() . '><option value="" disabled selected style="display:none;">' . $this->__('DD') . '</option>';
+for ($i = 1; $i <= 31; $i++) {
+    $iVal = str_pad($i, 2, '0', STR_PAD_LEFT);
+    $_dayHTML .= '<option ' . ($_currentDay == $i ? 'selected="selected"' : '') . ' value="' . $iVal . '">' . $iVal . '</option>';
+}
+$_dayHTML .= '</select>';
+$this->setDateInput('d', '<div class="dob-day">' . $_dayHTML . '</div>');
+
+/* MONTH */
+$_currentMonth = intval($this->getMonth(), 10);
+$_monthHTML = '<select id="' . $this->getFieldId('month') . '" name="' . $this->getFieldName('month') . '" value="' . $this->getMonth() . '" title="' . $this->__('Month') . '" class="input-text validate-custom" ' . $this->getFieldParams() . '><option value="" disabled selected style="display:none;">' . $this->__('MM') . '</option>';
+for ($i = 1; $i <= 12; $i++) {
+    $iVal = str_pad($i, 2, '0', STR_PAD_LEFT);
+    $_monthHTML .= '<option ' . ($_currentMonth == $i ? 'selected="selected"' : '') . ' value="' . $iVal . '">' . $iVal . '</option>';
+}
+$_monthHTML .= '</select>';
+$this->setDateInput('m', '<div class="dob-month">' . $_monthHTML . '</div>');
+
+/* YEAR */
+$_currentYear = intval($this->getYear(), 10);
+$_yearHTML = '<select id="' . $this->getFieldId('year') . '" name="' . $this->getFieldName('year') . '" value="' . $this->getYear() . '" title="' . $this->__('Year') . '" class="input-text validate-custom" ' . $this->getFieldParams() . '><option value="" disabled selected style="display:none;">' . $this->__('YYYY') . '</option>';
+for ($i = date('Y'); $i >= 1900; $i--) {
+    $_yearHTML .= '<option ' . ($_currentYear == $i ? 'selected="selected"' : '') . ' value="' . $i . '">' . $i . '</option>';
+}
+$_yearHTML .= '</select>';
+$this->setDateInput('y', '<div class="dob-year">' . $_yearHTML . '</div>');
+
+/* ----------------------------------------------------------
+  HTML LAYOUT
+---------------------------------------------------------- */
+
+?>
+<label for="<?php echo $this->getFieldId('month')?>"<?php if ($this->isRequired()) echo ' class="required"' ?>><?php if ($this->isRequired()) echo '<em>*</em>' ?><?php echo $this->__('Date of Birth') ?></label>
+<div class="customer-dob-main">
+    <div class="input-box customer-dob">
+        <?php echo $this->getSortedDateInputs(); ?>
+        <div class="dob-full" style="display:none;">
+            <input type="hidden" id="<?php echo $this->getFieldId('dob'); ?>" name="<?php echo $this->getFieldName('dob'); ?>" />
+        </div>
+    </div>
+    <div class="validation-advice" style="display:none;"></div>
+</div>
+<?php
+
+/* ----------------------------------------------------------
+  SCRIPT OVERRIDE
+---------------------------------------------------------- */
+
+?>
+<script type="text/javascript">
+//<![CDATA[
+IntegentoDob = Class.create();
+IntegentoDob.prototype = {
+    initialize: function(selector, required, format) {
+        var el = $$(selector)[0];
+        var container       = {};
+        container.day       = Element.select(el, '.dob-day select')[0];
+        container.month     = Element.select(el, '.dob-month select')[0];
+        container.year      = Element.select(el, '.dob-year select')[0];
+        container.full      = Element.select(el, '.dob-full input')[0];
+        container.advice    = Element.select(el, '.validation-advice')[0];
+
+        new Varien.DateElement('container', container, required, format);
+    }
+};
+  var customer_dob = new IntegentoDob('.customer-dob-main', <?php echo $this->isRequired() ? 'true' : 'false'; ?>, '<?php echo $this->getDateFormat(); ?>');
+//]]>
+</script>
