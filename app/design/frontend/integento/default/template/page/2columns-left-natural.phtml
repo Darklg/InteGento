@@ -23,6 +23,7 @@
 <div class="wrapper">
     <?php echo $this->getChildHtml('global_notices') ?>
     <?php echo $this->getChildHtml('header') ?>
+    <div class="main-container__wrapper">
     <div class="main-container col2-left-layout col2-left-layout--natural">
         <?php echo $this->getChildHtml('breadcrumbs') ?>
         <div class="col-left sidebar">
@@ -32,6 +33,7 @@
             <?php echo $this->getChildHtml('global_messages') ?>
             <?php echo $this->getChildHtml('content') ?>
         </div>
+    </div>
     </div>
     <?php echo $this->getChildHtml('footer') ?>
     <?php echo $this->getChildHtml('global_cookie_notice') ?>
