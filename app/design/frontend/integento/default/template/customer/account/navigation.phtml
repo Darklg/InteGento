@@ -12,7 +12,7 @@ $_links = $this->getLinks();
 ?>
 <ul class="menu-account hide-on-mobile">
     <?php foreach ($_links as $_link): ?>
-        <li <?php if ($this->isActive($_link)) { echo ' class="current"'; } ?>><a href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getLabel() ?></a></li>
+        <li class="<?php echo $_link->getName() . ($this->isActive($_link) ? ' current' : ''); ?>"><a href="<?php echo $_link->getUrl(); ?>"><?php echo $_link->getLabel(); ?></a></li>
     <?php endforeach; ?>
 </ul>
 <select class="hide-on-desktop" name="menu-account" id="menu-account" onchange="window.location.href=this.value;return false;">
