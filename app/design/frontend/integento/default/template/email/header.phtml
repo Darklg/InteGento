@@ -13,6 +13,7 @@ $_siteUrl = $this->getUrl('', array(
     '_nosid' => true,
     '_query' => 'utm_campaign=email_transac&utm_medium=email&utm_source=email_transac&utm_content=email_transac'
 ));
+$_bgColor = '#f0f0f0';
 ?><!DOCTYPE HTML>
 <html lang="<?php echo $this->getLang() ?>">
 <head>
@@ -30,13 +31,14 @@ span.yshortcuts:hover,
 span.yshortcuts:active,
 span.yshortcuts:focus{color:#000;background-color:none;border:none;}
 p{margin:0 0 10px;}
+a{-webkit-transition: all 0.3s ease;transition: all 0.3s ease;}
 </style>
 <title></title>
 <!-- 1019 Chars for mobile mail bug ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 </head>
-<body style="padding:0;margin:0;background-color:#f0f0f0;">
-<div style="padding:0;background-color:#f0f0f0;">
-<table border="0" cellspacing="0" cellpadding="0" align="center" width="100%" style="background-color:#f0f0f0;">
+<body style="padding:0;margin:0;background-color:<?php echo $_bgColor; ?>;">
+<div style="padding:0;background-color:<?php echo $_bgColor; ?>;">
+<table border="0" cellspacing="0" cellpadding="0" align="center" width="100%" style="background-color:<?php echo $_bgColor; ?>;">
 <tr><td height="20"></td></tr>
 <tr><td align="center">
 <table border="0" cellspacing="0" cellpadding="0" width="600" style="background-color:#fefefe;">
