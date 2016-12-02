@@ -74,3 +74,7 @@ errors/default
 /app/bootstrap.php
 /dev
 /.modman/
+/app/etc/modules/Integento_Styleguide.xml
+/app/etc/modules/Integento_Core.xml
+/app/etc/modules/Integento_Cms.xml
+/app/etc/modules/Integento_Catalog.xml
