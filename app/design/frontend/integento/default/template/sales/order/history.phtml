@@ -25,7 +25,6 @@
  */
 $_orders = $this->getOrders();
 echo $this->getMessagesBlock()->toHtml();
-echo $this->getPagerHtml();
 if($_orders->getSize()): ?>
 <table class="data-table" id="my-orders-table">
     <thead>

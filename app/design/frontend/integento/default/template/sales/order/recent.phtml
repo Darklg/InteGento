@@ -28,6 +28,7 @@
 <?php $_orders = $this->getOrders(); ?>
     <div class="box-head">
         <h3 class="project-legend"><?php echo $this->__('My last orders') ?></h3>
+        <?php if( sizeof($_orders->getItems()) > 0 ): ?><a href="<?php echo $this->getUrl('sales/order/history') ?>"><?php echo $this->__('View All') ?></a><?php endif; ?>
     </div>
 <?php if( sizeof($_orders->getItems()) > 0 ): ?>
     <table class="data-table" id="my-orders-table">
@@ -54,7 +55,6 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    <?php if( sizeof($_orders->getItems()) > 0 ): ?><a href="<?php echo $this->getUrl('sales/order/history') ?>"><?php echo $this->__('View All') ?></a><?php endif; ?>
 <?php else: ?>
     <p><?php echo $this->__('You have placed no orders.'); ?></p>
 <?php endif; ?>
