@@ -78,3 +78,6 @@ errors/default
 /app/etc/modules/Integento_Core.xml
 /app/etc/modules/Integento_Cms.xml
 /app/etc/modules/Integento_Catalog.xml
+/package.xml
+/downloader.php
+/.htaccess.sample
