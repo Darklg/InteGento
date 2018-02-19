@@ -40,16 +40,18 @@ $_socialMethods = array(
         'url' => '#'
     )
 );
+$_pageWidth = 600;
+$_marginWidth = 10;
 ?>
 <?php /* Main Content end */ ?>
-</td><td width="10"></td></tr>
-<tr><td colspan="3" height="10"></td></tr>
-<tr><td width="10"></td><td style="text-align:center;">
+</td><td width="<?php echo $_marginWidth; ?>"></td></tr>
+<tr><td colspan="3" height="<?php echo $_marginWidth; ?>"></td></tr>
+<tr><td width="<?php echo $_marginWidth; ?>"></td><td style="text-align:center;">
     <?php foreach($_socialMethods as $_id => $_method): ?>
         <a style="font-size:12px;color:#000;" class="<?php echo $_id; ?>" href="<?php echo $_method['url']; ?>"><?php echo htmlentities($_method['name']); ?></a>
     <?php endforeach; ?>
-</td><td width="10"></td></tr>
-<tr><td colspan="3" height="10"></td></tr>
+</td><td width="<?php echo $_marginWidth; ?>"></td></tr>
+<tr><td colspan="3" height="<?php echo $_marginWidth; ?>"></td></tr>
 </table>
 <?php /* Main Container end */ ?>
 </td></tr>

@@ -17,7 +17,8 @@ $_siteUrl = $this->getUrl('', array(
     '_query' => 'utm_campaign=email_transac&utm_medium=email&utm_source=email_transac&utm_content=email_transac'
 ));
 $_bgColor = '#f0f0f0';
-
+$_pageWidth = 600;
+$_marginWidth = 10;
 ?><!DOCTYPE HTML>
 <html lang="<?php echo $_lang; ?>">
 <head>
@@ -50,10 +51,13 @@ a:hover,a:focus{color: #336699;}
 <table border="0" cellspacing="0" cellpadding="0" align="center" width="100%" style="background-color:<?php echo $_bgColor; ?>;">
 <tr><td height="20"></td></tr>
 <tr><td align="center">
-<table border="0" cellspacing="0" cellpadding="0" width="600" style="background-color:#fefefe;">
+<table border="0" cellspacing="0" cellpadding="0" width="600" style="background-color:#FFFFFF;">
 <?php /* Main Container start */;?>
 <tr><td colspan="3" height="20"></td></tr>
 <tr><td colspan="3" style="text-align:center" align="center"><a href="<?php echo $_siteUrl; ?>"><img src="<?php echo $this->getSkinUrl('images/logo-email.png'); ?>" alt="<?php echo htmlentities($_siteName); ?>" /></a></td></tr>
-<tr><td colspan="3" height="20"></td></tr>
-<tr><td width="10"></td><td width="580" align="left" style="font:13px/1.3 sans-serif;">
+<tr><td colspan="3" height="<?php echo $_marginWidth; ?>"></td></tr>
+<tr><td width="<?php echo $_marginWidth; ?>"></td><td width="<?php echo $_pageWidth-2*$_marginWidth; ?>" align="left" style="font:13px/1.3 sans-serif;">
 <?php /* Main Content start */;?>
+<?php if($this->getHeadertitle()): ?>
+    <h1><?php echo $this->getHeadertitle(); ?></h1>
+<?php endif; ?>
