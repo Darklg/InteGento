@@ -1,0 +1,29 @@
+<!--@subject {{var store.getFrontendName()}}: Invoice # {{var invoice.increment_id}} update @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"htmlescape var=$billing.getName()":"Guest Customer Name",
+"var order.increment_id":"Order Id",
+"var order.getStatusLabel()":"Order Status",
+"var comment":"Invoice Comment",
+"var store.getFrontendName()":"Store Name"}
+@-->
+<!--@styles
+body,td {  font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+<h1>Sehr geehrte(r) {{htmlescape var=$billing.getName()}},</h1>
+<p>
+    __('Your order # {{var order.increment_id}} has been')__ <br/>
+    <strong>{{var order.getStatusLabel()}}</strong>.
+</p>
+<p>{{var comment}}</p>
+<p>
+    Bei Fragen dürfen Sie sich jederzeit gerne an uns wenden unter
+    <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a>
+    oder telefonisch unter der Rufnummer {{config path='general/store_information/phone'}}.
+</p>
+
+{{block type="core/template" template="email/footer.phtml"}}

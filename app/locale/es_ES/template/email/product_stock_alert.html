@@ -1,0 +1,11 @@
+<!--@subject Products back in stock alert @-->
+<!--@vars
+{"var customerName":"Customer Name",
+"var alertGrid":"Alert Data Grid"}
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+Hola, {{var customerName}},
+
+{{var alertGrid}}
+{{block type="core/template" template="email/footer.phtml"}}

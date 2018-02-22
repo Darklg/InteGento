@@ -1,0 +1,28 @@
+<!--@subject Welcome, {{var customer.name}}! @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"htmlescape var=$customer.name":"Customer Name",
+"store url=\"customer/account/\"":"Customer Account Url"}
+@-->
+
+<!--@styles
+body,td {  font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+<h1>Sehr geehrte(r) {{htmlescape var=$customer.name}},</h1>
+<p>Herzlich willkommen beim Demo-Laden. Für die&#8201;Anmeldung bei Ihrem&#8201;Besuch auf unserer Website klicken Sie einfach oben auf einer beliebigen Seite auf <a href="{{store url="customer/account/"}}">Anmelden</a> oder auf <a href="{{store url="customer/account/"}}">Mein Konto</a> und geben Sie dann Ihre E-Mail-Adresse und Ihr Passwort ein.</p>
+<p>Wenn&#8201;Sie sich bei Ihrem Konto anmelden, können Sie:</p>
+<ul>
+    <li>&ndash; – Ihren Einkauf schneller an der Kasse abwickeln</li>
+    <li>&ndash; – Den Status Ihrer Bestellungen überprüfen</li>
+    <li>&ndash; – Frühere Bestellungen anzeigen</li>
+    <li>&ndash; – Ihre Kontodaten ändern</li>
+    <li>&ndash; – Ihr Passwort ändern</li>
+    <li>&ndash; – Zusätzliche Adressen speichern (für die Lieferung an verschiedene Familienangehörige und Freunde!)</li>
+</ul>
+<p>Bei Fragen zu Ihrem Konto oder sonstigen Anliegen dürfen Sie sich jederzeit gerne an uns wenden unter <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a> oder telefonisch unter der Rufnummer {{config path='general/store_information/phone'}}.</p>
+
+{{block type="core/template" template="email/footer.phtml"}}

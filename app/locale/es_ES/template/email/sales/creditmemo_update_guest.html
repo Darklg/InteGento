@@ -1,0 +1,30 @@
+<!--@subject {{var store.getFrontendName()}}: Credit Memo # {{var creditmemo.increment_id}} update @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+
+"htmlescape var=$billing.getName()":"Guest Customer Name",
+"var order.increment_id":"Order Id",
+"var order.getStatusLabel()":"Order Status",
+"var comment":"Credit Memo Comment",
+"var store.getFrontendName()":"Store Name"}
+@-->
+<!--@styles
+body,td {  font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+<h1>Estimado/a, {{htmlescape var=$billing.getName()}},</h1>
+<p>
+Su pedido # {{var order.increment_id}} se ha <br/>
+<strong>{{var order.getStatusLabel()}}</strong>.
+</p>
+<p>{{var comment}}</p>
+<p>
+Si tiene alguna duda, no deje de ponerse en contacto con nosotros en
+<a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a>
+o por teléfono en el {{config path='general/store_information/phone'}}.
+</p>
+
+{{block type="core/template" template="email/footer.phtml"}}

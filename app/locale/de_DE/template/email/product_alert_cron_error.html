@@ -1,0 +1,10 @@
+<!--@subject Product alerts Cron error @-->
+<!--@vars
+{"var warnings":"Warnings"}
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+Produktmeldungen Cron-Warnmeldungen: {{var warnings}}:
+
+{{var warnings}}
+{{block type="core/template" template="email/footer.phtml"}}

@@ -1,0 +1,18 @@
+<!--@subject Newsletter subscription confirmation @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"htmlescape var=$customer.name":"Customer Name",
+"var subscriber.getConfirmationLink()":"Subscriber Confirmation Url"}
+@-->
+<!--@styles
+body,td {  font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+<h1>Vielen&#8201;Dank, dass Sie unseren Newsletter abonniert haben.</h1>
+<p>Damit Ihnen der Newsletter zugestellt wird, müssen Sie Ihr&#8201;Abonnement erst noch bestätigen. Klicken&#8201;Sie dazu auf den folgenden Link:<br />
+<a href="{{var subscriber.getConfirmationLink()}}">{{var subscriber.getConfirmationLink()}}</a><p>
+
+{{block type="core/template" template="email/footer.phtml"}}

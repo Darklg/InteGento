@@ -1,0 +1,13 @@
+<!--@subject Welcome, {{var name}} @-->
+<!--@vars
+{"htmlescape var=$userName":"User name",
+"var $applicationName":"Application name",
+"var $status":"Token new status"}
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+Hallo, {{htmlescape var=$userName}}<br /><br />
+Ihr Berechtigung für <b>{{htmlescape var=$applicationName}}</b> ist geändert worden auf <b>{{htmlescape var=$status}}</b> durch das Admin-Team.<br /><br />
+{{block type="core/template" template="email/footer.phtml"}}
+
+

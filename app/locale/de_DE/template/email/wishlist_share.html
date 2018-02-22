@@ -1,0 +1,20 @@
+<!--@subject Take a look at {{var customer.name}}'s wishlist @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"var message":"Wishlist Message",
+"var items":"Wishlist Items"}
+@-->
+<!--@styles
+body,td {  font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+<p>Hallo,<br/>schaut euch doch einmal meine Wunschliste beim&#8201;Demo-Laden an.</p>
+<p>{{var message}}</p>
+{{var items}}
+<br/>
+{{depend salable}}<p><strong><a href="{{var addAllLink}}">Alle Artikel in den Einkaufswagen legen</a></strong> |{{/depend}} <strong><a href="{{var viewOnSiteLink}}">Alle Artikel auf der Wunschliste anzeigen</a></strong></p>
+
+{{block type="core/template" template="email/footer.phtml"}}

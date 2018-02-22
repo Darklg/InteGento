@@ -1,0 +1,16 @@
+<!--@subject Contact Form@-->
+<!--@vars
+{"var data.name":"Sender Name",
+"var data.email":"Sender Email",
+"var data.telephone":"Sender Telephone",
+"var data.comment":"Comment"}
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+Name: {{var data.name}}
+E-Mail-Adresse: {{var data.email}}
+Telefon: {{var data.telephone}}
+
+Bemerkungen: {{var data.comment}}
+{{block type="core/template" template="email/footer.phtml"}}
+

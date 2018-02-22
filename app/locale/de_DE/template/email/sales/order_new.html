@@ -1,0 +1,83 @@
+<!--@subject {{var store.getFrontendName()}}: New Order # {{var order.increment_id}} @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"htmlescape var=$order.getCustomerName()":"Customer Name",
+"var store.getFrontendName()":"Store Name",
+"store url=\"customer/account/\"":"Customer Account Url",
+"var order.increment_id":"Order Id",
+"var order.getCreatedAtFormated('long')":"Order Created At (datetime)",
+"var order.getBillingAddress().format('html')":"Billing Address",
+"var payment_html":"Payment Details",
+"var order.getShippingAddress().format('html')":"Shipping Address",
+"var order.getShippingDescription()":"Shipping Description",
+"layout handle=\"sales_email_order_items\" order=$order":"Order Items Grid",
+"var order.getEmailCustomerNote()":"Email Order Note"}
+@-->
+<!--@styles
+body,td {  font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+<h1>Hallo, {{htmlescape var=$order.getCustomerName()}}</h1>
+<p>
+    Vielen&#8201;Dank für Ihre Bestellung bei {{var store.getFrontendName()}}. Sobald Ihre Bestellung ausgeliefert wird, senden wir Ihnen eine E-Mail mit einem Link, über den Sie Ihre Bestellung verfolgen können. Sie können den Status Ihrer Bestellung überprüfen, indem&#8201;Sie sich.
+    bei Ihrem Konto anmelden.
+    Bei Fragen zu Ihrer&#8201;Bestellung wenden&#8201;Sie sich bitte an uns unter <a href="{{store url="customer/account/"}}">oder rufen Sie uns an unter</a>.
+    Sie erreichen uns montags bis freitags von 8.00 bis 17.00 Uhr Pacific Standard Time <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a> Ihre Auftragsbestätigung ist unten aufgeführt. Haben Sie nochmals recht herzlichen Dank für Ihren Einkauf <span class="nobr">{{config path='general/store_information/phone'}}</span> Ihre Bestellung mit der Nummer {{var order.increment_id}}.
+</p>
+<p>(aufgegeben am {{var order.getCreatedAtFormated('long')}}).</p>
+
+<h2>Rechnungsdaten <small>Zahlungsform</small></h2>
+
+<table cellspacing="0" cellpadding="0" border="0" width="650">
+    <thead>
+    <tr>
+        <th align="left" width="50%" bgcolor="#EAEAEA">Lieferdaten:</th>
+        <th width="10"></th>
+        <th align="left" width="50%" bgcolor="#EAEAEA">Liefermethode:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td valign="top">
+            {{var order.getBillingAddress().format('html')}}
+        </td>
+        <td>&nbsp;</td>
+        <td valign="top">
+            {{var payment_html}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+{{depend order.getIsNotVirtual()}}
+<table cellspacing="0" cellpadding="0" border="0" width="650">
+    <thead>
+    <tr>
+        <th align="left" width="50%" bgcolor="#EAEAEA">Haben Sie recht herzlichen Dank:</th>
+        <th width="10"></th>
+        <th align="left" width="50%" bgcolor="#EAEAEA">Liefermethode:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td valign="top">
+            {{var order.getShippingAddress().format('html')}}
+            &nbsp;
+        </td>
+        <td>&nbsp;</td>
+        <td valign="top">
+            {{var order.getShippingDescription()}}
+            &nbsp;
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+{{/depend}}
+{{layout handle="sales_email_order_items" order=$order}}
+<p style=" margin:0 0 10px 0">{{var order.getEmailCustomerNote()}}</p>
+
+{{block type="core/template" template="email/footer.phtml"}}

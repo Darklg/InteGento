@@ -1,0 +1,27 @@
+<!--@subject Account confirmation for {{var customer.name}} @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"store url=\"customer/account/\"":"Customer Account Url",
+"htmlescape var=$customer.name":"Customer Name",
+"var customer.email":"Customer Email",
+"store url=\"customer/account/confirm/\" _query_id=$customer.id _query_key=$customer.confirmation _query_back_url=$back_url":"Confirmation Url",
+"htmlescape var=$customer.password":"Customer password"}
+@-->
+
+<!--@styles
+body,td {  font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+<h1>Estimado/a, {{htmlescape var=$customer.name}},</h1>
+<p>Deberá confirmar su dirección de correo electrónico {{var customer.email}} antes de poder usarlo para iniciar sesión en nuestra tienda.</p>
+<p>Para confirmar la dirección de correo electrónico e iniciar sesión de forma instantánea, use <a href="{{store url="customer/account/confirm/" _query_id=$customer.id _query_key=$customer.confirmation _query_back_url=$back_url}}">este enlace de confirmación</a>. Dicho enlace sólo podrá usarse una vez.</p>
+<p>
+Use los siguientes valores cuando se le pida iniciar sesión:<br/>
+<strong>Correo electrónico:</strong> {{var customer.email}}<br/>
+<strong>Contraseña:</strong> {{htmlescape var=$customer.password}}<p>
+<p>Si tiene alguna duda sobre su cuenta o alguna otra cuestión, no deje de ponerse en contacto con nosotros en <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a> o por teléfono en el {{config path='general/store_information/phone'}}.</p>
+
+{{block type="core/template" template="email/footer.phtml"}}

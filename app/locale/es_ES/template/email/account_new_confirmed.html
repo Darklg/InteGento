@@ -1,0 +1,28 @@
+<!--@subject Welcome, {{var customer.name}}! @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"htmlescape var=$customer.name":"Customer Name",
+"store url=\"customer/account/\"":"Customer Account Url"}
+@-->
+
+<!--@styles
+body,td {  font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+<h1>Estimado/a, {{htmlescape var=$customer.name}},</h1>
+<p>Bienvenido/a a la tienda de demostración. Para iniciar sesión al visitar nuestra web, sólo tiene que hacer clic en <a href="{{store url="customer/account/"}}">Iniciar sesión</a> o en <a href="{{store url="customer/account/"}}">Mi cuenta</a> en la parte superior de cada página e introducir su dirección de correo electrónico y contraseña.</p>
+<p>Cuando inicie sesión con su cuenta, podrá hacer lo siguiente:</p>
+<ul>
+<li>&ndash; Pasar por caja más rápido al realizar una compra</li>
+<li>&ndash; Comprobar el estado de los pedidos</li>
+<li>&ndash; Ver pedidos anteriores</li>
+<li>&ndash; Realizar cambios en la información de su cuenta</li>
+<li>&ndash; Cambiar su contraseña</li>
+<li>&ndash; Guardar direcciones alternativas (¡para envíos a diferentes familiares y amigos!)</li>
+</ul>
+<p>Si tiene alguna duda sobre su cuenta o alguna otra cuestión, no deje de ponerse en contacto con nosotros en <a href="mailto:{{config path='trans_email/ident_support/email'}}">{{config path='trans_email/ident_support/email'}}</a> o por teléfono en el {{config path='general/store_information/phone'}}.</p>
+
+{{block type="core/template" template="email/footer.phtml"}}

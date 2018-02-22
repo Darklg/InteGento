@@ -1,0 +1,9 @@
+<!--@subject Log Cleanup Warnings @-->
+<!--@vars
+{"var warnings":"Log Cleanup Warnings"}
+@-->
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+Warnmeldungen über die Löschung von Protokolleinträgen: {{var warnings}}:
+
+{{var warnings}}
+{{block type="core/template" template="email/footer.phtml"}}

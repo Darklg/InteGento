@@ -1,0 +1,17 @@
+<!--@subject Newsletter subscription confirmation @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"htmlescape var=$customer.name":"Customer Name",
+"var subscriber.getConfirmationLink()":"Subscriber Confirmation Url"}
+@-->
+<!--@styles
+body,td {  font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+{{block type="core/template" headertitle="" headersubtitle="" template="email/header.phtml"}}
+<h1>Gracias por suscribirse a nuestro boletín.</h1>
+<p>Para empezar a recibir el boletín, primero debe confirmar su suscripción haciendo clic en el siguiente enlace:<br />
+<a href="{{var subscriber.getConfirmationLink()}}">{{var subscriber.getConfirmationLink()}}</a><p>
+{{block type="core/template" template="email/footer.phtml"}}
