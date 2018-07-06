@@ -41,8 +41,10 @@ var setAllPagesDataTogglers = function() {
  * Set Responsive main menu
  */
 var setAllPagesResponsiveMainMenu = function() {
+
     var nav = jQuery('#nav'),
         linkReq = 'li.level0.parent',
+        openOneMenuAtATime = true,
         openNavClassName = 'has-nav-container-open',
         openNavElClassName = 'is-opened',
         navLinks = false;
@@ -58,10 +60,15 @@ var setAllPagesResponsiveMainMenu = function() {
             toggler = jQuery('<span class="nav-toggler"></span>');
         toggler.appendTo($this.children('a'));
         toggler.on('click', function(e) {
+            var $parentLink = toggler.closest(linkReq);
             e.preventDefault();
-            navLinks.removeClass(openNavElClassName);
+            if (openOneMenuAtATime) {
+                $parentLink.attr('data-oldclass', $parentLink.attr('class'));
+                navLinks.removeClass(openNavElClassName);
+                $parentLink.attr('class', $parentLink.attr('data-oldclass'));
+            }
             toggler.closest(linkReq).toggleClass(openNavElClassName);
-        })
+        });
     });
 
     /* Responsive menu */
